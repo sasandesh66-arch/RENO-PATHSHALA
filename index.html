@@ -17,6 +17,12 @@
             --white: #ffffff;
             --dim: rgba(255, 255, 255, 0.6);
             --border: rgba(197, 160, 33, 0.3);
+            
+            /* Status Colors from Rule Book */
+            --status-excellent: #51cf66; /* Green */
+            --status-warning: #fcc419;   /* Yellow */
+            --status-extra: #fd7e14;     /* Orange */
+            --status-danger: #ff6b6b;    /* Red */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,12 +37,11 @@
             min-height: 100vh;
         }
 
-        /* NAVIGATION FIX: Added horizontal scrolling for mobile dragging */
         nav {
             display: flex;
-            justify-content: flex-start; /* Changed from center to allow scrolling */
-            overflow-x: auto;            /* Enables dragging/swiping */
-            white-space: nowrap;         /* Keeps buttons in one line */
+            justify-content: flex-start;
+            overflow-x: auto;
+            white-space: nowrap;
             gap: 40px;
             padding: 25px 40px;
             background: rgba(0,0,0,0.4);
@@ -45,10 +50,10 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border);
-            scrollbar-width: none;       /* Hides scrollbar on Firefox */
+            scrollbar-width: none;
         }
 
-        nav::-webkit-scrollbar { display: none; } /* Hides scrollbar on Chrome/Safari */
+        nav::-webkit-scrollbar { display: none; }
 
         nav a {
             color: var(--dim);
@@ -59,12 +64,11 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: 0.4s;
-            flex-shrink: 0; /* Prevents text from squishing */
+            flex-shrink: 0;
         }
 
         nav a:hover, nav a.active { color: var(--gold-bright); }
 
-        /* Header - Keeping your original scale */
         header {
             padding: 80px 20px 40px;
             text-align: center;
@@ -95,7 +99,6 @@
         .view-section { display: none; }
         .view-section.active { display: block; }
 
-        /* Student Cards (Registry) */
         .registry-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -119,15 +122,13 @@
         }
 
         .exec-name { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 10px; }
-        .exec-score { font-size: 2.8rem; font-weight: 700; color: var(--gold-bright); }
+        .exec-score { font-size: 3.5rem; font-weight: 900; }
 
-        /* Leaderboard Table Styles */
         .exec-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
         .exec-table th { text-align: left; padding: 20px; color: var(--gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; border-bottom: 1px solid var(--border); }
         .exec-table td { padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .rank-gold { color: var(--gold-bright); font-weight: 900; font-family: 'Cinzel'; }
 
-        /* Rule Book (Protocol) */
         .protocol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .protocol-box h3 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
         
@@ -135,12 +136,10 @@
         .p-table td { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
         .p-table td:last-child { text-align: right; font-weight: 700; }
 
-        /* Badges */
         .badge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         .badge-item { background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 30px 15px; }
         .badge-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; display: block; }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -187,11 +186,9 @@
 
         .btn:hover { background: var(--gold-bright); box-shadow: 0 0 15px var(--gold); }
 
-        /* Profile Details */
         .profile-hero { border-bottom: 2px solid var(--gold); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
         .p-standing { font-size: 1.2rem; letter-spacing: 3px; font-weight: 700; }
 
-        /* Mobile Adjustments for very small screens */
         @media (max-width: 600px) {
             .logo { font-size: 2.5rem; letter-spacing: 5px; }
             .protocol-grid { grid-template-columns: 1fr; }
@@ -256,24 +253,24 @@
             <div class="protocol-box">
                 <h3>Point Adjustments</h3>
                 <table class="p-table">
-                    <tr><td>Late without permission</td><td style="color:#ff6b6b">-2</td></tr>
-                    <tr><td>Late with permission</td><td style="color:#ff6b6b">-1</td></tr>
-                    <tr><td>Leave/off without permission</td><td style="color:#ff6b6b">-4</td></tr>
-                    <tr><td>Leave with permission</td><td style="color:#ff6b6b">-1</td></tr>
-                    <tr><td>Full regular attendance day</td><td style="color:#51cf66">+1</td></tr>
-                    <tr><td>Helping in Pathshalla</td><td style="color:#51cf66">+2</td></tr>
-                    <tr><td>Disrespectful behavior</td><td style="color:#ff6b6b">-5</td></tr>
+                    <tr><td>Late without permission</td><td style="color:var(--status-danger)">-2</td></tr>
+                    <tr><td>Late with permission</td><td style="color:var(--status-danger)">-1</td></tr>
+                    <tr><td>Leave/off without permission</td><td style="color:var(--status-danger)">-4</td></tr>
+                    <tr><td>Leave with permission</td><td style="color:var(--status-danger)">-1</td></tr>
+                    <tr><td>Full regular attendance day</td><td style="color:var(--status-excellent)">+1</td></tr>
+                    <tr><td>Helping in Pathshalla</td><td style="color:var(--status-excellent)">+2</td></tr>
+                    <tr><td>Disrespectful behavior</td><td style="color:var(--status-danger)">-5</td></tr>
                 </table>
             </div>
             <div class="protocol-box">
                 <h3>Consequence Thresholds</h3>
                 <table class="p-table">
-                    <tr><td>Score 95 – 100</td><td style="color:#51cf66">Excellent</td></tr>
-                    <tr><td>Score 90 – 94</td><td style="color:#fcc419">Warning</td></tr>
-                    <tr><td>Score 85 – 89</td><td style="color:#fd7e14">Extra Task</td></tr>
-                    <tr><td>Score 80 – 84</td><td style="color:#ff6b6b">Parent Notice</td></tr>
-                    <tr><td>Score 70 – 79</td><td style="color:#fa5252">Restriction</td></tr>
-                    <tr><td>Below 70</td><td style="color:#c92a2a">Suspension Review</td></tr>
+                    <tr><td>Score 95 – 100</td><td style="color:var(--status-excellent)">Excellent</td></tr>
+                    <tr><td>Score 90 – 94</td><td style="color:var(--status-warning)">Warning</td></tr>
+                    <tr><td>Score 85 – 89</td><td style="color:var(--status-extra)">Extra Task</td></tr>
+                    <tr><td>Score 80 – 84</td><td style="color:var(--status-danger)">Parent Notice</td></tr>
+                    <tr><td>Score 70 – 79</td><td style="color:var(--status-danger)">Restriction</td></tr>
+                    <tr><td>Below 70</td><td style="color:var(--status-danger)">Suspension Review</td></tr>
                 </table>
             </div>
         </div>
@@ -322,13 +319,33 @@
         { name: "Ananya", pass: "An#845" }, { name: "Chahat", pass: "Ch!214" }
     ];
 
-    let students = studentsData.map(s => ({
-        ...s, 
-        score: 100, 
-        streak: "0 Days", // Reset to 0 Days as requested
-        badges: "🛡️", 
-        history: [{ date: "2026-05-03", change: "+0", reason: "Council Opening Balance" }]
-    }));
+    // THEME SYNC: Maps score to the specific status color
+    function getStatusColor(score) {
+        if(score >= 95) return "var(--status-excellent)"; // Green
+        if(score >= 90) return "var(--status-warning)";   // Yellow
+        if(score >= 85) return "var(--status-extra)";     // Orange
+        return "var(--status-danger)";                    // Red
+    }
+
+    let students = studentsData.map(s => {
+        let score = 100;
+        let history = [{ date: "2026-05-01", change: "+0", reason: "Council Opening Balance" }];
+        
+        // Scenario Update: Diya 2 absences (May 2 & 3)
+        if(s.name === "Diya") {
+            score = 92; 
+            history.push({ date: "2026-05-02", change: "-4", reason: "Leave without informing" });
+            history.push({ date: "2026-05-03", change: "-4", reason: "Leave without informing" });
+        }
+
+        return {
+            ...s, 
+            score: score, 
+            streak: "0 Days", // Reset for drill test session
+            badges: score === 100 ? "🛡️" : "⚠️", 
+            history: history
+        };
+    });
 
     let activeUser = null;
 
@@ -337,24 +354,36 @@
         grid.innerHTML = students.map(s => `
             <div class="exec-card" onclick="openGate('${s.name}')">
                 <div class="exec-name">${s.name.toUpperCase()}</div>
-                <div class="exec-score">${s.score}</div>
+                <div class="exec-score" style="color: ${getStatusColor(s.score)}">${s.score}</div>
                 <div style="font-size:0.6rem; color:var(--gold); letter-spacing:2px; margin-top:10px">VIEW DOSSIER</div>
             </div>
         `).join('');
     }
 
     function renderLeaderboard() {
+        const sorted = [...students].sort((a, b) => b.score - a.score);
         const tbody = document.getElementById('leaderboardBody');
-        // Setting every student to Rank #1
-        tbody.innerHTML = students.map((s, index) => `
-            <tr>
-                <td class="rank-gold">#1</td>
-                <td style="font-weight:600; letter-spacing:1px;">${s.name.toUpperCase()}</td>
-                <td style="color:var(--gold-bright); font-weight:700;">${s.score}</td>
-                <td><span style="color:#51cf66;">🔥</span> ${s.streak}</td>
-                <td>${s.badges}</td>
-            </tr>
-        `).join('');
+        
+        let lastScore = -1;
+        let displayRank = 0;
+
+        tbody.innerHTML = sorted.map((s, index) => {
+            // FIXED RANKING: Same score = same rank
+            if (s.score !== lastScore) {
+                displayRank = index + 1;
+            }
+            lastScore = s.score;
+
+            return `
+                <tr>
+                    <td class="rank-gold">#${displayRank}</td>
+                    <td style="font-weight:600; letter-spacing:1px;">${s.name.toUpperCase()}</td>
+                    <td style="color:${getStatusColor(s.score)}; font-weight:700;">${s.score}</td>
+                    <td><span style="color:var(--dim);">🔥</span> ${s.streak}</td>
+                    <td>${s.badges}</td>
+                </tr>
+            `;
+        }).join('');
     }
 
     function showSection(id) {
@@ -386,18 +415,17 @@
     function showProfile() {
         document.getElementById('pName').innerText = activeUser.name.toUpperCase();
         document.getElementById('pScore').innerText = activeUser.score;
+        document.getElementById('pScore').style.color = getStatusColor(activeUser.score);
         
         const s = activeUser.score;
         const standing = document.getElementById('pStanding');
-        if(s >= 95) { standing.innerText = "EXCELLENT"; standing.style.color = "#51cf66"; }
-        else if(s >= 90) { standing.innerText = "WARNING"; standing.style.color = "#fcc419"; }
-        else if(s >= 85) { standing.innerText = "EXTRA TASK"; standing.style.color = "#fd7e14"; }
-        else if(s >= 80) { standing.innerText = "COUNSELLING"; standing.style.color = "#ff6b6b"; }
-        else if(s >= 70) { standing.innerText = "RESTRICTION"; standing.style.color = "#fa5252"; }
-        else { standing.innerText = "SUSPENSION REVIEW"; standing.style.color = "#c92a2a"; }
+        if(s >= 95) { standing.innerText = "EXCELLENT"; standing.style.color = "var(--status-excellent)"; }
+        else if(s >= 90) { standing.innerText = "WARNING"; standing.style.color = "var(--status-warning)"; }
+        else if(s >= 85) { standing.innerText = "EXTRA TASK"; standing.style.color = "var(--status-extra)"; }
+        else { standing.innerText = "PENALTY STATUS"; standing.style.color = "var(--status-danger)"; }
 
         document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `
-            <tr><td>${h.date}</td><td>${h.reason}</td><td>${h.change}</td></tr>
+            <tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') ? 'var(--status-danger)' : 'var(--status-excellent)'}">${h.change}</td></tr>
         `).join('');
         showSection('profile');
     }
@@ -409,7 +437,7 @@
             data: {
                 labels: students.slice(0, 10).map(s => s.name),
                 datasets: [{
-                    label: 'Council Performance',
+                    label: 'Honor Integrity Index',
                     data: students.slice(0, 10).map(s => s.score),
                     borderColor: '#c5a021',
                     borderWidth: 3,
@@ -431,4 +459,3 @@
 </script>
 </body>
 </html>
-html>
