@@ -325,7 +325,7 @@
     let students = studentsData.map(s => ({
         ...s, 
         score: 100, 
-        streak: "5 Days", 
+        streak: "0 Days", // Reset to 0 Days as requested
         badges: "🛡️", 
         history: [{ date: "2026-05-03", change: "+0", reason: "Council Opening Balance" }]
     }));
@@ -344,11 +344,11 @@
     }
 
     function renderLeaderboard() {
-        const sorted = [...students].sort((a, b) => b.score - a.score);
         const tbody = document.getElementById('leaderboardBody');
-        tbody.innerHTML = sorted.map((s, index) => `
+        // Setting every student to Rank #1
+        tbody.innerHTML = students.map((s, index) => `
             <tr>
-                <td class="rank-gold">#${index + 1}</td>
+                <td class="rank-gold">#1</td>
                 <td style="font-weight:600; letter-spacing:1px;">${s.name.toUpperCase()}</td>
                 <td style="color:var(--gold-bright); font-weight:700;">${s.score}</td>
                 <td><span style="color:#51cf66;">🔥</span> ${s.streak}</td>
@@ -431,3 +431,4 @@
 </script>
 </body>
 </html>
+html>
