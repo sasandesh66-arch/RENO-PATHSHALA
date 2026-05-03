@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENO PATHSHALLA | Executive Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --emerald: #041e1a;
+            --emerald-light: #0a3d35;
+            --gold: #c5a021;
+            --gold-bright: #f0d57a;
+            --white: #ffffff;
+            --dim: rgba(255, 255, 255, 0.6);
+            --border: rgba(197, 160, 33, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--emerald);
+            /* Rich texture background */
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(10, 61, 53, 0.8) 0%, transparent 50%),
+                linear-gradient(rgba(4, 30, 26, 0.9), rgba(4, 30, 26, 0.9));
+            color: var(--white);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 25px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            color: var(--dim);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        nav a:hover, nav a.active { color: var(--gold-bright); }
+
+        /* Header */
+        header {
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            letter-spacing: 15px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 6px;
+            color: var(--dim);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .view-section { display: none; }
+        .view-section.active { display: block; }
+
+        /* Student Cards (Registry) */
+        .registry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .exec-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 2px;
+            transition: 0.4s;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .exec-card:hover {
+            border-color: var(--gold-bright);
+            background: rgba(197, 160, 33, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .exec-name { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 10px; }
+        .exec-score { font-size: 2.8rem; font-weight: 700; color: var(--gold-bright); }
+
+        /* Rule Book (Protocol) */
+        .protocol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .protocol-box h3 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        
+        .p-table { width: 100%; border-collapse: collapse; }
+        .p-table td { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+        .p-table td:last-child { text-align: right; font-weight: 700; }
+
+        /* Badges */
+        .badge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .badge-item { background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 30px 15px; }
+        .badge-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; display: block; }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 30, 26, 0.98);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--emerald-light);
+            border: 1px solid var(--gold);
+            padding: 50px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--gold);
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            outline: none;
+        }
+
+        .btn {
+            background: var(--gold);
+            color: var(--emerald);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: var(--gold-bright); box-shadow: 0 0 15px var(--gold); }
+
+        /* Profile Details */
+        .profile-hero { border-bottom: 2px solid var(--gold); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .p-standing { font-size: 1.2rem; letter-spacing: 3px; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a onclick="showSection('registry')" id="nav-registry" class="active">Total Students</a>
+    <a onclick="showSection('analytics')" id="nav-analytics">Analytics</a>
+    <a onclick="showSection('badges')" id="nav-badges">Badges/Streaks</a>
+    <a onclick="showSection('protocol')" id="nav-protocol">Rule Book</a>
+</nav>
+
+<header>
+    <div class="logo">Reno Pathshalla</div>
+    <div class="subtitle">Official Honor Council Dashboard</div>
+</header>
+
+<div class="container">
+    
+    <section id="registry" class="view-section active">
+        <div class="registry-grid" id="registryGrid"></div>
+    </section>
+
+    <section id="analytics" class="view-section">
+        <div style="background:rgba(255,255,255,0.03); padding:40px; border:1px solid var(--border)">
+            <canvas id="mainChart"></canvas>
+        </div>
+    </section>
+
+    <section id="badges" class="view-section">
+        <div class="badge-grid">
+            <div class="badge-item"><span class="badge-icon">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
+            <div class="badge-item"><span class="badge-icon">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
+            <div class="badge-item"><span class="badge-icon">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
+            <div class="badge-item" style="opacity:0.3"><span class="badge-icon">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Locked: 30 Day Clean Record</p></div>
+        </div>
+    </section>
+
+    <section id="protocol" class="view-section">
+        <div class="protocol-grid">
+            <div class="protocol-box">
+                <h3>Point Adjustments</h3>
+                <table class="p-table">
+                    <tr><td>Late without permission</td><td style="color:#ff6b6b">-2</td></tr>
+                    <tr><td>Late with permission</td><td style="color:#ff6b6b">-1</td></tr>
+                    <tr><td>Leave/off without permission</td><td style="color:#ff6b6b">-4</td></tr>
+                    <tr><td>Leave with permission</td><td style="color:#ff6b6b">-1</td></tr>
+                    <tr><td>Full regular attendance day</td><td style="color:#51cf66">+1</td></tr>
+                    <tr><td>Helping in Pathshalla</td><td style="color:#51cf66">+2</td></tr>
+                    <tr><td>Disrespectful behavior</td><td style="color:#ff6b6b">-5</td></tr>
+                </table>
+            </div>
+            <div class="protocol-box">
+                <h3>Consequence Thresholds</h3>
+                <table class="p-table">
+                    <tr><td>Score 95 – 100</td><td style="color:#51cf66">Excellent</td></tr>
+                    <tr><td>Score 90 – 94</td><td style="color:#fcc419">Warning</td></tr>
+                    <tr><td>Score 85 – 89</td><td style="color:#fd7e14">Extra Task</td></tr>
+                    <tr><td>Score 80 – 84</td><td style="color:#ff6b6b">Parent Notice</td></tr>
+                    <tr><td>Score 70 – 79</td><td style="color:#fa5252">Restriction</td></tr>
+                    <tr><td>Below 70</td><td style="color:#c92a2a">Suspension Review</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="view-section">
+        <div class="profile-hero">
+            <div>
+                <h2 id="pName" style="font-family:'Cinzel'; font-size:3rem; color:var(--gold)">NAME</h2>
+                <div id="pStanding" class="p-standing">STANDING</div>
+            </div>
+            <div style="text-align:right">
+                <span style="color:var(--dim); font-size:0.7rem; letter-spacing:2px">HONOR SCORE</span>
+                <h2 id="pScore" style="font-size:3rem; color:var(--white)">100</h2>
+            </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03); padding:30px; border:1px solid var(--border)">
+            <h4 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:20px">Adjustment Ledger</h4>
+            <table class="p-table" id="ledgerBody"></table>
+        </div>
+        <br>
+        <button class="btn" onclick="showSection('registry')">Close Dossier</button>
+    </section>
+
+</div>
+
+<div class="modal" id="passModal">
+    <div class="modal-content">
+        <h2 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:10px">Access Key</h2>
+        <p style="color:var(--dim); font-size:0.7rem; letter-spacing:2px; margin-bottom:30px">IDENTITY VERIFICATION REQUIRED</p>
+        <input type="password" id="passInput" placeholder="••••••••">
+        <button class="btn" onclick="verifyAccess()">Verify</button>
+        <p id="errorMsg" style="color:#ff6b6b; margin-top:20px; font-size:0.8rem; display:none;">Unauthorized Access</p>
+    </div>
+</div>
+
+<script>
+    const studentsData = [
+        { name: "Poonam", pass: "Pn@482" }, { name: "Diya", pass: "Dy#731" }, { name: "Aarya", pass: "Ar!264" },
+        { name: "Aryan", pass: "Ay@915" }, { name: "Hershika", pass: "Hr#408" }, { name: "Luksh", pass: "Lk@673" },
+        { name: "Nihal", pass: "Nh!352" }, { name: "Vivek", pass: "Vk#804" }, { name: "Saloni", pass: "Sl@291" },
+        { name: "Ritika", pass: "Rt!663" }, { name: "Angel", pass: "Ag#418" }, { name: "Rajveer", pass: "Rv@572" },
+        { name: "Ranveer", pass: "Rn!940" }, { name: "Rahul", pass: "Rh#315" }, { name: "Kushal", pass: "Ks@884" },
+        { name: "Eeshal", pass: "Es!207" }, { name: "Michelle", pass: "Mc#761" }, { name: "Mahima", pass: "Mh@438" },
+        { name: "Ariya", pass: "Ar#126" }, { name: "Dheeraj", pass: "Dh!592" }, { name: "Vimal", pass: "Vm@370" },
+        { name: "Ananya", pass: "An#845" }, { name: "Chahat", pass: "Ch!214" }
+    ];
+
+    let students = studentsData.map(s => ({
+        ...s, score: 100, 
+        history: [{ date: "2026-05-03", change: "+0", reason: "Council Opening Balance" }]
+    }));
+
+    let activeUser = null;
+
+    function renderRegistry() {
+        const grid = document.getElementById('registryGrid');
+        grid.innerHTML = students.map(s => `
+            <div class="exec-card" onclick="openGate('${s.name}')">
+                <div class="exec-name">${s.name.toUpperCase()}</div>
+                <div class="exec-score">${s.score}</div>
+                <div style="font-size:0.6rem; color:var(--gold); letter-spacing:2px; margin-top:10px">VIEW DOSSIER</div>
+            </div>
+        `).join('');
+    }
+
+    function showSection(id) {
+        document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if(id !== 'profile') document.getElementById('nav-' + id).classList.add('active');
+        if(id === 'analytics') initChart();
+    }
+
+    function openGate(name) {
+        activeUser = students.find(s => s.name === name);
+        document.getElementById('passModal').style.display = 'flex';
+        document.getElementById('passInput').value = "";
+        document.getElementById('errorMsg').style.display = 'none';
+    }
+
+    function verifyAccess() {
+        if(document.getElementById('passInput').value === activeUser.pass) {
+            document.getElementById('passModal').style.display = 'none';
+            showProfile();
+        } else {
+            document.getElementById('errorMsg').style.display = 'block';
+        }
+    }
+
+    function showProfile() {
+        document.getElementById('pName').innerText = activeUser.name.toUpperCase();
+        document.getElementById('pScore').innerText = activeUser.score;
+        
+        // Dynamic Standing Logic
+        const s = activeUser.score;
+        const standing = document.getElementById('pStanding');
+        if(s >= 95) { standing.innerText = "EXCELLENT"; standing.style.color = "#51cf66"; }
+        else if(s >= 90) { standing.innerText = "WARNING"; standing.style.color = "#fcc419"; }
+        else if(s >= 85) { standing.innerText = "EXTRA TASK"; standing.style.color = "#fd7e14"; }
+        else if(s >= 80) { standing.innerText = "COUNSELLING"; standing.style.color = "#ff6b6b"; }
+        else if(s >= 70) { standing.innerText = "RESTRICTION"; standing.style.color = "#fa5252"; }
+        else { standing.innerText = "SUSPENSION REVIEW"; standing.style.color = "#c92a2a"; }
+
+        document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `
+            <tr><td>${h.date}</td><td>${h.reason}</td><td>${h.change}</td></tr>
+        `).join('');
+        showSection('profile');
+    }
+
+    function initChart() {
+        const ctx = document.getElementById('mainChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: students.slice(0, 10).map(s => s.name),
+                datasets: [{
+                    label: 'Council Performance',
+                    data: students.slice(0, 10).map(s => s.score),
+                    borderColor: '#c5a021',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(197, 160, 33, 0.1)'
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: { y: { grid: { color: '#1a1a1a' }, ticks: { color: '#888' } }, x: { ticks: { color: '#888' } } }
+            }
+        });
+    }
+
+    window.onload = renderRegistry;
+</script>
+</body>
+</html>
