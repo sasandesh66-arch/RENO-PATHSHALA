@@ -24,7 +24,6 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--emerald);
-            /* Rich texture background */
             background-image: 
                 radial-gradient(circle at 0% 0%, rgba(10, 61, 53, 0.8) 0%, transparent 50%),
                 linear-gradient(rgba(4, 30, 26, 0.9), rgba(4, 30, 26, 0.9));
@@ -32,19 +31,24 @@
             min-height: 100vh;
         }
 
-        /* Navigation */
+        /* NAVIGATION FIX: Added horizontal scrolling for mobile dragging */
         nav {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Changed from center to allow scrolling */
+            overflow-x: auto;            /* Enables dragging/swiping */
+            white-space: nowrap;         /* Keeps buttons in one line */
             gap: 40px;
-            padding: 25px;
+            padding: 25px 40px;
             background: rgba(0,0,0,0.4);
             backdrop-filter: blur(20px);
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border);
+            scrollbar-width: none;       /* Hides scrollbar on Firefox */
         }
+
+        nav::-webkit-scrollbar { display: none; } /* Hides scrollbar on Chrome/Safari */
 
         nav a {
             color: var(--dim);
@@ -55,11 +59,12 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: 0.4s;
+            flex-shrink: 0; /* Prevents text from squishing */
         }
 
         nav a:hover, nav a.active { color: var(--gold-bright); }
 
-        /* Header */
+        /* Header - Keeping your original scale */
         header {
             padding: 80px 20px 40px;
             text-align: center;
@@ -115,6 +120,12 @@
 
         .exec-name { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 10px; }
         .exec-score { font-size: 2.8rem; font-weight: 700; color: var(--gold-bright); }
+
+        /* Leaderboard Table Styles */
+        .exec-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
+        .exec-table th { text-align: left; padding: 20px; color: var(--gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; border-bottom: 1px solid var(--border); }
+        .exec-table td { padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .rank-gold { color: var(--gold-bright); font-weight: 900; font-family: 'Cinzel'; }
 
         /* Rule Book (Protocol) */
         .protocol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -179,12 +190,21 @@
         /* Profile Details */
         .profile-hero { border-bottom: 2px solid var(--gold); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
         .p-standing { font-size: 1.2rem; letter-spacing: 3px; font-weight: 700; }
+
+        /* Mobile Adjustments for very small screens */
+        @media (max-width: 600px) {
+            .logo { font-size: 2.5rem; letter-spacing: 5px; }
+            .protocol-grid { grid-template-columns: 1fr; }
+            .badge-grid { grid-template-columns: repeat(2, 1fr); }
+            nav { justify-content: flex-start; padding-left: 20px; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
     <a onclick="showSection('registry')" id="nav-registry" class="active">Total Students</a>
+    <a onclick="showSection('leaderboard')" id="nav-leaderboard">Leaderboard</a>
     <a onclick="showSection('analytics')" id="nav-analytics">Analytics</a>
     <a onclick="showSection('badges')" id="nav-badges">Badges/Streaks</a>
     <a onclick="showSection('protocol')" id="nav-protocol">Rule Book</a>
@@ -199,6 +219,21 @@
     
     <section id="registry" class="view-section active">
         <div class="registry-grid" id="registryGrid"></div>
+    </section>
+
+    <section id="leaderboard" class="view-section">
+        <table class="exec-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Full Name</th>
+                    <th>Honor Score</th>
+                    <th>Streak</th>
+                    <th>Awards</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+        </table>
     </section>
 
     <section id="analytics" class="view-section">
@@ -288,7 +323,10 @@
     ];
 
     let students = studentsData.map(s => ({
-        ...s, score: 100, 
+        ...s, 
+        score: 100, 
+        streak: "5 Days", 
+        badges: "🛡️", 
         history: [{ date: "2026-05-03", change: "+0", reason: "Council Opening Balance" }]
     }));
 
@@ -305,12 +343,28 @@
         `).join('');
     }
 
+    function renderLeaderboard() {
+        const sorted = [...students].sort((a, b) => b.score - a.score);
+        const tbody = document.getElementById('leaderboardBody');
+        tbody.innerHTML = sorted.map((s, index) => `
+            <tr>
+                <td class="rank-gold">#${index + 1}</td>
+                <td style="font-weight:600; letter-spacing:1px;">${s.name.toUpperCase()}</td>
+                <td style="color:var(--gold-bright); font-weight:700;">${s.score}</td>
+                <td><span style="color:#51cf66;">🔥</span> ${s.streak}</td>
+                <td>${s.badges}</td>
+            </tr>
+        `).join('');
+    }
+
     function showSection(id) {
         document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         if(id !== 'profile') document.getElementById('nav-' + id).classList.add('active');
+        
         if(id === 'analytics') initChart();
+        if(id === 'leaderboard') renderLeaderboard();
     }
 
     function openGate(name) {
@@ -333,7 +387,6 @@
         document.getElementById('pName').innerText = activeUser.name.toUpperCase();
         document.getElementById('pScore').innerText = activeUser.score;
         
-        // Dynamic Standing Logic
         const s = activeUser.score;
         const standing = document.getElementById('pStanding');
         if(s >= 95) { standing.innerText = "EXCELLENT"; standing.style.color = "#51cf66"; }
@@ -372,7 +425,9 @@
         });
     }
 
-    window.onload = renderRegistry;
+    window.onload = function() {
+        renderRegistry();
+    };
 </script>
 </body>
 </html>
