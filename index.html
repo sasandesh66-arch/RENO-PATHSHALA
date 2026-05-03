@@ -17,12 +17,10 @@
             --white: #ffffff;
             --dim: rgba(255, 255, 255, 0.6);
             --border: rgba(197, 160, 33, 0.3);
-            
-            /* Status Colors from Rule Book */
-            --status-excellent: #51cf66; /* Green */
-            --status-warning: #fcc419;   /* Yellow */
-            --status-extra: #fd7e14;     /* Orange */
-            --status-danger: #ff6b6b;    /* Red */
+            --status-excellent: #51cf66;
+            --status-warning: #fcc419;
+            --status-extra: #fd7e14;
+            --status-danger: #ff6b6b;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -123,11 +121,11 @@
 
         .exec-name { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 10px; }
         .exec-score { font-size: 3.5rem; font-weight: 900; }
+        .exec-status-text { font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; padding: 20px 0; color: var(--gold-bright); }
 
         .exec-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
         .exec-table th { text-align: left; padding: 20px; color: var(--gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; border-bottom: 1px solid var(--border); }
         .exec-table td { padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .rank-gold { color: var(--gold-bright); font-weight: 900; font-family: 'Cinzel'; }
 
         .protocol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .protocol-box h3 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
@@ -138,7 +136,6 @@
 
         .badge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         .badge-item { background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 30px 15px; }
-        .badge-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; display: block; }
 
         .modal {
             display: none;
@@ -192,7 +189,6 @@
         @media (max-width: 600px) {
             .logo { font-size: 2.5rem; letter-spacing: 5px; }
             .protocol-grid { grid-template-columns: 1fr; }
-            .badge-grid { grid-template-columns: repeat(2, 1fr); }
             nav { justify-content: flex-start; padding-left: 20px; }
         }
     </style>
@@ -224,7 +220,7 @@
                 <tr>
                     <th>Rank</th>
                     <th>Full Name</th>
-                    <th>Honor Score</th>
+                    <th>Status / Score</th>
                     <th>Streak</th>
                     <th>Awards</th>
                 </tr>
@@ -241,10 +237,10 @@
 
     <section id="badges" class="view-section">
         <div class="badge-grid">
-            <div class="badge-item"><span class="badge-icon">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
-            <div class="badge-item"><span class="badge-icon">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
-            <div class="badge-item"><span class="badge-icon">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
-            <div class="badge-item" style="opacity:0.3"><span class="badge-icon">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Locked: 30 Day Clean Record</p></div>
+            <div class="badge-item"><span class="badge-icon" style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
+            <div class="badge-item"><span class="badge-icon" style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
+            <div class="badge-item"><span class="badge-icon" style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
+            <div class="badge-item" style="opacity:0.3"><span class="badge-icon" style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Locked: 30 Day Clean Record</p></div>
         </div>
     </section>
 
@@ -283,7 +279,7 @@
                 <div id="pStanding" class="p-standing">STANDING</div>
             </div>
             <div style="text-align:right">
-                <span style="color:var(--dim); font-size:0.7rem; letter-spacing:2px">HONOR SCORE</span>
+                <span style="color:var(--dim); font-size:0.7rem; letter-spacing:2px">HONOR STATUS</span>
                 <h2 id="pScore" style="font-size:3rem; color:var(--white)">100</h2>
             </div>
         </div>
@@ -319,30 +315,27 @@
         { name: "Ananya", pass: "An#845" }, { name: "Chahat", pass: "Ch!214" }
     ];
 
-    // THEME SYNC: Maps score to the specific status color
     function getStatusColor(score) {
-        if(score >= 95) return "var(--status-excellent)"; // Green
-        if(score >= 90) return "var(--status-warning)";   // Yellow
-        if(score >= 85) return "var(--status-extra)";     // Orange
-        return "var(--status-danger)";                    // Red
+        if(score >= 95) return "var(--status-excellent)"; 
+        if(score >= 90) return "var(--status-warning)";   
+        if(score >= 85) return "var(--status-extra)";     
+        return "var(--status-danger)";                    
     }
 
     let students = studentsData.map(s => {
-        let score = 100;
         let history = [{ date: "2026-05-01", change: "+0", reason: "Council Opening Balance" }];
+        let onLeave = (s.name === "Aryan" || s.name === "Luksh");
         
-        // Scenario Update: Diya 2 absences (May 2 & 3)
-        if(s.name === "Diya") {
-            score = 92; 
-            history.push({ date: "2026-05-02", change: "-4", reason: "Leave without informing" });
-            history.push({ date: "2026-05-03", change: "-4", reason: "Leave without informing" });
+        if(onLeave) {
+            history.push({ date: "2026-05-03", change: "HOLD", reason: "Exam Leave Status (No Points Calculation)" });
         }
 
         return {
             ...s, 
-            score: score, 
-            streak: "0 Days", // Reset for drill test session
-            badges: score === 100 ? "🛡️" : "⚠️", 
+            score: 100, 
+            onLeave: onLeave,
+            streak: onLeave ? "PAUSED" : "0 Days", 
+            badges: onLeave ? "📝" : "🛡️", 
             history: history
         };
     });
@@ -351,35 +344,35 @@
 
     function renderRegistry() {
         const grid = document.getElementById('registryGrid');
-        grid.innerHTML = students.map(s => `
-            <div class="exec-card" onclick="openGate('${s.name}')">
-                <div class="exec-name">${s.name.toUpperCase()}</div>
-                <div class="exec-score" style="color: ${getStatusColor(s.score)}">${s.score}</div>
-                <div style="font-size:0.6rem; color:var(--gold); letter-spacing:2px; margin-top:10px">VIEW DOSSIER</div>
-            </div>
-        `).join('');
+        grid.innerHTML = students.map(s => {
+            const displayValue = s.onLeave ? 
+                `<div class="exec-status-text">ON EXAM LEAVE</div>` : 
+                `<div class="exec-score" style="color: ${getStatusColor(s.score)}">${s.score}</div>`;
+
+            return `
+                <div class="exec-card" onclick="openGate('${s.name}')">
+                    <div class="exec-name">${s.name.toUpperCase()}</div>
+                    ${displayValue}
+                    <div style="font-size:0.6rem; color:var(--gold); letter-spacing:2px; margin-top:10px">VIEW DOSSIER</div>
+                </div>
+            `;
+        }).join('');
     }
 
     function renderLeaderboard() {
-        const sorted = [...students].sort((a, b) => b.score - a.score);
+        // Logic: All non-leave students have score 100, so they are all #1.
+        // Aryan and Luksh are assigned a "-" rank.
         const tbody = document.getElementById('leaderboardBody');
         
-        let lastScore = -1;
-        let displayRank = 0;
-
-        tbody.innerHTML = sorted.map((s, index) => {
-            // FIXED RANKING: Same score = same rank
-            if (s.score !== lastScore) {
-                displayRank = index + 1;
-            }
-            lastScore = s.score;
-
+        tbody.innerHTML = students.map((s) => {
+            const scoreDisplay = s.onLeave ? "ON LEAVE" : s.score;
+            const rankDisplay = s.onLeave ? "-" : "#1";
             return `
                 <tr>
-                    <td class="rank-gold">#${displayRank}</td>
+                    <td style="color:var(--gold-bright); font-family:Cinzel; font-weight:900; text-align:center;">${rankDisplay}</td>
                     <td style="font-weight:600; letter-spacing:1px;">${s.name.toUpperCase()}</td>
-                    <td style="color:${getStatusColor(s.score)}; font-weight:700;">${s.score}</td>
-                    <td><span style="color:var(--dim);">🔥</span> ${s.streak}</td>
+                    <td style="color:${s.onLeave ? 'var(--gold-bright)' : getStatusColor(s.score)}; font-weight:700;">${scoreDisplay}</td>
+                    <td><span style="color:var(--dim);">${s.onLeave ? '⏸️' : '🔥'}</span> ${s.streak}</td>
                     <td>${s.badges}</td>
                 </tr>
             `;
@@ -414,18 +407,25 @@
 
     function showProfile() {
         document.getElementById('pName').innerText = activeUser.name.toUpperCase();
-        document.getElementById('pScore').innerText = activeUser.score;
-        document.getElementById('pScore').style.color = getStatusColor(activeUser.score);
         
-        const s = activeUser.score;
-        const standing = document.getElementById('pStanding');
-        if(s >= 95) { standing.innerText = "EXCELLENT"; standing.style.color = "var(--status-excellent)"; }
-        else if(s >= 90) { standing.innerText = "WARNING"; standing.style.color = "var(--status-warning)"; }
-        else if(s >= 85) { standing.innerText = "EXTRA TASK"; standing.style.color = "var(--status-extra)"; }
-        else { standing.innerText = "PENALTY STATUS"; standing.style.color = "var(--status-danger)"; }
+        if(activeUser.onLeave) {
+            document.getElementById('pScore').innerText = "LEAVE";
+            document.getElementById('pScore').style.color = "var(--gold-bright)";
+            document.getElementById('pStanding').innerText = "PAUSED (EXAMS)";
+            document.getElementById('pStanding').style.color = "var(--gold-bright)";
+        } else {
+            document.getElementById('pScore').innerText = activeUser.score;
+            document.getElementById('pScore').style.color = getStatusColor(activeUser.score);
+            document.getElementById('pStanding').innerText = "EXCELLENT";
+            document.getElementById('pStanding').style.color = "var(--status-excellent)";
+        }
 
         document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `
-            <tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') ? 'var(--status-danger)' : 'var(--status-excellent)'}">${h.change}</td></tr>
+            <tr>
+                <td>${h.date}</td>
+                <td>${h.reason}</td>
+                <td style="color:${h.change === 'HOLD' ? 'var(--gold-bright)' : 'var(--status-excellent)'}">${h.change}</td>
+            </tr>
         `).join('');
         showSection('profile');
     }
@@ -438,7 +438,7 @@
                 labels: students.slice(0, 10).map(s => s.name),
                 datasets: [{
                     label: 'Honor Integrity Index',
-                    data: students.slice(0, 10).map(s => s.score),
+                    data: students.slice(0, 10).map(s => s.onLeave ? 0 : s.score),
                     borderColor: '#c5a021',
                     borderWidth: 3,
                     tension: 0.4,
