@@ -324,17 +324,27 @@
 
     let students = studentsData.map(s => {
         let history = [{ date: "2026-05-01", change: "+0", reason: "Council Opening Balance" }];
-        let onLeave = (s.name === "Aryan" || s.name === "Luksh");
-        
-        if(onLeave) {
-            history.push({ date: "2026-05-03", change: "HOLD", reason: "Exam Leave Status (No Points Calculation)" });
+        let onLeave = (s.name === "Aryan" || s.name === "Luksh" || s.name === "Dheeraj");
+        let initialScore = 100;
+        let initialStreak = "1 Day";
+
+        // Apply Adjustments for May 4th
+        if (s.name === "Poonam" || s.name === "Angel") {
+            initialScore = 99;
+            history.push({ date: "2026-05-04", change: "-1", reason: "Late with permission" });
+        } else if (onLeave) {
+            history.push({ date: "2026-05-04", change: "HOLD", reason: "Exam Leave Status" });
+            initialStreak = "PAUSED";
+        } else {
+            // General presence (No score increase beyond 100)
+            history.push({ date: "2026-05-04", change: "+0", reason: "Full regular attendance" });
         }
 
         return {
             ...s, 
-            score: 100, 
+            score: initialScore, 
             onLeave: onLeave,
-            streak: onLeave ? "PAUSED" : "0 Days", 
+            streak: initialStreak, 
             badges: onLeave ? "📝" : "🛡️", 
             history: history
         };
@@ -360,13 +370,23 @@
     }
 
     function renderLeaderboard() {
-        // Logic: All non-leave students have score 100, so they are all #1.
-        // Aryan and Luksh are assigned a "-" rank.
+        // Sort students: Non-leave first, then by score descending
+        const sorted = [...students].sort((a, b) => {
+            if (a.onLeave && !b.onLeave) return 1;
+            if (!a.onLeave && b.onLeave) return -1;
+            return b.score - a.score;
+        });
+
         const tbody = document.getElementById('leaderboardBody');
+        let currentRank = 1;
         
-        tbody.innerHTML = students.map((s) => {
+        tbody.innerHTML = sorted.map((s, index) => {
+            if (index > 0 && !s.onLeave && s.score < sorted[index-1].score) {
+                currentRank = index + 1;
+            }
+            const rankDisplay = s.onLeave ? "-" : `#${currentRank}`;
             const scoreDisplay = s.onLeave ? "ON LEAVE" : s.score;
-            const rankDisplay = s.onLeave ? "-" : "#1";
+
             return `
                 <tr>
                     <td style="color:var(--gold-bright); font-family:Cinzel; font-weight:900; text-align:center;">${rankDisplay}</td>
@@ -416,15 +436,15 @@
         } else {
             document.getElementById('pScore').innerText = activeUser.score;
             document.getElementById('pScore').style.color = getStatusColor(activeUser.score);
-            document.getElementById('pStanding').innerText = "EXCELLENT";
-            document.getElementById('pStanding').style.color = "var(--status-excellent)";
+            document.getElementById('pStanding').innerText = activeUser.score >= 95 ? "EXCELLENT" : "WARNING";
+            document.getElementById('pStanding').style.color = getStatusColor(activeUser.score);
         }
 
         document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `
             <tr>
                 <td>${h.date}</td>
                 <td>${h.reason}</td>
-                <td style="color:${h.change === 'HOLD' ? 'var(--gold-bright)' : 'var(--status-excellent)'}">${h.change}</td>
+                <td style="color:${h.change.includes('-') ? 'var(--status-danger)' : (h.change === 'HOLD' ? 'var(--gold-bright)' : 'var(--status-excellent)')}">${h.change}</td>
             </tr>
         `).join('');
         showSection('profile');
@@ -441,21 +461,21 @@
                     data: students.slice(0, 10).map(s => s.onLeave ? 0 : s.score),
                     borderColor: '#c5a021',
                     borderWidth: 3,
-                    tension: 0.4,
-                    fill: true,
+                    tension: 0.4,fill: true,
                     backgroundColor: 'rgba(197, 160, 33, 0.1)'
-                }]
-            },
-            options: {
-                plugins: { legend: { display: false } },
-                scales: { y: { grid: { color: '#1a1a1a' }, ticks: { color: '#888' } }, x: { ticks: { color: '#888' } } }
-            }
-        });
-    }
-
-    window.onload = function() {
-        renderRegistry();
-    };
-</script>
-</body>
-</html>
+                                    }]
+                                },
+                                options: {
+                                    plugins: { legend: { display: false } },
+                                    scales: { y: { grid: { color: '#1a1a1a' }, ticks: { color: '#888' } }, x: { ticks: { color: '#888' } } }
+                                }
+                            });
+                        }
+                    
+                        window.onload = function() {
+                            renderRegistry();
+                        };
+                    </script>
+                    </body>
+                    </html>
+ 
