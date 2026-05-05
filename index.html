@@ -304,29 +304,29 @@
 </div>
 <script>
     const studentsData = [
-        { name: "Poonam", pass: "Pn@428", streak: "1 Days" }, 
-        { name: "Diya", pass: "Dy#567", streak: "1 Day" }, 
-        { name: "Aarya", pass: "An-027", streak: "1 Day" },
+        { name: "Poonam", pass: "Pn@428", streak: "2 Days" }, 
+        { name: "Diya", pass: "Dy#567", streak: "2 Days" }, 
+        { name: "Aarya", pass: "An-027", streak: "2 Days" },
         { name: "Aryan", pass: "Ay@915", streak: "PAUSED" }, 
         { name: "Hershika", pass: "Hr#408", streak: "0 Days" }, 
         { name: "Luksh", pass: "Lk@673", streak: "PAUSED" },
-        { name: "Nihal", pass: "Nh!352", streak: "1 Day" }, 
-        { name: "Vivek", pass: "Vk#804", streak: "1 Day" }, 
-        { name: "Saloni", pass: "Sl@291", streak: "1 Day" },
-        { name: "Ritika", pass: "Rt!663", streak: "1 Day" }, 
-        { name: "Angel", pass: "Ag#418", streak: "1 Day" }, 
-        { name: "Rajveer", pass: "Rv@572", streak: "1 Day" },
-        { name: "Ranveer", pass: "Rn!940", streak: "1 Day" }, 
-        { name: "Rahul", pass: "Rh#315", streak: "1 Day" }, 
-        { name: "Kushal", pass: "Ks@884", streak: "1 Day" },
-        { name: "Eeshal", pass: "Es!207", streak: "1 Day" }, 
-        { name: "Michelle", pass: "Mc#761", streak: "1 Day" }, 
-        { name: "Mahima", pass: "Mh@438", streak: "1 Day" },
-        { name: "Aarya(sr)", pass: "Ar#126", streak: "1 Day" }, 
-        { name: "Dheeraj", pass: "Dh!592", streak: "PAUSED" }, 
-        { name: "Vimal", pass: "Vm@370", streak: "1 Day" },
-        { name: "Ananya", pass: "An#845", streak: "1 Day" }, 
-        { name: "Chahat", pass: "Ch!214", streak: "0 Days" }
+        { name: "Nihal", pass: "Nh!352", streak: "2 Days" }, 
+        { name: "Vivek", pass: "Vk#804", streak: "2 Days" }, 
+        { name: "Saloni", pass: "Sl@291", streak: "2 Days" },
+        { name: "Ritika", pass: "Rt!663", streak: "2 Days" }, 
+        { name: "Angel", pass: "Ag#418", streak: "2 Days" }, 
+        { name: "Rajveer", pass: "Rv@572", streak: "2 Days" },
+        { name: "Ranveer", pass: "Rn!940", streak: "2 Days" }, 
+        { name: "Rahul", pass: "Rh#315", streak: "2 Days" }, 
+        { name: "Kushal", pass: "Ks@884", streak: "2 Days" },
+        { name: "Eeshal", pass: "Es!207", streak: "2 Days" }, 
+        { name: "Michelle", pass: "Mc#761", streak: "2 Days" }, 
+        { name: "Mahima", pass: "Mh@438", streak: "2 Days" },
+        { name: "Aarya(sr)", pass: "Ar#126", streak: "2 Days" }, 
+        { name: "Dheeraj", pass: "Dh!592", streak: "1 Day" }, 
+        { name: "Vimal", pass: "Vm@370", streak: "2 Days" },
+        { name: "Ananya", pass: "An#845", streak: "2 Days" }, 
+        { name: "Chahat", pass: "Ch!214", streak: "1 Day" }
     ];
 
     function getStatusColor(score) {
@@ -337,28 +337,39 @@
     }
 
     let students = studentsData.map(s => {
-        let history = [{ date: "2026-05-01", change: "+0", reason: "Council Opening Balance" }];
-        let onLeave = (s.name === "Aryan" || s.name === "Luksh" || s.name === "Dheeraj");
+        let history = [
+            { date: "2026-05-01", change: "+0", reason: "Opening Balance" },
+            { date: "2026-05-04", change: "LOGGED", reason: "Previous activity" }
+        ];
+        
+        let onExamLeave = (s.name === "Aryan" || s.name === "Luksh");
+        let onMedicalLeave = (s.name === "Hershika");
         let initialScore = 100;
 
-        if (s.name === "Poonam" || s.name === "Angel") {
-            initialScore = 99;
-            history.push({ date: "2026-05-04", change: "-1", reason: "Late with permission" });
-        } else if (s.name === "Chahat") {
-            initialScore = 99;
-            history.push({ date: "2026-05-04", change: "-1", reason: "Absent with permission" });
+        if (s.name === "Poonam" || s.name === "Kushal") {
+            initialScore = 98; // -1 on 4th, -1 on 5th
+            history.push({ date: "2026-05-05", change: "-1", reason: "Late but informed" });
         } else if (s.name === "Aarya(sr)") {
-            initialScore = 95;
-            history.push({ date: "2026-05-04", change: "-5", reason: "Disrespectful behavior" });
+            initialScore = 96; // -5 on 4th, +1 on 5th
+            history.push({ date: "2026-05-05", change: "+1", reason: "Regular attendance" });
         } else if (s.name === "Hershika") {
-            initialScore = 96;
-            history.push({ date: "2026-05-04", change: "-4", reason: "Leave/off without permission" });
-        } else if (onLeave) {
-            history.push({ date: "2026-05-04", change: "HOLD", reason: "Exam Leave Status" });
+            initialScore = 96; // Locked at previous score
+            history.push({ date: "2026-05-05", change: "HOLD", reason: "Medical Leave (Sick)" });
+        } else if (onExamLeave) {
+            history.push({ date: "2026-05-05", change: "HOLD", reason: "Exam Leave Status" });
         } else {
-            history.push({ date: "2026-05-04", change: "+0", reason: "Full regular attendance" });
+            initialScore = (s.name === "Angel" || s.name === "Chahat") ? 99 : 100;
+            history.push({ date: "2026-05-05", change: "+1", reason: "Regular attendance" });
         }
-        return { ...s, score: initialScore, onLeave: onLeave, history: history, badges: onLeave ? "📝" : "🛡️" };
+
+        return { 
+            ...s, 
+            score: initialScore, 
+            onLeave: (onExamLeave || onMedicalLeave), 
+            leaveType: onMedicalLeave ? "MEDICAL LEAVE" : "ON EXAM LEAVE",
+            history: history, 
+            badges: onMedicalLeave ? "💊" : (onExamLeave ? "📝" : "🛡️") 
+        };
     });
 
     let activeUser = null;
@@ -366,7 +377,7 @@
     function renderRegistry() {
         const grid = document.getElementById('registryGrid');
         grid.innerHTML = students.map(s => {
-            const val = s.onLeave ? `<div class="exec-status-text">ON EXAM LEAVE</div>` : `<div class="exec-score" style="color: ${getStatusColor(s.score)}">${s.score}</div>`;
+            const val = s.onLeave ? `<div class="exec-status-text">${s.leaveType}</div>` : `<div class="exec-score" style="color: ${getStatusColor(s.score)}">${s.score}</div>`;
             return `<div class="exec-card" onclick="openGate('${s.name}')"><div class="exec-name">${s.name.toUpperCase()}</div>${val}<div style="font-size:0.6rem; color:#c5a021; letter-spacing:2px; margin-top:10px">VIEW DOSSIER</div></div>`;
         }).join('');
     }
@@ -381,7 +392,8 @@
         let currentRank = 1;
         tbody.innerHTML = sorted.map((s, index) => {
             if (index > 0 && !s.onLeave && s.score < sorted[index-1].score) currentRank = index + 1;
-            return `<tr><td style="color:#f0d57a; font-family:Cinzel; font-weight:900; text-align:center;">${s.onLeave ? "-" : "#" + currentRank}</td><td>${s.name.toUpperCase()}</td><td style="color:${s.onLeave ? '#f0d57a' : getStatusColor(s.score)};">${s.onLeave ? "ON LEAVE" : s.score}</td><td><span style="color:rgba(255,255,255,0.6);">${s.streak === "0 Days" ? '❌' : (s.onLeave ? '⏸️' : '🔥')}</span> ${s.streak}</td><td>${s.badges}</td></tr>`;
+            let streakIcon = s.streak === "0 Days" ? '❌' : (s.onLeave ? '⏸️' : '🔥');
+            return `<tr><td style="color:#f0d57a; font-family:Cinzel; font-weight:900; text-align:center;">${s.onLeave ? "-" : "#" + currentRank}</td><td>${s.name.toUpperCase()}</td><td style="color:${s.onLeave ? '#f0d57a' : getStatusColor(s.score)};">${s.onLeave ? "ON LEAVE" : s.score}</td><td><span style="color:rgba(255,255,255,0.6);">${streakIcon}</span> ${s.streak}</td><td>${s.badges}</td></tr>`;
         }).join('');
     }
 
@@ -399,22 +411,13 @@
         const chartData = [...students].filter(s => !s.onLeave).sort((a, b) => b.score - a.score).slice(0, 10);
         let chartStatus = Chart.getChart("mainChart");
         if (chartStatus != undefined) chartStatus.destroy();
-
         new Chart(ctx, {
             type: 'line',
             data: {
                 labels: chartData.map(s => s.name),
                 datasets: [{ label: 'Integrity Index', data: chartData.map(s => s.score), borderColor: '#c5a021', borderWidth: 3, tension: 0.4, fill: true, backgroundColor: 'rgba(197, 160, 33, 0.1)' }]
             },
-            options: { 
-                responsive: true, 
-                maintainAspectRatio: false, 
-                plugins: { legend: { display: false } }, 
-                scales: { 
-                    y: { min: 70, max: 100, grid: { color: '#1a1a1a' }, ticks: { color: '#888' } }, 
-                    x: { ticks: { color: '#888' } } 
-                } 
-            }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 70, max: 100, grid: { color: '#1a1a1a' }, ticks: { color: '#888' } }, x: { ticks: { color: '#888' } } } }
         });
     }
 
@@ -438,7 +441,7 @@
         document.getElementById('pName').innerText = activeUser.name.toUpperCase();
         document.getElementById('pScore').innerText = activeUser.onLeave ? "LEAVE" : activeUser.score;
         document.getElementById('pScore').style.color = activeUser.onLeave ? "#f0d57a" : getStatusColor(activeUser.score);
-        document.getElementById('pStanding').innerText = activeUser.onLeave ? "PAUSED (EXAMS)" : (activeUser.score >= 95 ? "EXCELLENT" : "WARNING");
+        document.getElementById('pStanding').innerText = activeUser.onLeave ? activeUser.leaveType : (activeUser.score >= 95 ? "EXCELLENT" : "WARNING");
         document.getElementById('pStanding').style.color = activeUser.onLeave ? "#f0d57a" : getStatusColor(activeUser.score);
         document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `<tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') ? '#ff6b6b' : (h.change === 'HOLD' ? '#f0d57a' : '#51cf66')}">${h.change}</td></tr>`).join('');
         showSection('profile');
