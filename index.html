@@ -313,7 +313,7 @@
         { name: "Nihal", pass: "Nh!352", streak: "2 Days" }, 
         { name: "Vivek", pass: "Vk#804", streak: "2 Days" }, 
         { name: "Saloni", pass: "Sl@291", streak: "2 Days" },
-        { name: "Ritika", pass: "Rt!663", streak: "2 Days" }, 
+        { name: "Ritika", pass: "Rt@123", streak: "2 Days" }, 
         { name: "Angel", pass: "Ag#418", streak: "2 Days" }, 
         { name: "Rajveer", pass: "Rv@572", streak: "2 Days" },
         { name: "Ranveer", pass: "Rn!940", streak: "2 Days" }, 
@@ -347,10 +347,10 @@
         let initialScore = 100;
 
         if (s.name === "Poonam") {
-            initialScore = 98; // -1 on 4th, -1 on 5th
+            initialScore = 98; 
             history.push({ date: "2026-05-05", change: "-1", reason: "Late but informed" });
         } else if (s.name === "Kushal") {
-            initialScore = 99; // Only deduction from today
+            initialScore = 99; 
             history.push({ date: "2026-05-05", change: "-1", reason: "Late but informed" });
         } else if (s.name === "Aarya(sr)") {
             initialScore = 96; 
@@ -361,7 +361,7 @@
         } else if (onExamLeave) {
             history.push({ date: "2026-05-05", change: "HOLD", reason: "Exam Leave Status" });
         } else {
-            initialScore = (s.name === "Angel" || s.name === "Chahat") ? 99 : 100;
+            initialScore = 100; // Corrected: Angel and Chahat now at 100
             history.push({ date: "2026-05-05", change: "+1", reason: "Regular attendance" });
         }
 
@@ -451,6 +451,10 @@
     }
 
     window.onload = function() { renderRegistry(); };
+</script>
+</body>
+</html>
+function() { renderRegistry(); };
 </script>
 </body>
 </html>
