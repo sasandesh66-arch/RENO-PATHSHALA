@@ -230,17 +230,17 @@
     </section>
 
     <section id="analytics" class="view-section">
-        <div style="background:rgba(255,255,255,0.03); padding:40px; border:1px solid var(--border); height: 450px;">
+        <div style="background:rgba(255,255,255,0.03); padding:40px; border:1px solid var(--border); height: 400px;">
             <canvas id="mainChart"></canvas>
         </div>
     </section>
 
     <section id="badges" class="view-section">
         <div class="badge-grid">
-            <div class="badge-item"><span class="badge-icon" style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
-            <div class="badge-item"><span class="badge-icon" style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
-            <div class="badge-item"><span class="badge-icon" style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
-            <div class="badge-item" style="opacity:0.3"><span class="badge-icon" style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Locked: 30 Day Clean Record</p></div>
+            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
+            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
+            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
+            <div class="badge-item" style="opacity:0.3"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Locked: 30 Day Clean Record</p></div>
         </div>
     </section>
 
@@ -302,14 +302,13 @@
         <p id="errorMsg" style="color:#ff6b6b; margin-top:20px; font-size:0.8rem; display:none;">Unauthorized Access</p>
     </div>
 </div>
-
 <script>
     const studentsData = [
-        { name: "Poonam", pass: "Pn@428", streak: "1 Days" }, 
+        { name: "Poonam", pass: "Pn@428", streak: "2 Days" }, 
         { name: "Diya", pass: "Dy#567", streak: "1 Day" }, 
         { name: "Aarya", pass: "Ar!264", streak: "1 Day" },
         { name: "Aryan", pass: "Ay@915", streak: "PAUSED" }, 
-        { name: "Hershika", pass: "Hr#408", streak: "0 Days" }, // UPDATED STREAK
+        { name: "Hershika", pass: "Hr#408", streak: "0 Days" }, 
         { name: "Luksh", pass: "Lk@673", streak: "PAUSED" },
         { name: "Nihal", pass: "Nh!352", streak: "1 Day" }, 
         { name: "Vivek", pass: "Vk#804", streak: "1 Day" }, 
@@ -331,10 +330,10 @@
     ];
 
     function getStatusColor(score) {
-        if(score >= 95) return "var(--status-excellent)"; 
-        if(score >= 90) return "var(--status-warning)";   
-        if(score >= 85) return "var(--status-extra)";     
-        return "var(--status-danger)";                    
+        if(score >= 95) return "#51cf66"; 
+        if(score >= 90) return "#fcc419";   
+        if(score >= 85) return "#fd7e14";     
+        return "#ff6b6b";                    
     }
 
     let students = studentsData.map(s => {
@@ -342,7 +341,6 @@
         let onLeave = (s.name === "Aryan" || s.name === "Luksh" || s.name === "Dheeraj");
         let initialScore = 100;
 
-        // Daily Adjustments
         if (s.name === "Poonam" || s.name === "Angel") {
             initialScore = 99;
             history.push({ date: "2026-05-04", change: "-1", reason: "Late with permission" });
@@ -353,14 +351,13 @@
             initialScore = 95;
             history.push({ date: "2026-05-04", change: "-5", reason: "Disrespectful behavior" });
         } else if (s.name === "Hershika") {
-            initialScore = 96; // UPDATED SCORE
+            initialScore = 96;
             history.push({ date: "2026-05-04", change: "-4", reason: "Leave/off without permission" });
         } else if (onLeave) {
             history.push({ date: "2026-05-04", change: "HOLD", reason: "Exam Leave Status" });
         } else {
             history.push({ date: "2026-05-04", change: "+0", reason: "Full regular attendance" });
         }
-
         return { ...s, score: initialScore, onLeave: onLeave, history: history, badges: onLeave ? "📝" : "🛡️" };
     });
 
@@ -369,10 +366,8 @@
     function renderRegistry() {
         const grid = document.getElementById('registryGrid');
         grid.innerHTML = students.map(s => {
-            const displayValue = s.onLeave ? 
-                `<div class="exec-status-text">ON EXAM LEAVE</div>` : 
-                `<div class="exec-score" style="color: ${getStatusColor(s.score)}">${s.score}</div>`;
-            return `<div class="exec-card" onclick="openGate('${s.name}')"><div class="exec-name">${s.name.toUpperCase()}</div>${displayValue}<div style="font-size:0.6rem; color:var(--gold); letter-spacing:2px; margin-top:10px">VIEW DOSSIER</div></div>`;
+            const val = s.onLeave ? `<div class="exec-status-text">ON EXAM LEAVE</div>` : `<div class="exec-score" style="color: ${getStatusColor(s.score)}">${s.score}</div>`;
+            return `<div class="exec-card" onclick="openGate('${s.name}')"><div class="exec-name">${s.name.toUpperCase()}</div>${val}<div style="font-size:0.6rem; color:#c5a021; letter-spacing:2px; margin-top:10px">VIEW DOSSIER</div></div>`;
         }).join('');
     }
 
@@ -386,7 +381,7 @@
         let currentRank = 1;
         tbody.innerHTML = sorted.map((s, index) => {
             if (index > 0 && !s.onLeave && s.score < sorted[index-1].score) currentRank = index + 1;
-            return `<tr><td style="color:var(--gold-bright); font-family:Cinzel; font-weight:900; text-align:center;">${s.onLeave ? "-" : "#" + currentRank}</td><td>${s.name.toUpperCase()}</td><td style="color:${s.onLeave ? 'var(--gold-bright)' : getStatusColor(s.score)};">${s.onLeave ? "ON LEAVE" : s.score}</td><td><span style="color:var(--dim);">${s.streak === "0 Days" ? '❌' : (s.onLeave ? '⏸️' : '🔥')}</span> ${s.streak}</td><td>${s.badges}</td></tr>`;
+            return `<tr><td style="color:#f0d57a; font-family:Cinzel; font-weight:900; text-align:center;">${s.onLeave ? "-" : "#" + currentRank}</td><td>${s.name.toUpperCase()}</td><td style="color:${s.onLeave ? '#f0d57a' : getStatusColor(s.score)};">${s.onLeave ? "ON LEAVE" : s.score}</td><td><span style="color:rgba(255,255,255,0.6);">${s.streak === "0 Days" ? '❌' : (s.onLeave ? '⏸️' : '🔥')}</span> ${s.streak}</td><td>${s.badges}</td></tr>`;
         }).join('');
     }
 
@@ -411,57 +406,45 @@
                 labels: chartData.map(s => s.name),
                 datasets: [{ label: 'Integrity Index', data: chartData.map(s => s.score), borderColor: '#c5a021', borderWidth: 3, tension: 0.4, fill: true, backgroundColor: 'rgba(197, 160, 33, 0.1)' }]
             },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 70, max: 100, grid: { color: '#1a1a1a' }, ticks: { color: '#888' } }, x: { ticks: { color: '#888' } } } }
-        });
-    }
-
-    function openGate(name) { activeUser = students.find(s => s.name === name); document.getElementById('passModal').style.display = 'flex'; document.getElementById('passInput').value = ""; document.getElementById('errorMsg').style.display = 'none'; }
-    function verifyAccess() { if(document.getElementById('passInput').value === activeUser.pass) { document.getElementById('passModal').style.display = 'none'; showProfile(); } else { document.getElementById('errorMsg').style.display = 'block'; } }
-
-    function showProfile() {
-        document.getElementById('pName').innerText = activeUser.name.toUpperCase();
-        document.getElementById('pScore').innerText = activeUser.onLeave ? "LEAVE" : activeUser.score;
-        document.getElementById('pScore').style.color = activeUser.onLeave ? "var(--gold-bright)" : getStatusColor(activeUser.score);
-        document.getElementById('pStanding').innerText = activeUser.onLeave ? "PAUSED (EXAMS)" : (activeUser.score >= 95 ? "EXCELLENT" : "WARNING");
-        document.getElementById('pStanding').style.color = activeUser.onLeave ? "var(--gold-bright)" : getStatusColor(activeUser.score);
-document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `<tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') ? 'var(--status-danger)' : (h.change === 'HOLD' ? 'var(--gold-bright)' : 'var(--status-excellent)')}">${h.change}</td></tr>`).join('');
-showSection('profile');
-    }
-
-    window.onload = renderRegistry;
-</script>
-</body>
-</html>`).join('');
-        showSection('profile');
-    }
-
-    function initChart() {
-        const ctx = document.getElementById('mainChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: students.slice(0, 10).map(s => s.name),
-                datasets: [{
-                    label: 'Honor Integrity Index',
-                    data: students.slice(0, 10).map(s => s.onLeave ? 0 : s.score),
-                    borderColor: '#c5a021',
-                    borderWidth: 3,
-                    tension: 0.4,
-                    fill: true,
-                    backgroundColor: 'rgba(197, 160, 33, 0.1)'
-                }]
-            },
-            options: {
-                plugins: { legend: { display: false } },
-                scales: { y: { grid: { color: '#1a1a1a' }, ticks: { color: '#888' } }, x: { ticks: { color: '#888' } } }
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false, 
+                plugins: { legend: { display: false } }, 
+                scales: { 
+                    y: { min: 70, max: 100, grid: { color: '#1a1a1a' }, ticks: { color: '#888' } }, 
+                    x: { ticks: { color: '#888' } } 
+                } 
             }
         });
     }
 
-    window.onload = function() {
-        renderRegistry();
-    };
+    function openGate(name) { 
+        activeUser = students.find(s => s.name === name); 
+        document.getElementById('passModal').style.display = 'flex'; 
+        document.getElementById('passInput').value = ""; 
+        document.getElementById('errorMsg').style.display = 'none'; 
+    }
+
+    function verifyAccess() { 
+        if(document.getElementById('passInput').value === activeUser.pass) { 
+            document.getElementById('passModal').style.display = 'none'; 
+            showProfile(); 
+        } else { 
+            document.getElementById('errorMsg').style.display = 'block'; 
+        } 
+    }
+
+    function showProfile() {
+        document.getElementById('pName').innerText = activeUser.name.toUpperCase();
+        document.getElementById('pScore').innerText = activeUser.onLeave ? "LEAVE" : activeUser.score;
+        document.getElementById('pScore').style.color = activeUser.onLeave ? "#f0d57a" : getStatusColor(activeUser.score);
+        document.getElementById('pStanding').innerText = activeUser.onLeave ? "PAUSED (EXAMS)" : (activeUser.score >= 95 ? "EXCELLENT" : "WARNING");
+        document.getElementById('pStanding').style.color = activeUser.onLeave ? "#f0d57a" : getStatusColor(activeUser.score);
+        document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `<tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') ? '#ff6b6b' : (h.change === 'HOLD' ? '#f0d57a' : '#51cf66')}">${h.change}</td></tr>`).join('');
+        showSection('profile');
+    }
+
+    window.onload = function() { renderRegistry(); };
 </script>
 </body>
 </html>
-  
