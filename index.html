@@ -346,14 +346,17 @@
         let onMedicalLeave = (s.name === "Hershika");
         let initialScore = 100;
 
-        if (s.name === "Poonam" || s.name === "Kushal") {
+        if (s.name === "Poonam") {
             initialScore = 98; // -1 on 4th, -1 on 5th
             history.push({ date: "2026-05-05", change: "-1", reason: "Late but informed" });
+        } else if (s.name === "Kushal") {
+            initialScore = 99; // Only deduction from today
+            history.push({ date: "2026-05-05", change: "-1", reason: "Late but informed" });
         } else if (s.name === "Aarya(sr)") {
-            initialScore = 96; // -5 on 4th, +1 on 5th
+            initialScore = 96; 
             history.push({ date: "2026-05-05", change: "+1", reason: "Regular attendance" });
         } else if (s.name === "Hershika") {
-            initialScore = 96; // Locked at previous score
+            initialScore = 96; 
             history.push({ date: "2026-05-05", change: "HOLD", reason: "Medical Leave (Sick)" });
         } else if (onExamLeave) {
             history.push({ date: "2026-05-05", change: "HOLD", reason: "Exam Leave Status" });
