@@ -304,70 +304,67 @@
 </div>
 <script>
     const studentsData = [
-        { name: "Poonam", pass: "Pn@428", streak: "2 Days" }, 
-        { name: "Diya", pass: "Dy#567", streak: "2 Days" }, 
-        { name: "Aarya", pass: "An-027", streak: "2 Days" },
+        { name: "Poonam", pass: "Pn@428", streak: "3 Days" }, 
+        { name: "Diya", pass: "Dy#567", streak: "3 Days" }, 
+        { name: "Aarya", pass: "An-027", streak: "3 Days" },
         { name: "Aryan", pass: "Ay@915", streak: "PAUSED" }, 
         { name: "Hershika", pass: "Hr#408", streak: "0 Days" }, 
         { name: "Luksh", pass: "Lk@673", streak: "PAUSED" },
-        { name: "Nihal", pass: "Nh!352", streak: "2 Days" }, 
-        { name: "Vivek", pass: "Vk#804", streak: "2 Days" }, 
-        { name: "Saloni", pass: "Sl@291", streak: "2 Days" },
-        { name: "Ritika", pass: "Rt@123", streak: "2 Days" }, 
-        { name: "Angel", pass: "Ag#418", streak: "2 Days" }, 
-        { name: "Rajveer", pass: "Rv@572", streak: "2 Days" },
-        { name: "Ranveer", pass: "Rn!940", streak: "2 Days" }, 
-        { name: "Rahul", pass: "Rh#315", streak: "2 Days" }, 
-        { name: "Kushal", pass: "Ks@884", streak: "2 Days" },
-        { name: "Eeshal", pass: "Es!207", streak: "2 Days" }, 
-        { name: "Michelle", pass: "Mc#761", streak: "2 Days" }, 
-        { name: "Mahima", pass: "Mh@438", streak: "2 Days" },
-        { name: "Aarya(sr)", pass: "Ar#126", streak: "2 Days" }, 
-        { name: "Dheeraj", pass: "Dh!592", streak: "1 Day" }, 
-        { name: "Vimal", pass: "Vm@370", streak: "2 Days" },
-        { name: "Ananya", pass: "An#845", streak: "2 Days" }, 
-        { name: "Chahat", pass: "Ch!214", streak: "1 Day" }
+        { name: "Nihal", pass: "Nh!352", streak: "3 Days" }, 
+        { name: "Vivek", pass: "Vk#804", streak: "3 Days" }, 
+        { name: "Saloni", pass: "Sl@291", streak: "3 Days" },
+        { name: "Ritika", pass: "Rt@123", streak: "3 Days" }, 
+        { name: "Angel", pass: "Ag#418", streak: "3 Days" }, 
+        { name: "Rajveer", pass: "Rv@572", streak: "3 Days" },
+        { name: "Ranveer", pass: "Rn!940", streak: "3 Days" }, 
+        { name: "Rahul", pass: "Rh#315", streak: "3 Days" }, 
+        { name: "Kushal", pass: "Ks@884", streak: "3 Days" },
+        { name: "Eeshal", pass: "Es!207", streak: "3 Days" }, 
+        { name: "Michelle", pass: "Mc#761", streak: "0 Days" }, 
+        { name: "Mahima", pass: "Mh@438", streak: "3 Days" },
+        { name: "Aarya(sr)", pass: "Ar#126", streak: "3 Days" }, 
+        { name: "Dheeraj", pass: "Dh!592", streak: "2 Days" }, 
+        { name: "Vimal", pass: "Vm@370", streak: "3 Days" },
+        { name: "Ananya", pass: "An#845", streak: "3 Days" }, 
+        { name: "Chahat", pass: "Ch!214", streak: "2 Days" }
     ];
-
-    function getStatusColor(score) {
-        if(score >= 95) return "#51cf66"; 
-        if(score >= 90) return "#fcc419";   
-        if(score >= 85) return "#fd7e14";     
-        return "#ff6b6b";                    
-    }
 
     let students = studentsData.map(s => {
         let history = [
             { date: "2026-05-01", change: "+0", reason: "Opening Balance" },
-            { date: "2026-05-04", change: "LOGGED", reason: "Previous activity" }
+            { date: "2026-05-05", change: "LOGGED", reason: "Prior activity" }
         ];
         
         let onExamLeave = (s.name === "Aryan" || s.name === "Luksh");
         let onMedicalLeave = (s.name === "Hershika");
-        let initialScore = 100;
+        let currentScore = 100;
 
         if (s.name === "Poonam") {
-            initialScore = 98; 
-            history.push({ date: "2026-05-05", change: "-1", reason: "Late but informed" });
+            currentScore = 99; // 98 yesterday + 1 today
+            history.push({ date: "2026-05-06", change: "+1", reason: "Regular attendance" });
+        } else if (s.name === "Aarya") {
+            currentScore = 99; // 100 yesterday - 1 today
+            history.push({ date: "2026-05-06", change: "-1", reason: "Late but informed" });
+        } else if (s.name === "Michelle") {
+            currentScore = 99; // 100 yesterday - 1 today
+            history.push({ date: "2026-05-06", change: "-1", reason: "Absent but informed" });
         } else if (s.name === "Kushal") {
-            initialScore = 99; 
-            history.push({ date: "2026-05-05", change: "-1", reason: "Late but informed" });
+            currentScore = 100; // 99 yesterday + 1 today
+            history.push({ date: "2026-05-06", change: "+1", reason: "Regular attendance" });
         } else if (s.name === "Aarya(sr)") {
-            initialScore = 96; 
-            history.push({ date: "2026-05-05", change: "+1", reason: "Regular attendance" });
-        } else if (s.name === "Hershika") {
-            initialScore = 96; 
-            history.push({ date: "2026-05-05", change: "HOLD", reason: "Medical Leave (Sick)" });
-        } else if (onExamLeave) {
-            history.push({ date: "2026-05-05", change: "HOLD", reason: "Exam Leave Status" });
+            currentScore = 97; // 96 yesterday + 1 today
+            history.push({ date: "2026-05-06", change: "+1", reason: "Regular attendance" });
+        } else if (onExamLeave || onMedicalLeave) {
+            currentScore = s.name === "Hershika" ? 96 : 100;
+            history.push({ date: "2026-05-06", change: "HOLD", reason: "On Leave" });
         } else {
-            initialScore = 100; // Corrected: Angel and Chahat now at 100
-            history.push({ date: "2026-05-05", change: "+1", reason: "Regular attendance" });
+            currentScore = 100;
+            history.push({ date: "2026-05-06", change: "+1", reason: "Regular attendance" });
         }
 
         return { 
             ...s, 
-            score: initialScore, 
+            score: currentScore, 
             onLeave: (onExamLeave || onMedicalLeave), 
             leaveType: onMedicalLeave ? "MEDICAL LEAVE" : "ON EXAM LEAVE",
             history: history, 
@@ -376,6 +373,13 @@
     });
 
     let activeUser = null;
+
+    function getStatusColor(score) {
+        if(score >= 95) return "#51cf66"; 
+        if(score >= 90) return "#fcc419";   
+        if(score >= 85) return "#fd7e14";     
+        return "#ff6b6b";                    
+    }
 
     function renderRegistry() {
         const grid = document.getElementById('registryGrid');
@@ -451,10 +455,6 @@
     }
 
     window.onload = function() { renderRegistry(); };
-</script>
-</body>
-</html>
-function() { renderRegistry(); };
 </script>
 </body>
 </html>
