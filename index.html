@@ -305,81 +305,82 @@
 </div>
 <script>
     const studentsData = [
-        { name: "Poonam", pass: "Pn@428", streak: "4 Days" }, 
-        { name: "Diya", pass: "Dy#567", streak: "4 Days" }, 
-        { name: "Aarya", pass: "An-027", streak: "4 Days" },
+        { name: "Saloni[🖋]️", pass: "Sl@291", streak: "5 Days" },
+        { name: "Ritika [🖋️]", pass: "Rt@123", streak: "5 Days" },
+        { name: "Kushal [🖋️]", pass: "Ks@884", streak: "5 Days" },
+        { name: "Vimal [🖋️]", pass: "Vm@370", streak: "5 Days" },
+        { name: "Poonam", pass: "Pn@428", streak: "5 Days" }, 
+        { name: "Diya", pass: "Dy#567", streak: "5 Days" }, 
+        { name: "Aarya", pass: "An-027", streak: "5 Days" },
         { name: "Aryan", pass: "Ay@915", streak: "PAUSED" }, 
         { name: "Hershika", pass: "Hr#408", streak: "0 Days" }, 
         { name: "Luksh", pass: "Lk@673", streak: "PAUSED" },
-        { name: "Nihal", pass: "Nh!352", streak: "4 Days" }, 
-        { name: "Vivek", pass: "Vk#804", streak: "4 Days" }, 
-        { name: "Saloni", pass: "Sl@291", streak: "4 Days" },
-        { name: "Ritika", pass: "Rt@123", streak: "4 Days" }, 
-        { name: "Angel", pass: "Ag#418", streak: "4 Days" }, 
-        { name: "Rajveer", pass: "Rv@572", streak: "0 Days" },
-        { name: "Ranveer", pass: "Rn!940", streak: "4 Days" }, 
-        { name: "Rahul", pass: "Rh#315", streak: "0 Days" }, 
-        { name: "Kushal", pass: "Ks@884", streak: "4 Days" },
-        { name: "Eeshal", pass: "Es!207", streak: "0 Days" }, 
-        { name: "Michelle", pass: "Mc#761", streak: "1 Day" }, 
-        { name: "Mahima", pass: "Mh@438", streak: "4 Days" },
+        { name: "Nihal", pass: "Nh!352", streak: "0 Days" }, 
+        { name: "Vivek", pass: "Vk#804", streak: "0 Days" },  
+        { name: "Angel", pass: "Ag#418", streak: "0 Days" }, 
+        { name: "Rajveer", pass: "Rv@572", streak: "1 Day" },
+        { name: "Ranveer", pass: "Rn!940", streak: "1 Day" }, 
+        { name: "Rahul", pass: "Rh#315", streak: "0 Days" },         
+        { name: "Eeshal", pass: "Es!207", streak: "1 Day" }, 
+        { name: "Michelle", pass: "Mc#761", streak: "2 Days" }, 
+        { name: "Mahima", pass: "Mh@438", streak: "5 Days" },
         { name: "Aarya(sr)", pass: "Ar#126", streak: "0 Days" }, 
-        { name: "Dheeraj", pass: "Dh!592", streak: "3 Days" }, 
-        { name: "Vimal", pass: "Vm@370", streak: "4 Days" },
-        { name: "Ananya", pass: "An#845", streak: "4 Days" }, 
-        { name: "Chahat", pass: "Ch!214", streak: "3 Days" }
+        { name: "Dheeraj", pass: "Dh!592", streak: "4 Days" },
+        { name: "Ananya", pass: "An#845", streak: "5 Days" }, 
+        { name: "Chahat", pass: "Ch!214", streak: "4 Days" }
     ];
 
     let students = studentsData.map(s => {
         let history = [
             { date: "2026-05-01", change: "+0", reason: "Opening Balance" },
-            { date: "2026-05-06", change: "LOGGED", reason: "Prior activity" }
+            { date: "2026-05-07", change: "LOGGED", reason: "Prior activity" }
         ];
         
         let onExamLeave = (s.name === "Aryan" || s.name === "Luksh");
         let onMedicalLeave = (s.name === "Hershika");
-        let currentScore = 100;
+        
+        // Base starting scores from May 7th
+        let prevScore = 100;
+        if (s.name === "Aarya(sr)") prevScore = 93;
+        else if (s.name === "Eeshal") prevScore = 96;
+        else if (s.name === "Ranveer" || s.name === "Rahul") prevScore = 99;
+        else if (s.name === "Poonam") prevScore = 98;
+        else if (s.name === "Angel") prevScore = 99;
+        else if (s.name === "Hershika") prevScore = 96;
 
-        // --- MAY 7th REFINED CALCULATIONS ---
-        if (s.name === "Aarya(sr)") {
-            currentScore = 93; // 97 - 4
-            history.push({ date: "2026-05-07", change: "-4", reason: "Absent without permission" });
-        } else if (s.name === "Eeshal") {
-            currentScore = 96; // 100 - 4
-            history.push({ date: "2026-05-07", change: "-4", reason: "Absent without permission" });
-        } else if (s.name === "Rajveer" || s.name === "Rahul") {
-            currentScore = 99; // 100 - 1
-            history.push({ date: "2026-05-07", change: "-1", reason: "Absent but informed" });
-        } else if (s.name === "Poonam") {
-            currentScore = 98; // 99 - 1 (No attendance bonus for lateness)
-            history.push({ date: "2026-05-07", change: "-1", reason: "Late with permission" });
-        } else if (s.name === "Angel") {
-            currentScore = 99; // 100 - 1 (No attendance bonus for lateness)
-            history.push({ date: "2026-05-07", change: "-1", reason: "Late with permission" });
-        } else if (s.name === "Aarya" || s.name === "Michelle") {
-            currentScore = 100; // Recovers from previous 99
-            history.push({ date: "2026-05-07", change: "+1", reason: "Regular attendance" });
+        let currentScore = prevScore;
+
+        // --- MAY 8th CALCULATIONS ---
+        if (s.name === "Aarya(sr)" || s.name === "Rahul") {
+            currentScore = prevScore - 4;
+            history.push({ date: "2026-05-08", change: "-4", reason: "Absent without permission" });
+        } else if (s.name === "Angel" || s.name === "Nihal" || s.name === "Vivek") {
+            currentScore = prevScore - 1;
+            history.push({ date: "2026-05-08", change: "-1", reason: "Absent but informed" });
         } else if (onExamLeave || onMedicalLeave) {
-            currentScore = s.name === "Hershika" ? 96 : 100;
-            history.push({ date: "2026-05-07", change: "HOLD", reason: "On Leave" });
+            history.push({ date: "2026-05-08", change: "HOLD", reason: "On Leave" });
         } else {
-            // Everyone else present and on-time stays capped at 100
-            currentScore = 100;
-            history.push({ date: "2026-05-07", change: "+1", reason: "Regular attendance" });
+            currentScore = Math.min(100, prevScore + 1);
+            history.push({ date: "2026-05-08", change: "+1", reason: "Regular attendance" });
+        }
+
+        // --- BADGE LOGIC INCLUDING GOLDEN PEN ---
+        let baseBadge = onMedicalLeave ? "💊" : (onExamLeave ? "📝" : (currentScore === 100 ? "🛡️" : "⚠️"));
+        
+        // Manual Golden Pen assignment
+        const toppers = ["Kushal", "Saloni", "Vimal", "Ritika"];
+        if (toppers.includes(s.name)) {
+            baseBadge = "🖋️ " + baseBadge;
         }
 
         return { 
-        ...s, 
-        score: currentScore, 
-        onLeave: (onExamLeave || onMedicalLeave), 
-        leaveType: onMedicalLeave ? "MEDICAL LEAVE" : "ON EXAM LEAVE",
-        history: history, 
-        // FIXED BADGE LOGIC:
-        badges: onMedicalLeave ? "💊" : 
-        (onExamLeave ? "📝" : 
-        (currentScore === 100 ? "🛡️" : "⚠️")) 
+            ...s, 
+            score: currentScore, 
+            onLeave: (onExamLeave || onMedicalLeave), 
+            leaveType: onMedicalLeave ? "MEDICAL LEAVE" : "ON EXAM LEAVE",
+            history: history, 
+            badges: baseBadge 
         };
-        
     });
 
     let activeUser = null;
@@ -461,6 +462,13 @@
         document.getElementById('pStanding').innerText = activeUser.onLeave ? activeUser.leaveType : (activeUser.score >= 95 ? "EXCELLENT" : "WARNING");
         document.getElementById('pStanding').style.color = activeUser.onLeave ? "#f0d57a" : getStatusColor(activeUser.score);
         document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `<tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') ? '#ff6b6b' : (h.change === 'HOLD' ? '#f0d57a' : '#51cf66')}">${h.change}</td></tr>`).join('');
+        showSection('profile');
+    }
+
+    window.onload = function() { renderRegistry(); };
+</script>
+</body>
+</html>')}">${h.change}</td></tr>`).join('');
         showSection('profile');
     }
 
