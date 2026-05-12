@@ -347,64 +347,65 @@
 </div>
 <script>
     const studentsData = [
-        { name: "Saloni [🖋️]", pass: "Sl@291", streak: "6 Days", badges: "🖋️, 🛡️" },
-        { name: "Ritika [🖋️]", pass: "Rt@123", streak: "6 Days", badges: "🖋, 🛡️" },
-        { name: "Kushal [🖋️]", pass: "Ks@884", streak: "6 Days", badges: "🖋️, 🛡️" },
-        { name: "Vimal [🖋️]", pass: "Vm@370", streak: "6 Days", badges: "🖋️, 🛡️" },
-        { name: "Poonam", pass: "Pn@428", streak: "0 Days", badges: "🛡" }, 
-        { name: "Diya", pass: "Dy#567", streak: "6 Days", badges: "🛡"  }, 
-        { name: "Aarya", pass: "An-027", streak: "6 Days", badges: "⚠️"  },
+        { name: "Saloni [🖋️]", pass: "Sl@291", streak: "7 Days", badges: "🖋️, 🔥, 🛡️" },
+        { name: "Ritika [🖋️]", pass: "Rt@123", streak: "7 Days", badges: "🖋️, 🔥, 🛡️" },
+        { name: "Kushal [🖋️]", pass: "Ks@884", streak: "7 Days", badges: "🖋️, 🔥, 🛡️" },
+        { name: "Vimal [🖋️]", pass: "Vm@370", streak: "7 Days", badges: "🖋️, 🔥, 🛡️" },
+        { name: "Poonam", pass: "Pn@428", streak: "1 Day", badges: "⚠️️" }, 
+        { name: "Diya", pass: "Dy#567", streak: "7 Days", badges: "🔥, 🛡️"  }, 
+        { name: "Aarya", pass: "An-027", streak: "7 Days", badges: "🔥️"  },
         { name: "Aryan", pass: "Ay@915", streak: "PAUSED", badges: "⚠️"  }, 
         { name: "Hershika", pass: "Hr#408", streak: "PAUSED", badges: "⚠️"  }, 
         { name: "Luksh", pass: "Lk@673", streak: "PAUSED", badges: "⚠️"  },
-        { name: "Nihal", pass: "Nh!352", streak: "1 Day", badges: "🛡"  }, 
-        { name: "Vivek", pass: "Vk#804", streak: "1 Day", badges: "🛡"  },  
-        { name: "Angel", pass: "Ag#418", streak: "1 Day", badges: "⚠️"  }, 
-        { name: "Rajveer", pass: "Rv@572", streak: "2 Days", badges: "🛡"  },
-        { name: "Ranveer", pass: "Rn!940", streak: "2 Days", badges: "🛡"  }, 
-        { name: "Rahul", pass: "Rh#315", streak: "0 Days", badges: "⚠️"  },         
-        { name: "Eeshal", pass: "Es!207", streak: "2 Days", badges: "⚠️"  }, 
-        { name: "Michelle", pass: "Mc#761", streak: "3 Days", badges: "🛡"  }, 
-        { name: "Mahima", pass: "Mh@438", streak: "6 Days", badges: "🛡"  },
+        { name: "Nihal", pass: "Nh!352", streak: "2 Days", badges: "🛡️"  }, 
+        { name: "Vivek", pass: "Vk#804", streak: "2 Days", badges: "🛡️"  },  
+        { name: "Angel", pass: "Ag#418", streak: "2 Days", badges: "🛡️"  }, 
+        { name: "Rajveer", pass: "Rv@572", streak: "3 Days", badges: "🛡️"  },
+        { name: "Ranveer", pass: "Rn!940", streak: "3 Days", badges: "🛡️"  }, 
+        { name: "Rahul", pass: "Rh#315", streak: "PAUSED", badges: "⚠️"  },         
+        { name: "Eeshal", pass: "Es!207", streak: "3 Days", badges: "⚠️"  }, 
+        { name: "Michelle", pass: "Mc#761", streak: "4 Days", badges: "🛡️"  }, 
+        { name: "Mahima", pass: "Mh@438", streak: "7 Days", badges: "🔥, 🛡️"  },
         { name: "Aarya(sr)", pass: "Ar#126", streak: "PAUSED", badges: "⚠️"  }, 
-        { name: "Dheeraj", pass: "Dh!592", streak: "5 Days", badges: "🛡"  },
-        { name: "Ananya", pass: "An#845", streak: "0 Days", badges: "⚠️"  }, 
-        { name: "Chahat", pass: "Ch!214", streak: "5 Days", badges: "🛡"  }
+        { name: "Dheeraj", pass: "Dh!592", streak: "6 Days", badges: "🛡️"  },
+        { name: "Ananya", pass: "An#845", streak: "1 Day", badges: "🛡️"  }, 
+        { name: "Chahat", pass: "Ch!214", streak: "6 Days", badges: "🛡️"  }
     ];
 
     let students = studentsData.map(s => {
         let history = [
             { date: "2026-05-01", change: "+0", reason: "Initial Score" },
-            { date: "2026-05-08", change: "SYNC", reason: "Weekly Log" }
+            { date: "2026-05-11", change: "SYNC", reason: "Previous Log" }
         ];
         
-        let onExamLeave = (s.name === "Aryan" || s.name === "Luksh" || s.name === "Aarya(sr)");
+        let onExamLeave = (s.name === "Aryan" || s.name === "Luksh" || s.name === "Aarya(sr)" || s.name === "Rahul");
         let onMedicalLeave = (s.name === "Hershika");
         
-        let friScore = 100;
-        if (s.name === "Aarya(sr)") friScore = 89;
-        else if (s.name === "Rahul") friScore = 95;
-        else if (s.name === "Angel") friScore = 98;
-        else if (s.name === "Poonam") friScore = 99; // 99 - 1 (informed) = 98
-        else if (s.name === "Eeshal") friScore = 97;
-        else if (s.name === "Hershika") friScore = 96;
+        // Starting scores from yesterday's closing (May 11)
+        let yesterdayScore = 100;
+        if (s.name === "Aarya(sr)") yesterdayScore = 89;
+        else if (s.name === "Rahul") yesterdayScore = 91; 
+        else if (s.name === "Angel") yesterdayScore = 99;
+        else if (s.name === "Poonam") yesterdayScore = 98;
+        else if (s.name === "Eeshal") yesterdayScore = 98;
+        else if (s.name === "Ananya") yesterdayScore = 99;
+        else if (s.name === "Aarya") yesterdayScore = 99;
+        else if (s.name === "Hershika") yesterdayScore = 96;
 
-        let currentScore = friScore;
+        let currentScore = yesterdayScore;
 
-        if (s.name === "Rahul") {
-            currentScore = friScore - 4;
-            history.push({ date: "2026-05-11", change: "-4", reason: "Absent without info" });
-        } else if (s.name === "Poonam" || s.name === "Ananya") {
-            currentScore = friScore - 1;
-            history.push({ date: "2026-05-11", change: "-1", reason: "Absent (Informed)" });
+        // Specific adjustments for May 12
+        if (s.name === "Poonam" || s.name === "Nihal" || s.name === "Vivek") {
+            currentScore = yesterdayScore - 1;
+            history.push({ date: "2026-05-12", change: "-1", reason: "Late (Informed)" });
         } else if (s.name === "Aarya") {
-            currentScore = friScore - 1;
-            history.push({ date: "2026-05-11", change: "-1", reason: "Late (Informed)" });
+            currentScore = yesterdayScore - 1;
+            history.push({ date: "2026-05-12", change: "-1", reason: "Absent (Informed)" });
         } else if (onExamLeave || onMedicalLeave) {
-            history.push({ date: "2026-05-11", change: "HOLD", reason: "Exam/Med Leave" });
+            history.push({ date: "2026-05-12", change: "HOLD", reason: "Exam/Med Leave" });
         } else {
-            currentScore = Math.min(100, friScore + 1);
-            history.push({ date: "2026-05-11", change: "+1", reason: "Present" });
+            currentScore = Math.min(100, yesterdayScore + 1);
+            history.push({ date: "2026-05-12", change: "+1", reason: "Present" });
         }
 
         let baseBadge = onMedicalLeave ? "💊" : (onExamLeave ? "📝" : (currentScore === 100 ? "🛡️" : "⚠️"));
@@ -416,7 +417,6 @@
             onLeave: (onExamLeave || onMedicalLeave), 
             leaveType: onMedicalLeave ? "MEDICAL LEAVE" : "ON EXAM LEAVE", 
             history: history, 
-            // MANUAL CONTROL: Priority given to manual badges list
             badges: s.badges ? s.badges : baseBadge 
         };
     });
