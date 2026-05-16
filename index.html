@@ -347,29 +347,29 @@
 </div>
 <script>
     const studentsData = [
-        { name: "Saloni [🖋️²]", pass: "Sl@291", streak: "10 Days", badges: "🔥, 🛡️, 🖋️², 🌟" },
+        { name: "Saloni [🖋️²]", pass: "Sl@291", streak: "11 Days", badges: "🔥, 🛡️, 🖋️², 🌟²" },
         { name: "Mahima [🖋]", pass: "Mh@438", streak: "10 Days", badges: "🔥, 🛡️, 🖋️"  },
-        { name: "Vivek [🖋]", pass: "Vk#804", streak: "5 Days", badges: "🛡️, 🖋️"  },
-        { name: "Ritika", pass: "Rt@123", streak: "10 Days", badges: "🔥, 🛡️" },
+        { name: "Vivek [🖋]", pass: "Vk#804", streak: "0 Days", badges: "🖋️"  },
+        { name: "Ritika", pass: "Rt@123", streak: "11 Days", badges: "🔥, 🛡️" },
         { name: "Kushal", pass: "Ks@884", streak: "9 Days", badges: "🔥, 🛡️" },
         { name: "Vimal", pass: "Vm@370", streak: "10 Days", badges: "🔥, 🛡️" },
-        { name: "Poonam", pass: "Pn@428", streak: "4 Days", badges: "⚠️" }, 
-        { name: "Diya", pass: "Dy#567", streak: "10 Days", badges: "🔥, 🛡️"  }, 
-        { name: "Aarya", pass: "An-027", streak: "10 Days", badges: "🔥"  },
+        { name: "Poonam", pass: "Pn@428", streak: "0 Days", badges: "⚠️" }, 
+        { name: "Diya", pass: "Dy#567", streak: "11 Days", badges: "🔥, 🛡️, 🌟"  }, 
+        { name: "Aarya", pass: "An-027", streak: "11 Days", badges: "🔥, 🌟"  },
         { name: "Aryan", pass: "Ay@915", streak: "PAUSED", badges: "⚠️"  }, 
         { name: "Hershika", pass: "Hr#408", streak: "PAUSED", badges: "⚠️"  }, 
-        { name: "Luksh", pass: "Lk@673", streak: "PAUSED", badges: "⚠️"  },
+        { name: "Luksh", pass: "Lk@673", streak: "1 Day", badges: "🛡️"  },
         { name: "Nihal", pass: "Nh!352", streak: "0 Days", badges: "⚠️"  },   
-        { name: "Angel", pass: "Ag#418", streak: "5 Days", badges: "🛡️"  }, 
-        { name: "Rajveer", pass: "Rv@572", streak: "10 Days", badges: "🔥"  },
-        { name: "Ranveer", pass: "Rn!940", streak: "5 Days", badges: "🛡️"  }, 
+        { name: "Angel", pass: "Ag#418", streak: "6 Days", badges: "🛡️, 🌟"  }, 
+        { name: "Rajveer", pass: "Rv@572", streak: "11 Days", badges: "🔥"  },
+        { name: "Ranveer", pass: "Rn!940", streak: "0 Days", badges: "⚠️"  }, 
         { name: "Rahul", pass: "Rh#315", streak: "PAUSED", badges: "⚠️"  },         
         { name: "Eeshal", pass: "Es!207", streak: "1 Day", badges: "🛡️"  }, 
         { name: "Michelle", pass: "Mc#761", streak: "7 Days", badges: "🔥, 🛡️"  }, 
         { name: "Aarya(sr)", pass: "Ar#126", streak: "PAUSED", badges: "⚠️"  }, 
         { name: "Dheeraj", pass: "Dh!592", streak: "9 Days", badges: "🔥, 🛡️"  },
         { name: "Ananya", pass: "An#845", streak: "4 Days", badges: "🛡️"  }, 
-        { name: "Chahat", pass: "Ch!214", streak: "9 Days", badges: "🔥, 🛡️"  }
+        { name: "Chahat", pass: "Ch!214", streak: "10 Days", badges: "🔥, 🛡️"  }
     ];
 
     let students = studentsData.map(s => {
@@ -377,37 +377,45 @@
             { date: "2026-05-14", change: "SYNC", reason: "Manual Sync" }
         ];
         
-        let onExamLeave = (s.name === "Aryan" || s.name === "Luksh" || s.name === "Aarya(sr)" || s.name === "Rahul");
+        let onExamLeave = (s.name === "Aryan" || s.name === "Aarya(sr)" || s.name === "Rahul");
         let onMedicalLeave = (s.name === "Hershika");
         
-        // Base scores from May 14 as per your manual ledger
+        // Base scores from May 15 manual ledger input configurations
         let baselineScore = 100;
-        if (s.name === "Poonam") baselineScore = 97;
-        else if (s.name === "Eeshal") baselineScore = 99;
-        else if (s.name === "Aarya") baselineScore = 94; 
+        if (s.name === "Poonam") baselineScore = 98;
+        else if (s.name === "Aarya") baselineScore = 93; 
         else if (s.name === "Rahul") baselineScore = 91;
         else if (s.name === "Aarya(sr)") baselineScore = 89;
         else if (s.name === "Hershika") baselineScore = 96;
-        else if (s.name === "Nihal") baselineScore = 100;
-        else if (s.name === "Rajveer") baselineScore = 100;
+        else if (s.name === "Nihal") baselineScore = 99;
+        else if (s.name === "Rajveer") baselineScore = 99;
 
         let currentScore = baselineScore;
 
-        // Specific adjustments for May 15
+        // Specific adjustments for May 16
         if (s.name === "Aarya") {
-            currentScore = 93; // Late informed adjustment
-            history.push({ date: "2026-05-15", change: "-1", reason: "Late (Informed)" });
+            currentScore = 96; 
+            history.push({ date: "2026-05-16", change: "+3", reason: "Present / Performance Up" });
+        } else if (s.name === "Poonam") {
+            currentScore = 97;
+            history.push({ date: "2026-05-16", change: "-1", reason: "Absent (Informed)" });
+        } else if (s.name === "Ranveer") {
+            currentScore = 99;
+            history.push({ date: "2026-05-16", change: "-1", reason: "Absent (Informed)" });
         } else if (s.name === "Nihal") {
-            currentScore = 99; // Absent informed adjustment
-            history.push({ date: "2026-05-15", change: "-1", reason: "Absent (Informed)" });
-        } else if (onExamLeave || onMedicalLeave) {
-            history.push({ date: "2026-05-15", change: "HOLD", reason: "Exam/Med Leave" });
+            currentScore = 95;
+            history.push({ date: "2026-05-16", change: "-4", reason: "Absent (Uninformed)" });
+        } else if (s.name === "Vivek") {
+            currentScore = 96;
+            history.push({ date: "2026-05-16", change: "-4", reason: "Absent (Uninformed)" });
         } else if (s.name === "Rajveer") {
-            currentScore = 99; // Sync with your manual ledger
-            history.push({ date: "2026-05-15", change: "-1", reason: "Manual Sync" });
+            currentScore = 100;
+            history.push({ date: "2026-05-16", change: "+1", reason: "Present" });
+        } else if (onExamLeave || onMedicalLeave) {
+            history.push({ date: "2026-05-16", change: "HOLD", reason: "Exam/Med Leave" });
         } else {
-            currentScore = Math.min(100, baselineScore + 1);
-            history.push({ date: "2026-05-15", change: "+1", reason: "Present" });
+            currentScore = 100;
+            history.push({ date: "2026-05-16", change: "+1", reason: "Present" });
         }
 
         // Handle badges based on your manual input
