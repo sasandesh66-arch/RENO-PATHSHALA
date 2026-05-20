@@ -10,17 +10,18 @@
 
     <style>
         :root {
-            --emerald: #041e1a;
-            --emerald-light: #0a3d35;
-            --gold: #c5a021;
-            --gold-bright: #f0d57a;
+            /* LUXURY MIDNIGHT VELVET & CHAMPAGNE GOLD PALETTE */
+            --emerald: #09090e; /* Deep Obsidian Black */
+            --emerald-light: #12131c; /* Premium Dark Velvet */
+            --gold: #dfb76c; /* Liquid Champagne Gold */
+            --gold-bright: #fff0ca; /* Radiant Metallic Aurum */
             --white: #ffffff;
-            --dim: rgba(255, 255, 255, 0.6);
-            --border: rgba(197, 160, 33, 0.3);
-            --status-excellent: #51cf66;
-            --status-warning: #fcc419;
-            --status-extra: #fd7e14;
-            --status-danger: #ff6b6b;
+            --dim: rgba(255, 255, 255, 0.55);
+            --border: rgba(223, 183, 108, 0.25);
+            --status-excellent: #00e676; /* Cyber Mint Green */
+            --status-warning: #ffd600; /* Electric Gold Yellow */
+            --status-extra: #ff9100; /* Neon Amber */
+            --status-danger: #ff1744; /* Vivid Crimson Ruby */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,8 +30,9 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--emerald);
             background-image: 
-                radial-gradient(circle at 0% 0%, rgba(10, 61, 53, 0.8) 0%, transparent 50%),
-                linear-gradient(rgba(4, 30, 26, 0.9), rgba(4, 30, 26, 0.9));
+                radial-gradient(circle at 50% 0%, rgba(110, 68, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 0% 100%, rgba(223, 183, 108, 0.08) 0%, transparent 40%),
+                linear-gradient(rgba(9, 9, 14, 0.98), rgba(9, 9, 14, 0.98));
             color: var(--white);
             min-height: 100vh;
         }
@@ -42,8 +44,9 @@
             white-space: nowrap;
             gap: 40px;
             padding: 25px 40px;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(20px);
+            background: rgba(18, 19, 28, 0.75);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -65,7 +68,10 @@
             flex-shrink: 0;
         }
 
-        nav a:hover, nav a.active { color: var(--gold-bright); }
+        nav a:hover, nav a.active { 
+            color: var(--gold-bright); 
+            text-shadow: 0 0 10px rgba(255, 240, 202, 0.4);
+        }
 
         header {
             padding: 80px 20px 40px;
@@ -79,6 +85,10 @@
             color: var(--gold);
             text-transform: uppercase;
             margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff0ca 0%, #dfb76c 50%, #9a7432 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 10px rgba(223, 183, 108, 0.2));
         }
 
         .subtitle {
@@ -104,47 +114,50 @@
         }
 
         .exec-card {
-            background: rgba(255,255,255,0.03);
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
             border: 1px solid var(--border);
             padding: 35px;
-            border-radius: 2px;
-            transition: 0.4s;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
             text-align: center;
         }
 
         .exec-card:hover {
             border-color: var(--gold-bright);
-            background: rgba(197, 160, 33, 0.05);
+            background: rgba(223, 183, 108, 0.07);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(223, 183, 108, 0.1);
         }
 
         .exec-name { font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 10px; }
         .exec-score { font-size: 3.5rem; font-weight: 900; }
         .exec-status-text { font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; padding: 20px 0; color: var(--gold-bright); }
 
-        .exec-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
-        .exec-table th { text-align: left; padding: 20px; color: var(--gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; border-bottom: 1px solid var(--border); }
-        .exec-table td { padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .exec-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.01); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+        .exec-table th { text-align: left; padding: 20px; color: var(--gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.2); }
+        .exec-table td { padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.03); }
 
         .protocol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .protocol-box h3 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
         
         .p-table { width: 100%; border-collapse: collapse; }
-        .p-table td { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+        .p-table td { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 0.9rem; }
         .p-table td:last-child { text-align: right; font-weight: 700; }
 
         .badge-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-        .badge-item { background: rgba(0,0,0,0.2); border: 1px solid var(--border); padding: 30px 15px; }
+        .badge-item { background: rgba(0,0,0,0.3); border: 1px solid var(--border); padding: 30px 15px; border-radius: 4px; transition: 0.3s; }
+        .badge-item:hover { border-color: var(--gold); background: rgba(223, 183, 108, 0.04); }
 
         .modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(4, 30, 26, 0.98);
+            background: rgba(9, 9, 14, 0.98);
             z-index: 2000;
             justify-content: center;
             align-items: center;
+            backdrop-filter: blur(10px);
         }
 
         .modal-content {
@@ -154,6 +167,7 @@
             width: 90%;
             max-width: 450px;
             text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(223, 183, 108, 0.1);
         }
 
         input {
@@ -167,21 +181,28 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
             outline: none;
+            transition: 0.3s;
         }
+        input:focus { border-bottom-color: var(--gold-bright); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
 
         .btn {
-            background: var(--gold);
-            color: var(--emerald);
+            background: linear-gradient(135deg, var(--gold) 0%, #9a7432 100%);
+            color: #09090e;
             border: none;
             padding: 15px 40px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 2px;
         }
 
-        .btn:hover { background: var(--gold-bright); box-shadow: 0 0 15px var(--gold); }
+        .btn:hover { 
+            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
+            box-shadow: 0 0 25px rgba(223, 183, 108, 0.5);
+            transform: scale(1.02);
+        }
 
         .profile-hero { border-bottom: 2px solid var(--gold); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
         .p-standing { font-size: 1.2rem; letter-spacing: 3px; font-weight: 700; }
@@ -194,20 +215,23 @@
             justify-content: center;
             margin: 20px 0;
             padding: 20px;
-            background: rgba(197, 160, 33, 0.05);
+            background: rgba(223, 183, 108, 0.03);
             border: 1px dashed var(--gold);
+            border-radius: 4px;
         }
         .award-badge {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             border: 1px solid var(--border);
             padding: 10px;
             min-width: 100px;
             border-radius: 4px;
+            transition: 0.3s;
         }
-        .award-emoji { font-size: 2rem; margin-bottom: 5px; }
+        .award-badge:hover { border-color: var(--gold-bright); transform: translateY(-2px); }
+        .award-emoji { font-size: 2rem; margin-bottom: 5px; filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
         .award-label { 
             font-size: 0.6rem; 
             font-weight: 900; 
@@ -221,7 +245,7 @@
             font-size: 1.1rem;
             color: var(--gold-bright);
             margin-top: 15px;
-            text-shadow: 0 0 10px rgba(197, 160, 33, 0.5);
+            text-shadow: 0 0 15px rgba(223, 183, 108, 0.6);
             text-align: center;
         }
 
@@ -229,6 +253,7 @@
             .logo { font-size: 2.5rem; letter-spacing: 5px; }
             .protocol-grid { grid-template-columns: 1fr; }
             nav { justify-content: flex-start; padding-left: 20px; }
+            .badge-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -269,7 +294,7 @@
     </section>
 
     <section id="analytics" class="view-section">
-        <div style="background:rgba(255,255,255,0.03); padding:40px; border:1px solid var(--border); height: 400px;">
+        <div style="background:rgba(255,255,255,0.02); padding:40px; border:1px solid var(--border); height: 400px; border-radius: 4px;">
             <canvas id="mainChart"></canvas>
         </div>
     </section>
@@ -326,7 +351,7 @@
         
         <div id="awardsContainer"></div>
 
-        <div style="background:rgba(255,255,255,0.03); padding:30px; border:1px solid var(--border)">
+        <div style="background:rgba(255,255,255,0.02); padding:30px; border:1px solid var(--border); border-radius: 4px;">
             <h4 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:20px">Adjustment Ledger</h4>
             <table class="p-table" id="ledgerBody"></table>
         </div>
@@ -347,30 +372,30 @@
 </div>
 <script>
     const studentsData = [
-        { name: "Saloni [🖋️²]", pass: "Sl@291", streak: "12 Days", score: 100, badges: "🔥, 🛡️, 🖋️², 🌟²" },
-        { name: "Mahima [🖋]", pass: "Mh@438", streak: "11 Days", score: 100, badges: "🔥, 🛡️, 🖋️"  },
-        { name: "Vivek [🖋]", pass: "Vk#804", streak: "1 Day", score: 97, badges: "🖋️"  },
-        { name: "Ritika", pass: "Rt@123", streak: "12 Days", score: 100, badges: "🔥, 🛡️" },
-        { name: "Kushal", pass: "Ks@884", streak: "10 Days", score: 100, badges: "🔥, 🛡️" },
-        { name: "Vimal", pass: "Vm@370", streak: "11 Days", score: 100, badges: "🔥, 🛡️" },
-        { name: "Poonam", pass: "Pn@428", streak: "0 Days", score: "LEAVE", badges: "⚠️" }, 
-        { name: "Diya", pass: "Dy#567", streak: "12 Days", score: 100, badges: "🔥, 🛡️, 🌟"  }, 
-        { name: "Aarya", pass: "An-027", streak: "0 Days", score: 95, badges: "🔥, 🌟"  },
-        { name: "Aryan", pass: "Ay@915", streak: "PAUSED", score: "LEAVE", badges: "⚠️"  }, 
+        { name: "Saloni [🖋️²]", pass: "Sl@291", streak: "13 Days", score: 100, badges: "🔥, 🛡️, 🖋️², 🌟²" },
+        { name: "Mahima [🖋]", pass: "Mh@438", streak: "12 Days", score: 100, badges: "🔥, 🛡️, 🖋️"  },
+        { name: "Vivek [🖋]", pass: "Vk#804", streak: "2 Days", score: 98, badges: "🖋️"  },
+        { name: "Ritika", pass: "Rt@123", streak: "13 Days", score: 100, badges: "🔥, 🛡️" },
+        { name: "Kushal", pass: "Ks@884", streak: "11 Days", score: 100, badges: "🔥, 🛡️" },
+        { name: "Vimal", pass: "Vm@370", streak: "12 Days", score: 100, badges: "🔥, 🛡️" },
+        { name: "Poonam", pass: "Pn@428", streak: "PAUSED", score: "LEAVE", badges: "⚠️" }, 
+        { name: "Diya", pass: "Dy#567", streak: "13 Days", score: 100, badges: "🔥, 🛡️, 🌟"  }, 
+        { name: "Aarya", pass: "An-027", streak: "0 Days", score: 91, badges: "🔥, 🌟"  },
+        { name: "Aryan", pass: "Ay@915", streak: "1 Day", score: 100, badges: "🛡️"  }, 
         { name: "Hershika", pass: "Hr#408", streak: "PAUSED", score: "LEAVE", badges: "⚠️"  }, 
-        { name: "Luksh", pass: "Lk@673", streak: "2 Days", score: 100, badges: "🛡️"  },
-        { name: "Nihal", pass: "Nh!352", streak: "1 Day", score: 96, badges: "⚠️"  },   
-        { name: "Angel", pass: "Ag#418", streak: "0 Days", score: 99, badges: "🌟"  }, 
-        { name: "Rajveer", pass: "Rv@572", streak: "12 Days", score: 100, badges: "🔥"  },
-        { name: "Ranveer", pass: "Rn!940", streak: "1 Days", score: 100, badges: "🛡️"  }, 
-        { name: "Rahul", pass: "Rh#315", streak: "PAUSED", score: "LEAVE", badges: "⚠️"  },         
-        { name: "Eeshal", pass: "Es!207", streak: "2 Days", score: 100, badges: "🛡️"  }, 
-        { name: "Michelle", pass: "Mc#761", streak: "8 Days", score: 100, badges: "🔥, 🛡️"  }, 
+        { name: "Luksh", pass: "Lk@673", streak: "3 Days", score: 99, badges: "🛡️"  },
+        { name: "Nihal", pass: "Nh!352", streak: "2 Days", score: 97, badges: "⚠️"  },   
+        { name: "Angel", pass: "Ag#418", streak: "0 Days", score: 98, badges: "🌟"  }, 
+        { name: "Rajveer", pass: "Rv@572", streak: "13 Days", score: 100, badges: "🔥"  },
+        { name: "Ranveer", pass: "Rn!940", streak: "1 Day", score: 100, badges: "🛡️"  }, 
+        { name: "Rahul", pass: "Rh#315", streak: "1 Day", score: 92, badges: "⚠️"  },         
+        { name: "Eeshal", pass: "Es!207", streak: "3 Days", score: 100, badges: "🛡️"  }, 
+        { name: "Michelle", pass: "Mc#761", streak: "9 Days", score: 100, badges: "🔥, 🛡️"  }, 
         { name: "Aarya(sr)", pass: "Ar#126", streak: "PAUSED", score: "LEAVE", badges: "⚠️"  }, 
-        { name: "Dheeraj", pass: "Dh!592", streak: "10 Days", score: 100, badges: "🔥, 🛡️"  },
-        { name: "Ananya", pass: "An#845", streak: "5 Days", score: 100, badges: "🛡️"  }, 
-        { name: "Chahat", pass: "Ch!214", streak: "11 Days", score: 100, badges: "🔥, 🛡️"  },
-        { name: "Nilesh", pass: "Nl@590", streak: "1 Day", score: 100, badges: "🛡️" }
+        { name: "Dheeraj", pass: "Dh!592", streak: "11 Days", score: 100, badges: "🔥, 🛡️"  },
+        { name: "Ananya", pass: "An#845", streak: "6 Days", score: 100, badges: "🛡️"  }, 
+        { name: "Chahat", pass: "Ch!214", streak: "12 Days", score: 100, badges: "🔥, 🛡️"  },
+        { name: "Nilesh", pass: "Nl@590", streak: "2 Days", score: 100, badges: "🛡️" }
     ];
 
     let students = studentsData.map(s => {
@@ -379,38 +404,60 @@
             { date: "2026-05-14", change: "SYNC", reason: "Manual Sync" }
         ];
         
-        let isLeaveValue = (s.score === "LEAVE" || s.name === "Aryan" || s.name === "Aarya(sr)" || s.name === "Rahul" || s.name === "Poonam" || s.name === "Hershika");
+        let isLeaveValue = (s.score === "LEAVE" || s.name === "Aarya(sr)" || s.name === "Poonam" || s.name === "Hershika");
         let leaveTypeLabel = (s.name === "Hershika") ? "MEDICAL LEAVE" : "ON EXAM LEAVE";
         
         // Automated ledger logging engine based on manual scores
         if (s.name === "Aarya") {
             history.push({ date: "2026-05-16", change: "+3", reason: "Present / Performance Up" });
             history.push({ date: "2026-05-18", change: "-1", reason: "Absent (Informed)" });
+            history.push({ date: "2026-05-20", change: "-4", reason: "Absent (Uninformed)" });
         } else if (s.name === "Poonam") {
             history.push({ date: "2026-05-16", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-05-18", change: "HOLD", reason: "Exam Leave" });
+            history.push({ date: "2026-05-20", change: "HOLD", reason: "Exam Leave" });
         } else if (s.name === "Ranveer") {
             history.push({ date: "2026-05-16", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-05-18", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-05-20", change: "+1", reason: "Present" });
         } else if (s.name === "Nihal") {
             history.push({ date: "2026-05-16", change: "-4", reason: "Absent (Uninformed)" });
             history.push({ date: "2026-05-18", change: "+1", reason: "Present" });
+            history.push({ date: "2026-05-20", change: "+1", reason: "Present" });
         } else if (s.name === "Vivek") {
             history.push({ date: "2026-05-16", change: "-4", reason: "Absent (Uninformed)" });
             history.push({ date: "2026-05-18", change: "+1", reason: "Present" });
+            history.push({ date: "2026-05-20", change: "+1", reason: "Present" });
         } else if (s.name === "Rajveer") {
             history.push({ date: "2026-05-16", change: "+1", reason: "Present" });
             history.push({ date: "2026-05-18", change: "+1", reason: "Present" });
+            history.push({ date: "2026-05-20", change: "+1", reason: "Present" });
         } else if (s.name === "Angel") {
             history.push({ date: "2026-05-16", change: "+1", reason: "Present" });
             history.push({ date: "2026-05-18", change: "-1", reason: "Absent (Informed)" });
+            history.push({ date: "2026-05-20", change: "-1", reason: "Absent (Informed)" });
         } else if (s.name === "Nilesh") {
             history.push({ date: "2026-05-18", change: "INIT", reason: "Enrolled" });
+            history.push({ date: "2026-05-20", change: "+1", reason: "Present" });
+        } else if (s.name === "Luksh") {
+            history.push({ date: "2026-05-16", change: "+1", reason: "Present" });
+            history.push({ date: "2026-05-18", change: "+1", reason: "Present" });
+            history.push({ date: "2026-05-20", change: "-1", reason: "Late (Informed)" });
+        } else if (s.name === "Aryan") {
+            history.push({ date: "2026-05-16", change: "HOLD", reason: "Exam Leave" });
+            history.push({ date: "2026-05-18", change: "HOLD", reason: "Exam Leave" });
+            history.push({ date: "2026-05-20", change: "INIT", reason: "Returned from Leave" });
+        } else if (s.name === "Rahul") {
+            history.push({ date: "2026-05-16", change: "HOLD", reason: "Exam Leave" });
+            history.push({ date: "2026-05-18", change: "HOLD", reason: "Exam Leave" });
+            history.push({ date: "2026-05-20", change: "INIT", reason: "Returned from Leave" });
         } else if (isLeaveValue) {
             history.push({ date: "2026-05-16", change: "HOLD", reason: "Exam/Med Leave" });
+            history.push({ date: "2026-05-20", change: "HOLD", reason: "Exam/Med Leave" });
         } else {
             history.push({ date: "2026-05-16", change: "+1", reason: "Present" });
             history.push({ date: "2026-05-18", change: "+1", reason: "Present" });
+            history.push({ date: "2026-05-20", change: "+1", reason: "Present" });
         }
 
         return { 
