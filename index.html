@@ -390,32 +390,35 @@
 </div>
 <script>
     const studentsData = [
-        { name: "Diya [🖋️]", pass: "Dy#567", streak: "21 Days", score: 100, badges: "🖋️, 🔥³, 🛡️, 🌟"  }, 
-        { name: "Rajveer [🖋️]", pass: "Rv@572", streak: "21 Days", score: 100, badges: "🖋️, 🔥³, 🛡️"  },
-        { name: "Ranveer [🖋️]", pass: "Rn!940", streak: "9 Days", score: 100, badges: "🖋️, 🔥, 🛡️"  }, 
-        { name: "Nihal", pass: "Nh!352", streak: "0 Days", score: 97, badges: "🖋️"  },
-        { name: "Vivek", pass: "Vk#804", streak: "4 Days", score: 99, badges: "🖋️²"  },
-        { name: "Saloni", pass: "Sl@291", streak: "21 Days", score: 100, badges: "🖋️², 🔥³, 🌟², 🛡️" },
-        { name: "Ritika", pass: "Rt@123", streak: "6 Days", score: 100, badges: "🛡️, 🔥²" },
-        { name: "Angel", pass: "Ag#418", streak: "4 Days", score: 100, badges: "🌟, 🛡️"  }, 
-        { name: "Chahat", pass: "Ch!214", streak: "20 Days", score: 100, badges: "🔥², 🛡️"  },
-        { name: "Luksh", pass: "Lk@673", streak: "0 Days", score: 89, badges: "⚠️"  },           
-        { name: "Aryan", pass: "Ay@915", streak: "5 Days", score: 100, badges: "🛡️"  }, 
-        { name: "Rahul", pass: "Rh#315", streak: "1 Day", score: 91, badges: "⚠️"  },         
-        { name: "Nilesh", pass: "Nl@590", streak: "4 Days", score: 100, badges: "🖋️, 🛡️" },
-        { name: "Natik", pass: "Nt_610", streak: "4 Days", score: 100, badges: "🛡️" },
-        { name: "Sumat", pass: "021213", streak: "5 Days", score: 100, badges: "🛡️" },
-        { name: "Simrath", pass: "waheguru", streak: "5 Days", score: 100, badges: "🛡️" },
-        { name: "Arin", pass: "Ar_021", streak: "1 Day", score: 97, badges: "⚠️" },
-        { name: "Hershika", pass: "Hr#408", streak: "1 Day", score: 97, badges: "⚠️"  },
-        { name: "Kushal", pass: "Ks@884", streak: "17 Days", score: 100, badges: "🖋️, 🔥², 🛡️" },
-        { name: "Eeshal", pass: "Es!207", streak: "2 Days", score: 100, badges: "🛡️"  }, 
-        { name: "Mahima", pass: "Mh@438", streak: "18 Days", score: 100, badges: "🖋️, 🔥², 🛡️"  },
-        { name: "Michelle", pass: "Mc#761", streak: "2 Days", score: 100, badges: "🔥"  }, 
-        { name: "Dheeraj", pass: "Dh!592", streak: "17 Days", score: 97, badges: "🔥², 🛡️"  },
-        { name: "Vimal", pass: "Vm@370", streak: "18 Days", score: 100, badges: "🖋️, 🔥², 🛡️" },
-        { name: "Ananya", pass: "An#845", streak: "12 Days", score: 100, badges: "🔥, 🛡️"  }, 
-        { name: "Aarya(sr)", pass: "Ar#126", streak: "4 Days", score: 94, badges: "⚠️"  },
+        { name: "Diya [🖋️]", pass: "Dy#567", streak: "22 Days", score: 100, badges: "🖋️, 🔥³, 🛡️, 🌟"  }, 
+        { name: "Rajveer [🖋️]", pass: "Rv@572", streak: "22 Days", score: 99, badges: "🖋️, 🔥³"  },
+        { name: "Ranveer [🖋️]", pass: "Rn!940", streak: "10 Days", score: 99, badges: "🖋️, 🔥"  }, 
+        { name: "Nihal", pass: "Nh!352", streak: "0 Days", score: 96, badges: "🖋️"  },
+        { name: "Vivek", pass: "Vk#804", streak: "5 Days", score: 100, badges: "🖋️², 🛡️"  },
+        { name: "Saloni", pass: "Sl@291", streak: "23 Days", score: 100, badges: "🖋️², 🔥³, 🌟², 🛡️" },
+        { name: "Ritika", pass: "Rt@123", streak: "7 Days", score: 100, badges: "🛡️, 🔥³" },
+        { name: "Angel", pass: "Ag#418", streak: "5 Days", score: 100, badges: "🌟, 🛡️"  }, 
+        { name: "Chahat", pass: "Ch!214", streak: "21 Days", score: 100, badges: "🔥³, 🛡️"  },
+        { name: "Luksh", pass: "Lk@673", streak: "0 Days", score: 88, badges: "⚠️"  },           
+        { name: "Aryan", pass: "Ay@915", streak: "6 Days", score: 100, badges: "🛡️"  }, 
+        { name: "Rahul", pass: "Rh#315", streak: "2 Days", score: 92, badges: "⚠️"  },         
+        { name: "Nilesh", pass: "Nl@590", streak: "5 Days", score: 100, badges: "🖋️, 🛡️" },
+        { name: "Natik", pass: "Nt_610", streak: "5 Days", score: 99, badges: "🛡️" },
+        { name: "Sumat", pass: "021213", streak: "6 Days", score: 100, badges: "🛡️" },
+        { name: "Simrath", pass: "waheguru", streak: "6 Days", score: 100, badges: "🛡️" },
+        { name: "Arin", pass: "Ar_021", streak: "2 Days", score: 96, badges: "⚠️" },
+        { name: "Hershika", pass: "Hr#408", streak: "2 Days", score: 98, badges: "⚠️"  },
+        { name: "Satiya", pass: "Sa-780", streak: "1 Day", score: 100, badges: "🛡️" },
+        { name: "Diksha", pass: "Dh_567", streak: "1 Day", score: 100, badges: "🛡️" },
+        { name: "Kashish", pass: "Ks#290", streak: "1 Day", score: 100, badges: "🛡️" },
+        { name: "Kushal", pass: "Ks@884", streak: "18 Days", score: 100, badges: "🖋️, 🔥², 🛡️" },
+        { name: "Eeshal", pass: "Es!207", streak: "3 Days", score: 100, badges: "🛡️"  }, 
+        { name: "Mahima", pass: "Mh@438", streak: "19 Days", score: 100, badges: "🖋️, 🔥², 🛡️"  },
+        { name: "Michelle", pass: "Mc#761", streak: "3 Days", score: 100, badges: "🔥"  }, 
+        { name: "Dheeraj", pass: "Dh!592", streak: "18 Days", score: 97, badges: "🔥², 🛡️"  },
+        { name: "Vimal", pass: "Vm@370", streak: "19 Days", score: 100, badges: "🖋️, 🔥², 🛡️" },
+        { name: "Ananya", pass: "An#845", streak: "13 Days", score: 99, badges: "🔥, 🛡️"  }, 
+        { name: "Aarya(sr)", pass: "Ar#126", streak: "5 Days", score: 95, badges: "⚠️"  },
         { name: "Poonam", pass: "Pn@428", streak: "0 Days", score: 97, badges: "⚠️" }
     ];
 
@@ -436,90 +439,105 @@
             history.push({ date: "2026-06-03", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-04", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+0", reason: "Log Update" });
         } else if (s.name === "Poonam") {
             history.push({ date: "2026-06-01", change: "HOLD", reason: "Exam Leave" });
             history.push({ date: "2026-06-02", change: "HOLD", reason: "Exam Leave" });
             history.push({ date: "2026-06-03", change: "HOLD", reason: "Exam Leave" });
             history.push({ date: "2026-06-04", change: "HOLD", reason: "Exam Leave" });
             history.push({ date: "2026-06-05", change: "HOLD", reason: "Exam Leave" });
+            history.push({ date: "2026-06-08", change: "HOLD", reason: "Exam Leave" });
         } else if (s.name.includes("Ranveer")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-03", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-04", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-05", change: "+1", reason: "Present" });
+            history.push({ date: "2026-06-08", change: "-1", reason: "Late (Informed)" });
         } else if (s.name.includes("Nihal")) {
             history.push({ date: "2026-06-01", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-06-02", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-03", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-04", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-05", change: "-1", reason: "Absent (Informed)" });
+            history.push({ date: "2026-06-08", change: "-1", reason: "Absent (Informed)" });
         } else if (s.name.includes("Vivek")) {
             history.push({ date: "2026-06-01", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-06-02", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-03", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-04", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-05", change: "+1", reason: "Present" });
+            history.push({ date: "2026-06-08", change: "+1", reason: "Present" });
         } else if (s.name.includes("Rajveer")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-03", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-04", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-05", change: "+1", reason: "Present" });
+            history.push({ date: "2026-06-08", change: "-1", reason: "Late (Informed)" });
         } else if (s.name.includes("Angel")) {
             history.push({ date: "2026-06-01", change: "-4", reason: "Absent (Uninformed)" });
             history.push({ date: "2026-06-02", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-03", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-04", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-05", change: "+1", reason: "Present" });
+            history.push({ date: "2026-06-08", change: "+1", reason: "Present" });
         } else if (s.name.includes("Nilesh")) {
             history.push({ date: "2026-06-01", change: "-4", reason: "Absent (Uninformed)" });
             history.push({ date: "2026-06-02", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-03", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-04", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-05", change: "+1", reason: "Present" });
+            history.push({ date: "2026-06-08", change: "+1", reason: "Present" });
         } else if (s.name.includes("Luksh")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-06-03", change: "-4", reason: "Absent (Uninformed)" });
             history.push({ date: "2026-06-04", change: "+5", reason: "Present" });
             history.push({ date: "2026-06-05", change: "-4", reason: "Absent (Uninformed)" });
+            history.push({ date: "2026-06-08", change: "-1", reason: "Absent (Informed)" });
         } else if (s.name.includes("Aryan")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-03", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-04", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+0", reason: "Log Update" });
         } else if (s.name.includes("Rahul")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-03", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-06-04", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+1", reason: "Present" });
         } else if (s.name.includes("Hershika")) {
             history.push({ date: "2026-06-01", change: "HOLD", reason: "Holiday Leave" });
             history.push({ date: "2026-06-02", change: "HOLD", reason: "Holiday Leave" });
             history.push({ date: "2026-06-03", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-04", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-06-05", change: "+1", reason: "Present" });
+            history.push({ date: "2026-06-08", change: "+1", reason: "Present" });
         } else if (s.name.includes("Aarya(sr)")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-03", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-04", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+1", reason: "Present" });
         } else if (s.name.includes("Dheeraj")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-03", change: "-1", reason: "Late (Informed)" });
             history.push({ date: "2026-06-04", change: "-2", reason: "Late (Informed)" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+0", reason: "Log Update" });
         } else if (s.name.includes("Ritika")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-03", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-04", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+0", reason: "Log Update" });
         } else if (s.name.includes("Natik")) {
             history.push({ date: "2026-05-25", change: "INIT", reason: "Enrolled" });
             history.push({ date: "2026-06-01", change: "-1", reason: "Absent (Informed)" });
@@ -527,48 +545,58 @@
             history.push({ date: "2026-06-03", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-04", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "-1", reason: "Late (Informed)" });
         } else if (s.name.includes("Sumat")) {
             history.push({ date: "2026-06-01", change: "INIT", reason: "Enrolled" });
             history.push({ date: "2026-06-02", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-03", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-04", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+0", reason: "Log Update" });
         } else if (s.name.includes("Simrath")) {
             history.push({ date: "2026-06-01", change: "INIT", reason: "Enrolled" });
             history.push({ date: "2026-06-02", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-03", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-04", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+0", reason: "Log Update" });
         } else if (s.name.includes("Arin")) {
             history.push({ date: "2026-06-01", change: "INIT", reason: "Enrolled" });
             history.push({ date: "2026-06-02", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-03", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-04", change: "-4", reason: "Absent (Uninformed)" });
             history.push({ date: "2026-06-05", change: "+1", reason: "Present" });
+            history.push({ date: "2026-06-08", change: "-1", reason: "Late (Informed)" });
         } else if (s.name.includes("Eeshal")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-06-03", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-04", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+0", reason: "Log Update" });
         } else if (s.name.includes("Michelle")) {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "-1", reason: "Absent (Informed)" });
             history.push({ date: "2026-06-03", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-04", change: "+0", reason: "Log Update" });
             history.push({ date: "2026-06-05", change: "+0", reason: "Log Update" });
+            history.push({ date: "2026-06-08", change: "+0", reason: "Log Update" });
+        } else if (s.name.includes("Satiya") || s.name.includes("Diksha") || s.name.includes("Kashish")) {
+            history.push({ date: "2026-06-08", change: "INIT", reason: "Enrolled" });
         } else if (isLeaveValue) {
             history.push({ date: "2026-06-01", change: "HOLD", reason: "Exam/Med Leave" });
             history.push({ date: "2026-06-02", change: "HOLD", reason: "Exam/Med Leave" });
             history.push({ date: "2026-06-03", change: "HOLD", reason: "Exam/Med Leave" });
             history.push({ date: "2026-06-04", change: "HOLD", reason: "Exam/Med Leave" });
             history.push({ date: "2026-06-05", change: "HOLD", reason: "Exam/Med Leave" });
+            history.push({ date: "2026-06-08", change: "HOLD", reason: "Exam/Med Leave" });
         } else {
             history.push({ date: "2026-06-01", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-02", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-03", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-04", change: "+1", reason: "Present" });
             history.push({ date: "2026-06-05", change: "+1", reason: "Present" });
+            history.push({ date: "2026-06-08", change: "+1", reason: "Present" });
         }
 
         return { 
@@ -636,18 +664,18 @@
         document.getElementById('passModal').style.display = 'flex'; 
         document.getElementById('passInput').value = "";
         document.getElementById('errorMsg').style.display = 'none';
-    }
-    
-    function verifyAccess() { 
+        }
+        
+        function verifyAccess() { 
         if(document.getElementById('passInput').value === activeUser.pass) { 
-            document.getElementById('passModal').style.display = 'none'; 
-            showProfile(); 
+        document.getElementById('passModal').style.display = 'none'; 
+        showProfile(); 
         } else { 
-            document.getElementById('errorMsg').style.display = 'block'; 
+        document.getElementById('errorMsg').style.display = 'block'; 
         } 
-    }
-    
-    function showProfile() {
+        }
+        
+        function showProfile() {
         document.getElementById('pName').innerText = activeUser.name.toUpperCase();
         document.getElementById('pScore').innerText = activeUser.onLeave ? "LEAVE" : activeUser.score;
         document.getElementById('pScore').style.color = getStatusColor(activeUser.score);
@@ -655,29 +683,29 @@
         
         let awardsHtml = '<div class="milestone-text">RENO AWARDS & ACHIEVEMENTS</div><div class="awards-vault">';
         if (activeUser.badges) {
-            let manualBadges = activeUser.badges.split(/[\s,]+/); 
-            awardsHtml += manualBadges.map(emoji => {
-                if(!emoji) return '';
-                let label = "AWARDED";
-                if(emoji.includes("🖋️")) label = "GOLDEN PEN";
-                if(emoji.includes("🔥")) label = "ELITE STREAK";
-                if(emoji.includes("🛡️")) label = "CENTURY";
-                if(emoji.includes("📝")) label = "EXAM LEAVE";
-                if(emoji.includes("💊")) label = "MEDICAL";
-                if(emoji.includes("🌟")) label = "STAR BADGE";
-                
-                return `<div class="award-badge">
-                <div class="award-emoji">${emoji}</div>
-                <div class="award-label">${label}</div>
-                </div>`;
-            }).join('');
+        let manualBadges = activeUser.badges.split(/[\s,]+/); 
+        awardsHtml += manualBadges.map(emoji => {
+        if(!emoji) return '';
+        let label = "AWARDED";
+        if(emoji.includes("🖋️")) label = "GOLDEN PEN";
+        if(emoji.includes("🔥")) label = "ELITE STREAK";
+        if(emoji.includes("🛡️")) label = "CENTURY";
+        if(emoji.includes("📝")) label = "EXAM LEAVE";
+        if(emoji.includes("💊")) label = "MEDICAL";
+        if(emoji.includes("🌟")) label = "STAR BADGE";
+        
+        return `<div class="award-badge">
+        <div class="award-emoji">${emoji}</div>
+        <div class="award-label">${label}</div>
+        </div>`;
+        }).join('');
         }
         awardsHtml += '</div>';
         document.getElementById('awardsContainer').innerHTML = awardsHtml;
         
         document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `<tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') ? '#ff6b6b' : '#51cf66'}">${h.change}</td></tr>`).join('');
         showSection('profile');
-    }
-    
-    window.onload = renderRegistry;
-</script>
+        }
+        
+        window.onload = renderRegistry;
+        </script>
