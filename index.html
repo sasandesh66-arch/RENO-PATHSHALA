@@ -409,10 +409,10 @@
         { name: "Aadesh", pass: "Ad'300", streak: "1 Day", score: 100, badges: "🛡️" },
         { name: "Aarya", pass: "Aa#401", streak: "1 Day", score: 91, badges: "⚠️" },
         { name: "Arin", pass: "Ar_021", streak: "0 Days", score: 96, badges: "⚠️" },
+        { name: "Satiya", pass: "Sa-780", streak: "2 Days", score: 99, badges: "⚠️" },
+        { name: "Divya", pass: "Dh_567", streak: "2 Days", score: 99, badges: "⚠️" },
+        { name: "Kashish", pass: "Ks#290", streak: "2 Days", score: 99, badges: "⚠️" },
         { name: "Hershika", pass: "Hr#408", streak: "4 Days", score: 100, badges: "🛡️"  },
-        { name: "Satiya", pass: "Sa-780", streak: "1 Day", score: 100, badges: "🛡️" },
-        { name: "Divya", pass: "Dh_567", streak: "1 Day", score: 100, badges: "🛡️" },
-        { name: "Kashish", pass: "Ks#290", streak: "1 Day", score: 100, badges: "🛡️" },
         { name: "Kushal", pass: "Ks@884", streak: "20 Days", score: 100, badges: "🖋️, 🔥², 🛡️" },
         { name: "Eeshal", pass: "Es!207", streak: "5 Days", score: 100, badges: "🛡️"  }, 
         { name: "Mahima", pass: "Mh@438", streak: "21 Days", score: 100, badges: "🖋️, 🔥³, 🛡️"  },
@@ -434,7 +434,7 @@
         let leaveTypeLabel = "ON HOLIDAY LEAVE";
         if (s.name === "Poonam") leaveTypeLabel = "ON EXAM LEAVE";
         
-        // Automated ledger logging engine based on manual scores (Reset to track only 10th June status change)
+        // Automated ledger logging engine based on manual scores
         if (s.name === "Aadesh") {
             history.push({ date: "2026-06-10", change: "INIT", reason: "Enrolled" });
         } else if (s.name === "Poonam") {
@@ -555,6 +555,9 @@
         showSection('profile');
     }
     
+    window.onload = renderRegistry;
+</script>
+  
     window.onload = renderRegistry;
 </script>
 eason: "Late (Informed)" });
