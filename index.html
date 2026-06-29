@@ -556,7 +556,7 @@
     { q: "How many authors are there in the GURU GRANTH SAHIB JEE?", a: "36 author's" }
     ];
     
-    
+     
     let shuffledQuizQuestions = [];
     let currentQuizIndex = 0;
     let studentScore = 0;
@@ -671,7 +671,7 @@
     customMessage += `*Score Secured:* ${studentScore} / ${totalQuestions} (${percentage}%)\n\n`;
     customMessage += `_Dashboard verification processed successfully._`;
     
-    let waUrl = `https://api.whatsapp.com/send?phone=+923005255713&text=${encodeURIComponent(customMessage)}`;
+    let waUrl = `https://api.whatsapp.com/send?phone=03005255713&text=${encodeURIComponent(customMessage)}`;
     window.open(waUrl, '_blank');
     }
     
@@ -683,68 +683,107 @@
     </script>
     <script>
     const studentsData = [
-    { name: "Diya [💎]", pass: "Dy#567", streak: "36 Days", score: 100, badges: "💎, 🖋️³, 🔥⁴, 🛡️"  }, 
-    { name: "Chahat [💎]", pass: "Ch!214", streak: "35 Days", score: 100, badges: "💎, 🖋️, 🔥⁴, 🛡️"  },
-    { name: "Saloni [💎]", pass: "Sl@291", streak: "9 Days", score: 100, badges: "💎, 🖋️², 🔥⁴, 🛡️" },
-    { name: "Rajveer [💎]", pass: "Rv@572", streak: "36 Days", score: 100, badges: "🖋️, 🔥⁴, 🛡️"  },
-    { name: "Vivek [🖋️]", pass: "Vk#804", streak: "19 Days", score: 100, badges: "🖋️³, 🛡️, 🔥²"  },
-    { name: "Nihal [🖋️]", pass: "Nh!352", streak: "5 Days", score: 100, badges: "🖋️², 🛡️"  },
-    { name: "Satiya [🖋️]", pass: "Sa-780", streak: "14 Days", score: 100, badges: "🖋️, 🔥², 🛡️" },
-    { name: "Aradhiya", pass: "Aru#612", streak: "0 Days", score: 97, badges: "⚠️" },
-    { name: "Poonam", pass: "Pn@428", streak: "5 Days", score: 100, badges: "🛡️" },
-    { name: "Ranveer ", pass: "Rn!940", streak: "1 Day", score: 100, badges: "🖋️, 🔥³, 🛡️"  }, 
-    { name: "Ritika", pass: "Rt@123", streak: "1 Day", score: 100, badges: "🔥⁴, 🛡️" },
-    { name: "Angel", pass: "Ag#418", streak: "0 Days", score: 99, badges: "🔥"  }, 
-    { name: "Luksh", pass: "Lk@673", streak: "3 Days", score: 100, badges: "🛡️"  },           
-    { name: "Aryan", pass: "1616", streak: "20 Days", score: 100, badges: "🔥², 🛡️"  }, 
-    { name: "Rahul", pass: "Rh#315", streak: "1 Day", score: 98, badges: "🔥"  },         
-    { name: "Natik", pass: "Nt_610", streak: "4 Days", score: 100, badges: "🔥, 🛡️" },
-    { name: "Sumat", pass: "021213", streak: "0 Days", score: 99, badges: "🔥²" },
-    { name: "Simrath", pass: "waheguru", streak: "0 Days", score: 99, badges: "🔥²" },
-    { name: "Aadesh", pass: "Ad'300", streak: "0 Days", score: 97, badges: "🔥" },
-    { name: "Aarya", pass: "Aa#401", streak: "10 Days", score: 100, badges: "🔥, 🛡️" },
-    { name: "Divya", pass: "Dh_567", streak: "9 Days", score: 100, badges: "🔥, 🛡️" },
-    { name: "Kashish", pass: "Ks#290", streak: "9 Days", score: 100, badges: "🔥, 🛡️" },
-    { name: "Hershika", pass: "Hr#408", streak: "16 Days", score: 100, badges: "🔥², 🛡️"  },
-    { name: "Mahima [💎]", pass: "Mh@438", streak: "33 Days", score: 100, badges: "💎, 🖋️, 🔥⁴, 🛡️"  },
-    { name: "Vimal [💎]", pass: "Vm@370", streak: "33 Days", score: 100, badges: "💎, 🖋️, 🔥⁴, 🛡️" },
-    { name: "Kushal [💎]", pass: "Ks@884", streak: "0 Days", score: 99, badges: "💎, 🖋️, 🔥⁴" },
-    { name: "Eeshal", pass: "Es!207", streak: "17 Days", score: 100, badges: "🖋️, 🔥², 🛡️"  }, 
-    { name: "Michelle", pass: "Mc#761", streak: "3 Days", score: 100, badges: "🔥², 🛡️"  }, 
-    { name: "Dheeraj", pass: "Dh!592", streak: "10 Days", score: 100, badges: "🔥², 🛡️"  },
-    { name: "Arin", pass: "Ar_021", streak: "4 Days", score: 100, badges: "🛡️" },
-    { name: "Aarya(sr)", pass: "Ar#126", streak: "1 Day", score: 97, badges: "🔥"  },
-    { name: "Nilesh", pass: "Nl@590", streak: "5 Days", score: 100, badges: "🔥, 🖋️" },
-    { name: "Ananya", pass: "An#845", streak: "0 Days", score: 92, badges: "🔥²"  }
+    { name: "Diya [💎]", pass: "Dy#567", streak: "37 Days", score: 100, badges: "💎, 🖋️³, 🔥⁵, 🛡️"  }, 
+    { name: "Chahat [💎]", pass: "Ch!214", streak: "36 Days", score: 100, badges: "💎, 🖋️, 🔥⁵, 🛡️"  },
+    { name: "Saloni [💎]", pass: "Sl@291", streak: "10 Days", score: 100, badges: "💎, 🖋️², 🔥⁴, 🛡️" },
+    { name: "Rajveer [💎]", pass: "Rv@572", streak: "37 Days", score: 100, badges: "🖋️², 🔥⁵, 🛡️"  },
+    { name: "Vivek [🖋️]", pass: "Vk#804", streak: "20 Days", score: 100, badges: "🖋️³, 🛡️, 🔥²"  },
+    { name: "Nihal [🖋️]", pass: "Nh!352", streak: "6 Days", score: 100, badges: "🖋️², 🛡️"  },
+    { name: "Satiya [🖋️]", pass: "Sa-780", streak: "15 Days", score: 100, badges: "🖋️, 🔥², 🛡️" },
+    { name: "Aradhiya", pass: "Aru#612", streak: "1 Day", score: 98, badges: "⚠️" },
+    { name: "Poonam", pass: "Pn@428", streak: "6 Days", score: 100, badges: "🛡️" },
+    { name: "Ranveer ", pass: "Rn!940", streak: "2 Days", score: 100, badges: "🖋️, 🔥³, 🛡️"  }, 
+    { name: "Ritika", pass: "Rt@123", streak: "2 Days", score: 100, badges: "🔥⁴, 🛡️" },
+    { name: "Angel", pass: "Ag#418", streak: "0 Days", score: 98, badges: "🔥"  }, 
+    { name: "Luksh", pass: "Lk@673", streak: "0 Days", score: 99, badges: "⚠️"  },           
+    { name: "Aryan", pass: "1616", streak: "21 Days", score: 100, badges: "🔥³, 🛡️"  }, 
+    { name: "Rahul", pass: "Rh#315", streak: "2 Days", score: 99, badges: "🔥"  },         
+    { name: "Natik", pass: "Nt_610", streak: "5 Days", score: 100, badges: "🔥, 🛡️" },
+    { name: "Sumat", pass: "021213", streak: "1 Day", score: 100, badges: "🔥², 🛡️" },
+    { name: "Simrath", pass: "waheguru", streak: "1 Day", score: 100, badges: "🔥², 🛡️" },
+    { name: "Aadesh", pass: "Ad'300", streak: "1 Day", score: 98, badges: "🔥" },
+    { name: "Aarya", pass: "Aa#401", streak: "11 Days", score: 100, badges: "🔥, 🛡️" },
+    { name: "Divya", pass: "Dh_567", streak: "10 Days", score: 100, badges: "🔥, 🛡️" },
+    { name: "Kashish", pass: "Ks#290", streak: "10 Days", score: 100, badges: "🔥, 🛡️" },
+    { name: "Hershika", pass: "Hr#408", streak: "17 Days", score: 100, badges: "🔥², 🛡️"  },
+    { name: "Aarya(sr)", pass: "Ar#126", streak: "2 Days", score: 98, badges: "🔥"  },
+    { name: "Nilesh", pass: "Nl@590", streak: "6 Days", score: 100, badges: "🔥, 🖋️, 🛡️" },
+    { name: "Mahima [💎]", pass: "Mh@438", streak: "34 Days", score: 100, badges: "💎, 🖋️, 🔥⁴, 🛡️"  },
+    { name: "Vimal [💎]", pass: "Vm@370", streak: "34 Days", score: 100, badges: "💎, 🖋️, 🔥⁴, 🛡️" },
+    { name: "Kushal [💎]", pass: "Ks@884", streak: "1 Day", score: 100, badges: "💎, 🖋️, 🔥⁴, 🛡️" },
+    { name: "Eeshal", pass: "Es!207", streak: "18 Days", score: 100, badges: "🖋️, 🔥², 🛡️"  }, 
+    { name: "Michelle", pass: "Mc#761", streak: "4 Days", score: 100, badges: "🔥², 🛡️"  }, 
+    { name: "Dheeraj", pass: "Dh!592", streak: "11 Days", score: 100, badges: "🔥², 🛡️"  },
+    { name: "Ananya", pass: "An#845", streak: "1 Day", score: 99, badges: "🔥²"  },
+    { name: "Arin", pass: "Ar_021", streak: "4 Days", score: 100, badges: "🛡️" }
     ];
     
     let students = studentsData.map(s => {
-    let history = [{ date: "2026-05-14", change: "SYNC", reason: "Manual Sync" }];
-    let isLeaveValue = (s.name === "Arin" || s.name.includes("Aarya(sr)") || s.name.includes("Nilesh") || s.name.includes("Ananya"));
+    // Build the personalized history logs directly here based on historical changes
+    let history = [
+    { date: "2026-05-14", change: "SYNC", reason: "Manual Sync" }
+    ];
+    
+    let isLeaveValue = (s.name === "Arin");
     let leaveTypeLabel = "ON HOLIDAY LEAVE";
     
-    // --- 23rd June ---
-    if (s.name === "Arin" || s.name.includes("Aarya(sr)")) history.push({ date: "2026-06-23", change: "HOLD", reason: "Holiday Leave" });
-    else if (s.name.includes("Michelle") || s.name.includes("Sumat")) history.push({ date: "2026-06-23", change: "-1", reason: "Absent (Informed)" });
-    else if (s.name.includes("Luksh") || s.name.includes("Ananya")) history.push({ date: "2026-06-23", change: "-4", reason: "Absent (Uninformed)" });
-    else history.push({ date: "2026-06-23", change: "+1", reason: "Present" });
+    // Automated ledger logging engine based on manual scores (Carries data up to 29th June)
     
-    // --- 24th June ---
-    if (s.name === "Arin" || s.name.includes("Aarya(sr)") || s.name.includes("Nilesh") || s.name.includes("Ananya")) history.push({ date: "2026-06-24", change: "HOLD", reason: "Holiday Leave" });
-    else if (s.name.includes("Aradhiya") || s.name.includes("Aadesh") || s.name.includes("Angel")) history.push({ date: "2026-06-24", change: "-1", reason: "Absent (Informed)" });
-    else history.push({ date: "2026-06-24", change: "+1", reason: "Present" });
+    // --- 23rd June History Entry ---
+    if (s.name === "Arin" || s.name.includes("Aarya(sr)")) {
+    history.push({ date: "2026-06-23", change: "HOLD", reason: "Holiday Leave" });
+    } else if (s.name.includes("Michelle") || s.name.includes("Sumat")) {
+    history.push({ date: "2026-06-23", change: "-1", reason: "Absent (Informed)" });
+    } else if (s.name.includes("Luksh") || s.name.includes("Ananya")) {
+    history.push({ date: "2026-06-23", change: "-4", reason: "Absent (Uninformed)" });
+    } else {
+    history.push({ date: "2026-06-23", change: "+1", reason: "Present" });
+    }
     
-    // --- 25th June ---
-    if (s.name === "Arin" || s.name.includes("Aarya(sr)") || s.name.includes("Nilesh") || s.name.includes("Ananya")) history.push({ date: "2026-06-25", change: "HOLD", reason: "Holiday Leave" });
-    else if (s.name.includes("Aradhiya") || s.name.includes("Aadesh") || s.name.includes("Angel") || s.name.includes("Ranveer") || s.name.includes("Ritika") || s.name.includes("Rahul")) history.push({ date: "2026-06-25", change: "-1", reason: "Absent (Informed)" });
-    else history.push({ date: "2026-06-25", change: "+1", reason: "Present" });
+    // --- 24th June History Entry ---
+    if (s.name === "Arin" || s.name.includes("Aarya(sr)") || s.name.includes("Nilesh") || s.name.includes("Ananya")) {
+    history.push({ date: "2026-06-24", change: "HOLD", reason: "Holiday Leave" });
+    } else if (s.name.includes("Aradhiya") || s.name.includes("Aadesh") || s.name.includes("Angel")) {
+    history.push({ date: "2026-06-24", change: "-1", reason: "Absent (Informed)" });
+    } else {
+    history.push({ date: "2026-06-24", change: "+1", reason: "Present" });
+    }
     
-    // --- 26th June ---
-    if (s.name === "Arin" || s.name.includes("Aarya(sr)") || s.name.includes("Nilesh") || s.name.includes("Ananya")) history.push({ date: "2026-06-26", change: "HOLD", reason: "Holiday Leave" });
-    else if (s.name.includes("Aradhiya") || s.name.includes("Aadesh") || s.name.includes("Simrath") || s.name.includes("Sumat") || s.name.includes("Kushal")) history.push({ date: "2026-06-26", change: "-1", reason: "Absent (Informed)" });
-    else history.push({ date: "2026-06-26", change: "+1", reason: "Present" });
+    // --- 25th June History Entry ---
+    if (s.name === "Arin" || s.name.includes("Aarya(sr)") || s.name.includes("Nilesh") || s.name.includes("Ananya")) {
+    history.push({ date: "2026-06-25", change: "HOLD", reason: "Holiday Leave" });
+    } else if (s.name.includes("Aradhiya") || s.name.includes("Aadesh") || s.name.includes("Angel") || s.name.includes("Ranveer") || s.name.includes("Ritika") || s.name.includes("Rahul")) {
+    history.push({ date: "2026-06-25", change: "-1", reason: "Absent (Informed)" });
+    } else {
+    history.push({ date: "2026-06-25", change: "+1", reason: "Present" });
+    }
     
-    return { ...s, onLeave: isLeaveValue, leaveType: leaveTypeLabel, history: history };
+    // --- 26th June History Entry ---
+    if (s.name === "Arin" || s.name.includes("Aarya(sr)") || s.name.includes("Nilesh") || s.name.includes("Ananya")) {
+    history.push({ date: "2026-06-26", change: "HOLD", reason: "Holiday Leave" });
+    } else if (s.name.includes("Aradhiya") || s.name.includes("Aadesh") || s.name.includes("Simrath") || s.name.includes("Sumat") || s.name.includes("Kushal")) {
+    history.push({ date: "2026-06-26", change: "-1", reason: "Absent (Informed)" });
+    } else {
+    history.push({ date: "2026-06-26", change: "+1", reason: "Present" });
+    }
+    
+    // --- 29th June History Entry ---
+    if (s.name === "Arin") {
+    history.push({ date: "2026-06-29", change: "HOLD", reason: "Holiday Leave" });
+    } else if (s.name.includes("Angel") || s.name.includes("Luksh")) {
+    history.push({ date: "2026-06-29", change: "-1", reason: "Absent (Informed)" });
+    } else {
+    history.push({ date: "2026-06-29", change: "+1", reason: "Present" });
+    }
+    
+    return { 
+    ...s, 
+    score: s.score, 
+    onLeave: isLeaveValue, 
+    leaveType: leaveTypeLabel, 
+    history: history, 
+    badges: s.badges
+    };
     });
     
     let activeUser = null;
@@ -819,39 +858,33 @@
     document.getElementById('pScore').style.color = getStatusColor(activeUser.score);
     document.getElementById('pStanding').innerText = activeUser.onLeave ? activeUser.leaveType : (activeUser.score >= 95 ? "EXCELLENT" : "WARNING");
     
-  let awardsHtml = '<div class="milestone-text">RENO AWARDS & ACHIEVEMENTS</div><div class="awards-vault">';
-  if (activeUser.badges) {
-  let manualBadges = activeUser.badges.split(/[\s,]+/); 
-  awardsHtml += manualBadges.map(emoji => {
-  if(!emoji) return '';
-  let label = "AWARDED";
-  if(emoji.includes("🖋️")) label = "GOLDEN PEN";
-  if(emoji.includes("🔥")) label = "ELITE STREAK";
-  if(emoji.includes("🛡️")) label = "CENTURY";
-  if(emoji.includes("📝")) label = "EXAM LEAVE";
-  if(emoji.includes("💊")) label = "MEDICAL";
-  if(emoji.includes("🌟")) label = "STAR BADGE";
-  if(emoji.includes("💎")) label = "ELITE DIAMOND";
-  
-  return `<div class="award-badge">
-  <div class="award-emoji">${emoji}</div>
-  <div class="award-label">${label}</div>
-  </div>`;
-  }).join('');
-  }
-  awardsHtml += '</div>';
-  document.getElementById('awardsContainer').innerHTML = awardsHtml;
-  
-  document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `<tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') || h.change === 'HOLD' ? '#ff6b6b' : '#51cf66'}">${h.change}</td></tr>`).join('');
-  showSection('profile');
-  }
-  
-  // Auto initialization of components upon bootup
-  window.onload = function() {
-  renderRegistry();
-  loadSikhHistoryStudyHub();
-  };
-  </script>
-  </body>
-  </html>
+    let awardsHtml = '<div class="milestone-text">RENO AWARDS & ACHIEVEMENTS</div><div class="awards-vault">';
+    if (activeUser.badges) {
+    let manualBadges = activeUser.badges.split(/[\s,]+/); 
+    awardsHtml += manualBadges.map(emoji => {
+    if(!emoji) return '';
+    let label = "AWARDED";
+    if(emoji.includes("🖋️")) label = "GOLDEN PEN";
+    if(emoji.includes("🔥")) label = "ELITE STREAK";
+    if(emoji.includes("🛡️")) label = "CENTURY";
+    if(emoji.includes("📝")) label = "EXAM LEAVE";
+    if(emoji.includes("💊")) label = "MEDICAL";
+    if(emoji.includes("🌟")) label = "STAR BADGE";
+    if(emoji.includes("💎")) label = "ELITE DIAMOND";
     
+    return `<div class="award-badge">
+    <div class="award-emoji">${emoji}</div>
+    <div class="award-label">${label}</div>
+    </div>`;
+    }).join('');
+    }
+    awardsHtml += '</div>';
+    document.getElementById('awardsContainer').innerHTML = awardsHtml;
+    
+    document.getElementById('ledgerBody').innerHTML = activeUser.history.map(h => `<tr><td>${h.date}</td><td>${h.reason}</td><td style="color:${h.change.includes('-') || h.change === 'HOLD' ? '#ff6b6b' : '#51cf66'}">${h.change}</td></tr>`).join('');
+    showSection('profile');
+    }
+    
+    window.onload = renderRegistry;
+    </script>
+     
