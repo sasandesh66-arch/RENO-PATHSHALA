@@ -457,7 +457,7 @@
     <p style="color:var(--dim); letter-spacing:2px; font-size:0.9rem; margin-bottom:20px;">READ AND MEMORIZE LESSONS OR CHALLENGE YOUR KNOWLEDGE</p>
     <button class="btn" onclick="startPracticeMode()">🔥 Start Shuffled Practice</button>
     </div>
-<div id="studyView">
+    <div id="studyView">
     <div class="history-list" id="sikhHistoryQuestionsBox"></div>
     </div>
     
@@ -713,39 +713,39 @@
     </script>
     <script>
     const studentsData = [
-    { name: "Diya [💎🖋️]", pass: "Dy#567", streak: "51 Days", score: 100, badges: "💎, 🖋️⁴, 🔥⁷, 🛡️" },
-    { name: "Vivek [💎🖋️]", pass: "Vk#804", streak: "35 Days", score: 100, badges: "💎, 🖋️⁵, 🛡️, 🔥⁴" },
-    { name: "Rajveer [💎]", pass: "Rv@572", streak: "51 Days", score: 100, badges: "💎, 🖋️², 🔥⁷, 🛡️" },
-    { name: "Hershika[💎]", pass: "Hr#408", streak: "30 Days", score: 100, badges: "💎, 🔥⁴, 🛡️" },
-    { name: "Aradhiya", pass: "Aru#612", streak: "0 Days", score: 99, badges: "🔥" },
-    { name: "Poonam", pass: "Pn@428", streak: "8 Days", score: 100, badges: "🔥², 🛡️" },
-    { name: "Aryan", pass: "1616", streak: "32 Days", score: 94, badges: "🔥³" },
-    { name: "Ranveer ", pass: "Rn!940", streak: "16 Days", score: 100, badges: "🖋️, 🔥⁵, 🛡️" }, 
-    { name: "Aadesh", pass: "Ad'300", streak: "11 Days", score: 100, badges: "🔥²🛡️" },
-    { name: "Rahul", pass: "Rh#315", streak: "0 Days", score: 99, badges: "🔥²" },         
-    { name: "Angel", pass: "Ag#418", streak: "1 Day", score: 100, badges: "🔥² 🛡️" }, 
-    { name: "Arin", pass: "Ar_021", streak: "3 Days", score: 100, badges: "🔥, 🛡️" },
-    { name: "Natik", pass: "Nt_610", streak: "1 Day", score: 99, badges: "🔥" },
-    { name: "Sumat", pass: "021213", streak: "6 Days", score: 100, badges: "🔥³, 🛡️" },
-    { name: "Simrath", pass: "waheguru", streak: "5 Days", score: 100, badges: "🔥³ ,🛡️" },
-    { name: "Aarya", pass: "Aa#401", streak: "25 Days", score: 100, badges: "🔥³, 🛡️" },
-    { name: "Aarya(sr)", pass: "Ar#126", streak: "1 Day", score: 100, badges: "🔥³" },
-    { name: "Nilesh", pass: "Nl@590", streak: "0 Days", score: 99, badges: "🖋️, 🔥³" },
+    { name: "Diya [💎🖋️]", pass: "Dy#567", streak: "52 Days", score: 100, badges: "💎, 🖋️⁴, 🔥⁷, 🛡️" },
+    { name: "Vivek [💎🖋️]", pass: "Vk#804", streak: "36 Days", score: 100, badges: "💎, 🖋️⁵, 🛡️, 🔥⁴" },
+    { name: "Rajveer [💎]", pass: "Rv@572", streak: "52 Days", score: 100, badges: "💎, 🖋️², 🔥⁷, 🛡️" },
+    { name: "Hershika[💎]", pass: "Hr#408", streak: "32 Days", score: 100, badges: "💎, 🔥⁴, 🛡️" },
+    { name: "Aradhiya", pass: "Aru#612", streak: "1 Day", score: 100, badges: "🔥" },
+    { name: "Poonam", pass: "Pn@428", streak: "0 Days", score: 99, badges: "🔥², 🛡️" },
+    { name: "Aryan", pass: "1616", streak: "33 Days", score: 95, badges: "🔥³" },
+    { name: "Ranveer ", pass: "Rn!940", streak: "17 Days", score: 100, badges: "🖋️, 🔥⁵, 🛡️" }, 
+    { name: "Aadesh", pass: "Ad'300", streak: "12 Days", score: 100, badges: "🔥²🛡️" },
+    { name: "Rahul", pass: "Rh#315", streak: "1 Day", score: 100, badges: "🔥²" },         
+    { name: "Angel", pass: "Ag#418", streak: "2 Days", score: 100, badges: "🔥² 🛡️" }, 
+    { name: "Arin", pass: "Ar_021", streak: "0 Days", score: 99, badges: "🔥" },
+    { name: "Natik", pass: "Nt_610", streak: "0 Days", score: 98, badges: "🔥" },
+    { name: "Sumat", pass: "021213", streak: "7 Days", score: 100, badges: "🔥⁴, 🛡️" },
+    { name: "Simrath", pass: "waheguru", streak: "6 Days", score: 100, badges: "🔥³ ,🛡️" },
+    { name: "Aarya", pass: "Aa#401", streak: "26 Days", score: 100, badges: "🔥³, 🛡️" },
+    { name: "Aarya(sr)", pass: "Ar#126", streak: "2 Days", score: 100, badges: "🔥³" },
+    { name: "Nilesh", pass: "Nl@590", streak: "1 Day", score: 100, badges: "🖋️, 🔥³" },
     { name: "Vimal [💎]", pass: "Vm@370", streak: "45 Days", score: 100, badges: "💎🖋️, 🔥⁶, 🛡️" },
     { name: "Eeshal [🖋️]", pass: "Es!207", streak: "2 Days", score: 100, badges: "🖋️², 🔥²" }, 
-    { name: "Mahima", pass: "Mh@438", streak: "6 Days", score: 100, badges: "💎, 🖋️, 🔥⁵, 🛡️" },
-    { name: "Kushal", pass: "Ks@884", streak: "6 Days", score: 100, badges: "💎, 🖋️, 🔥⁵, 🛡️" },
     { name: "Michelle", pass: "Mc#761", streak: "0 Days", score: 99, badges: "🔥³" }, 
     { name: "Dheeraj", pass: "Dh!592", streak: "7 Days", score: 100, badges: "🔥⁴, 🛡️" },
     { name: "Ananya", pass: "An#845", streak: "8 Days", score: 100, badges: "🔥³, 🛡️" },
     { name: "Saloni", pass: "Sl@291", streak: "2 Days", score: 100, badges: "💎, 🖋️³, 🔥⁴, 🛡️" },
-    { name: "Chahat [🖋️]", pass: "Ch!214", streak: "3 Days", score: 100, badges: "💎, 🖋️², 🔥⁵, 🛡️" },
-    { name: "Nihal [🖋️]", pass: "Nh!352", streak: "15 Days", score: 100, badges: "🖋️³, 🔥², 🛡️" },
+    { name: "Chahat ", pass: "Ch!214", streak: "3 Days", score: 100, badges: "💎, 🖋️², 🔥⁵, 🛡️" },
+    { name: "Nihal ", pass: "Nh!352", streak: "15 Days", score: 100, badges: "🖋️³, 🔥², 🛡️" },
     { name: "Ritika", pass: "Rt@123", streak: "3 Days", score: 100, badges: "🔥⁴" },
     { name: "Luksh", pass: "Lk@673", streak: "0 Days", score: 94, badges: "⚠️" },
     { name: "Satiya", pass: "Sa-780", streak: "28 Days", score: 100, badges: "🖋️³, 🔥³, 🛡️" },
     { name: "Divya", pass: "Dh_567", streak: "23 Days", score: 100, badges: "🔥³ 🛡️" },
-    { name: "Kashish", pass: "Ks#290", streak: "23 Days", score: 100, badges: "🔥³ 🛡️" }
+    { name: "Kashish", pass: "Ks#290", streak: "23 Days", score: 100, badges: "🔥³ 🛡️" },
+    { name: "Mahima", pass: "Mh@438", streak: "6 Days", score: 100, badges: "💎, 🖋️, 🔥⁵, 🛡️" },
+    { name: "Kushal", pass: "Ks@884", streak: "6 Days", score: 100, badges: "💎, 🖋️, 🔥⁵, 🛡️" }
     ];
     
     let students = studentsData.map(s => {
@@ -754,7 +754,7 @@
     ];
     
     // --- 20th July History Entry ---
-    let isLeaveValue = (
+    let isLeave20 = (
     s.name.includes("Saloni") || 
     s.name.includes("Chahat") || 
     s.name.includes("Nihal") || 
@@ -765,9 +765,7 @@
     s.name.includes("Kashish")
     );
     
-    let leaveTypeLabel = s.name.includes("Luksh") ? "ON EXAM LEAVE" : "ON HOLIDAY LEAVE";
-    
-    if (isLeaveValue) {
+    if (isLeave20) {
     history.push({ date: "2026-07-20", change: "HOLD", reason: s.name.includes("Luksh") ? "Exam Leave" : "Holiday Leave" });
     } else if (
     s.name.includes("Nilesh") || 
@@ -779,10 +777,38 @@
     history.push({ date: "2026-07-20", change: "+1", reason: "Present" });
     }
     
+    // --- 21st July History Entry ---
+    let isLeave21 = (
+    s.name.includes("Saloni") || 
+    s.name.includes("Chahat") || 
+    s.name.includes("Nihal") || 
+    s.name.includes("Ritika") || 
+    s.name.includes("Luksh") || 
+    s.name.includes("Satiya") || 
+    s.name.includes("Divya") || 
+    s.name.includes("Kashish") ||
+    s.name.includes("Mahima") ||
+    s.name.includes("Kushal")
+    );
+    
+    let leaveTypeLabel = s.name.includes("Luksh") ? "ON EXAM LEAVE" : "ON HOLIDAY LEAVE";
+    
+    if (isLeave21) {
+    history.push({ date: "2026-07-21", change: "HOLD", reason: s.name.includes("Luksh") ? "Exam Leave" : "Holiday Leave" });
+    } else if (
+    s.name.includes("Natik") || 
+    s.name.includes("Arin") || 
+    s.name.includes("Poonam")
+    ) {
+    history.push({ date: "2026-07-21", change: "-1", reason: "Absent (Informed)" });
+    } else {
+    history.push({ date: "2026-07-21", change: "+1", reason: "Present" });
+    }
+    
     return { 
     ...s, 
     score: s.score, 
-    onLeave: isLeaveValue, 
+    onLeave: isLeave21, 
     leaveType: leaveTypeLabel, 
     history: history, 
     badges: s.badges
@@ -906,6 +932,4 @@
     loadSikhHistoryStudyHub();
     });
     </script>
-    
-    
     
