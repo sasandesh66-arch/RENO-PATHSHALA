@@ -199,146 +199,177 @@
             transition: 0.3s;
         }
         input:focus { border-bottom-color: var(--gold-bright); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
-        
+
         .btn {
-        background: linear-gradient(135deg, var(--gold) 0%, #9a7432 100%);
-        color: #09090e;
-        border: none;
-        padding: 15px 40px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        border-radius: 2px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        margin: 5px;
+            background: linear-gradient(135deg, var(--gold) 0%, #9a7432 100%);
+            color: #09090e;
+            border: none;
+            padding: 15px 40px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 2px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            margin: 5px;
         }
-        
+
         .btn:hover { 
-        background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
-        box-shadow: 0 0 25px rgba(223, 183, 108, 0.6);
-        transform: scale(1.02);
+            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
+            box-shadow: 0 0 25px rgba(223, 183, 108, 0.6);
+            transform: scale(1.02);
         }
-        
+
         .profile-hero { border-bottom: 2px solid var(--gold); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
         .p-standing { font-size: 1.2rem; letter-spacing: 3px; font-weight: 700; text-shadow: 0 0 8px rgba(255,255,255,0.2); }
-        
+
         /* AWARDS VAULT STYLING */
         .awards-vault {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-        margin: 20px 0;
-        padding: 20px;
-        background: rgba(223, 183, 108, 0.03);
-        border: 1px dashed var(--gold);
-        border-radius: 4px;
-        box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(223, 183, 108, 0.03);
+            border: 1px dashed var(--gold);
+            border-radius: 4px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
         }
         .award-badge {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: rgba(0,0,0,0.4);
-        border: 1px solid var(--border);
-        padding: 10px;
-        min-width: 100px;
-        border-radius: 4px;
-        transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--border);
+            padding: 10px;
+            min-width: 100px;
+            border-radius: 4px;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         .award-badge:hover { border-color: var(--gold-bright); transform: translateY(-3px); box-shadow: var(--gold-glow); }
         .award-emoji { font-size: 2rem; margin-bottom: 5px; filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
         .award-label { 
-        font-size: 0.6rem; 
-        font-weight: 900; 
-        color: var(--gold-bright); 
-        letter-spacing: 1px; 
-        text-transform: uppercase;
+            font-size: 0.6rem; 
+            font-weight: 900; 
+            color: var(--gold-bright); 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
         }
         .milestone-text {
-        font-family: 'Cinzel', serif;
-        font-weight: 900;
-        font-size: 1.1rem;
-        color: var(--gold-bright);
-        margin-top: 15px;
-        text-shadow: 0 0 15px rgba(223, 183, 108, 0.6);
-        text-align: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: var(--gold-bright);
+            margin-top: 15px;
+            text-shadow: 0 0 15px rgba(223, 183, 108, 0.6);
+            text-align: center;
         }
-        
+
         /* =========================================================
-        NEW QUESTIONS/ANSWERS STUDY & PRACTICE PLATFORM CUSTOM STYLES
-        ========================================================= */
+           NEW QUESTIONS/ANSWERS STUDY & PRACTICE PLATFORM CUSTOM STYLES
+           ========================================================= */
         .history-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
         }
         .qa-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid var(--border);
-        padding: 25px;
-        border-radius: 4px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         .qa-question {
-        font-family: 'Cinzel', serif;
-        color: var(--gold-bright);
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-        letter-spacing: 1px;
+            font-family: 'Cinzel', serif;
+            color: var(--gold-bright);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
         .qa-answer {
-        color: #51cf66;
-        font-size: 1rem;
-        font-weight: 600;
-        padding-left: 10px;
-        border-left: 2px solid var(--gold);
+            color: #51cf66;
+            font-size: 1rem;
+            font-weight: 600;
+            padding-left: 10px;
+            border-left: 2px solid var(--gold);
         }
         .practice-container {
-        background: var(--emerald-light);
-        border: 1px solid var(--gold);
-        border-radius: 6px;
-        padding: 40px;
-        max-width: 700px;
-        margin: 40px auto;
-        box-shadow: var(--luxury-shadow);
+            background: var(--emerald-light);
+            border: 1px solid var(--gold);
+            border-radius: 6px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 40px auto;
+            box-shadow: var(--luxury-shadow);
         }
         .option-btn {
-        display: block;
-        width: 100%;
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid var(--border);
-        color: var(--white);
-        border-radius: 4px;
-        text-align: left;
-        margin-bottom: 12px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: 0.3s;
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            color: var(--white);
+            border-radius: 4px;
+            text-align: left;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
         }
         .option-btn:hover {
-        background: rgba(223, 183, 108, 0.1);
-        border-color: var(--gold);
-        padding-left: 22px;
+            background: rgba(223, 183, 108, 0.1);
+            border-color: var(--gold);
+            padding-left: 22px;
         }
         .review-card {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid var(--border);
-        padding: 15px;
-        margin-bottom: 10px;
-        border-radius: 4px;
-        text-align: left;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            text-align: left;
         }
-        
-        /* ELITE 30-DAY STREAK ELECTRIC EFFECT FOR SELECTED STUDENTS */
-        div[onclick*="Diya"], 
-        div[onclick*="Rajveer"],
+
+        /* ELITE 60-DAY STREAK CONQUEROR EFFECT (DIYA & RAJVEER) */
+        div[onclick*="Diya"],
+        div[onclick*="Rajveer"] {
+            position: relative !important;
+            background-image: url('https://files.catbox.moe/bk5mlh.gif') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            border: 1px solid rgba(255, 215, 0, 0.8) !important;
+            box-shadow: 0 0 35px rgba(255, 215, 0, 0.6), inset 0 0 25px rgba(0,0,0,0.9) !important;
+            overflow: hidden !important;
+        }
+
+        div[onclick*="Diya"]::before,
+        div[onclick*="Rajveer"]::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.25), transparent 80%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        div[onclick*="Diya"] .exec-name, 
+        div[onclick*="Diya"] .exec-score,
+        div[onclick*="Rajveer"] .exec-name, 
+        div[onclick*="Rajveer"] .exec-score {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.9), 0 0 20px rgba(255, 255, 255, 0.95) !important;
+            color: #ffffff !important;
+        }
+
+        /* ELITE 30-DAY STREAK ELECTRIC EFFECT FOR REMAINING SELECTED STUDENTS */
         div[onclick*="Chahat"],
         div[onclick*="Saloni"],
         div[onclick*="Vimal"],
@@ -346,18 +377,16 @@
         div[onclick*="Kushal"],
         div[onclick*="Vivek"],
         div[onclick*="Hershika"] {
-        position: relative !important;
-        background-image: url('https://files.catbox.moe/1d1qc2.gif') !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        border: 1px solid rgba(0, 226, 255, 0.6) !important;
-        box-shadow: 0 0 30px rgba(0, 210, 255, 0.4), inset 0 0 25px rgba(0,0,0,0.9) !important;
-        overflow: hidden !important;
+            position: relative !important;
+            background-image: url('https://files.catbox.moe/1d1qc2.gif') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            border: 1px solid rgba(0, 226, 255, 0.6) !important;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4), inset 0 0 25px rgba(0,0,0,0.9) !important;
+            overflow: hidden !important;
         }
-        
-        div[onclick*="Diya"]::before, 
-        div[onclick*="Rajveer"]::before,
+
         div[onclick*="Chahat"]::before,
         div[onclick*="Saloni"]::before,
         div[onclick*="Vimal"]::before,
@@ -365,16 +394,14 @@
         div[onclick*="Kushal"]::before,
         div[onclick*="Vivek"]::before,
         div[onclick*="Hershika"]::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 50% 50%, rgba(0, 230, 242, 0.2), transparent 80%);
-        pointer-events: none;
-        z-index: 1;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 230, 242, 0.2), transparent 80%);
+            pointer-events: none;
+            z-index: 1;
         }
-        
-        div[onclick*="Diya"] .exec-name, div[onclick*="Diya"] .exec-score,
-        div[onclick*="Rajveer"] .exec-name, div[onclick*="Rajveer"] .exec-score,
+
         div[onclick*="Chahat"] .exec-name, div[onclick*="Chahat"] .exec-score,
         div[onclick*="Saloni"] .exec-name, div[onclick*="Saloni"] .exec-score,
         div[onclick*="Vimal"] .exec-name, div[onclick*="Vimal"] .exec-score,
@@ -382,154 +409,153 @@
         div[onclick*="Kushal"] .exec-name, div[onclick*="Kushal"] .exec-score,
         div[onclick*="Vivek"] .exec-name, div[onclick*="Vivek"] .exec-score,
         div[onclick*="Hershika"] .exec-name, div[onclick*="Hershika"] .exec-score {
-        position: relative;
-        z-index: 2;
-        text-shadow: 0 0 10px rgba(0, 242, 254, 0.9), 0 0 20px rgba(255, 255, 255, 0.95) !important;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.9), 0 0 20px rgba(255, 255, 255, 0.95) !important;
         }
         
-        div[onclick*="Diya"] .exec-score, div[onclick*="Rajveer"] .exec-score, div[onclick*="Chahat"] .exec-score, div[onclick*="Saloni"] .exec-score, div[onclick*="Vimal"] .exec-score, div[onclick*="Mahima"] .exec-score, div[onclick*="Kushal"] .exec-score, div[onclick*="Vivek"] .exec-score, div[onclick*="Hershika"] .exec-score {
-        color: #ffffff !important; 
+        div[onclick*="Chahat"] .exec-score, div[onclick*="Saloni"] .exec-score, div[onclick*="Vimal"] .exec-score, div[onclick*="Mahima"] .exec-score, div[onclick*="Kushal"] .exec-score, div[onclick*="Vivek"] .exec-score, div[onclick*="Hershika"] .exec-score {
+            color: #ffffff !important; 
         }
-        
+
         @media (max-width: 600px) {
-        .logo { font-size: 2.5rem; letter-spacing: 5px; }
-        .protocol-grid { grid-template-columns: 1fr; }
-        nav { justify-content: flex-start; padding-left: 20px; }
-        .badge-grid { grid-template-columns: repeat(2, 1fr); }
+            .logo { font-size: 2.5rem; letter-spacing: 5px; }
+            .protocol-grid { grid-template-columns: 1fr; }
+            nav { justify-content: flex-start; padding-left: 20px; }
+            .badge-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        </style>
-        
-        <nav>
-        <a onclick="showSection('registry')" id="nav-registry" class="active">Total Students</a>
-        <a onclick="showSection('leaderboard')" id="nav-leaderboard">Leaderboard</a>
-        <a onclick="showSection('analytics')" id="nav-analytics">Analytics</a>
-        <a onclick="showSection('badges')" id="nav-badges">Badges/Streaks</a>
-        <a onclick="showSection('sikh-history')" id="nav-sikh-history">Questions/Answers</a>
-        <a onclick="showSection('protocol')" id="nav-protocol">Rule Book</a>
-        </nav>
-        
-        <header>
-        <div class="logo">Reno Pathshalla</div>
-        <div class="subtitle">Official Honor Council Dashboard</div>
-        </header>
-        
-        <div class="container">
-        
-        <section id="registry" class="view-section active">
+    </style>
+</head>
+<body>
+
+<nav>
+    <a onclick="showSection('registry')" id="nav-registry" class="active">Total Students</a>
+    <a onclick="showSection('leaderboard')" id="nav-leaderboard">Leaderboard</a>
+    <a onclick="showSection('analytics')" id="nav-analytics">Analytics</a>
+    <a onclick="showSection('badges')" id="nav-badges">Badges/Streaks</a>
+    <a onclick="showSection('sikh-history')" id="nav-sikh-history">Questions/Answers</a>
+    <a onclick="showSection('protocol')" id="nav-protocol">Rule Book</a>
+</nav>
+
+<header>
+    <div class="logo">Reno Pathshalla</div>
+    <div class="subtitle">Official Honor Council Dashboard</div>
+</header>
+
+<div class="container">
+    
+    <section id="registry" class="view-section active">
         <div class="registry-grid" id="registryGrid"></div>
-        </section>
-        
-        <section id="leaderboard" class="view-section">
+    </section>
+
+    <section id="leaderboard" class="view-section">
         <table class="exec-table">
-        <thead>
-        <tr>
-        <th>Rank</th>
-        <th>Full Name</th>
-        <th>Status / Score</th>
-        <th>Streak</th>
-        <th>Awards</th>
-        </tr>
-        </thead>
-        <tbody id="leaderboardBody"></tbody>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Full Name</th>
+                    <th>Status / Score</th>
+                    <th>Streak</th>
+                    <th>Awards</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
         </table>
-        </section>
-        
-        <section id="analytics" class="view-section">
+    </section>
+
+    <section id="analytics" class="view-section">
         <div style="background:rgba(255,255,255,0.02); padding:40px; border:1px solid var(--border); height: 400px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <canvas id="mainChart"></canvas>
+            <canvas id="mainChart"></canvas>
         </div>
-        </section>
-        
-        <section id="badges" class="view-section">
+    </section>
+
+    <section id="badges" class="view-section">
         <div class="badge-grid">
-        <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
-        <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
-        <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
-        <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Unlocked: 30 Day Clean Record</p></div>
-        <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold-bright); display:block; margin-bottom:15px;">🖋️</span><h3>Golden Pen</h3><p style="font-size:0.8rem; color:var(--dim)">Top Dictation Performer</p></div>
+            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
+            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
+            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
+            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Unlocked: 30 Day Clean Record</p></div>
+            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold-bright); display:block; margin-bottom:15px;">🖋️</span><h3>Golden Pen</h3><p style="font-size:0.8rem; color:var(--dim)">Top Dictation Performer</p></div>
         </div>
-        </section>
-        <section id="sikh-history" class="view-section">
+</section>
+
+    <section id="sikh-history" class="view-section">
         <div style="text-align: center; margin-bottom: 40px;">
-        <h2 style="font-family:'Cinzel'; color:var(--gold); font-size:2.5rem; margin-bottom:15px;">Questions/Answers Study Room</h2>
-        <p style="color:var(--dim); letter-spacing:2px; font-size:0.9rem; margin-bottom:20px;">READ AND MEMORIZE LESSONS OR CHALLENGE YOUR KNOWLEDGE</p>
-        <button class="btn" onclick="startPracticeMode()">🔥 Start Shuffled Practice</button>
+            <h2 style="font-family:'Cinzel'; color:var(--gold); font-size:2.5rem; margin-bottom:15px;">Questions/Answers Study Room</h2>
+            <p style="color:var(--dim); letter-spacing:2px; font-size:0.9rem; margin-bottom:20px;">READ AND MEMORIZE LESSONS OR CHALLENGE YOUR KNOWLEDGE</p>
+            <button class="btn" onclick="startPracticeMode()">🔥 Start Shuffled Practice</button>
         </div>
         <div id="studyView">
-        <div class="history-list" id="sikhHistoryQuestionsBox"></div>
+            <div class="history-list" id="sikhHistoryQuestionsBox"></div>
         </div>
         
         <div id="practiceView" style="display: none;">
-        <div class="practice-container" id="practiceContainer"></div>
+            <div class="practice-container" id="practiceContainer"></div>
         </div>
-        </section>
-        
-        <div id="practiceView" style="display: none;">
-        <div class="practice-container" id="practiceContainer"></div>
-        </div>
-        </section>
-        
-        <section id="protocol" class="view-section">
+    </section>
+
+    <section id="protocol" class="view-section">
         <div class="protocol-grid">
-        <div class="protocol-box">
-        <h3>Point Adjustments</h3>
-        <table class="p-table">
-        <tr><td>Late without permission</td><td style="color:var(--status-danger)">-2</td></tr>
-        <tr><td>Late with permission</td><td style="color:var(--status-danger)">-1</td></tr>
-        <tr><td>Leave/off without permission</td><td style="color:var(--status-danger)">-4</td></tr>
-        <tr><td>Leave with permission</td><td style="color:var(--status-danger)">-1</td></tr>
-        <tr><td>Full regular attendance day</td><td style="color:var(--status-excellent)">+1</td></tr>
-        <tr><td>Helping in Pathshalla</td><td style="color:var(--status-excellent)">+2</td></tr>
-        <tr><td>Disrespectful behavior</td><td style="color:var(--status-danger)">-5</td></tr>
-        </table>
+            <div class="protocol-box">
+                <h3>Point Adjustments</h3>
+                <table class="p-table">
+                    <tr><td>Late without permission</td><td style="color:var(--status-danger)">-2</td></tr>
+                    <tr><td>Late with permission</td><td style="color:var(--status-danger)">-1</td></tr>
+                    <tr><td>Leave/off without permission</td><td style="color:var(--status-danger)">-4</td></tr>
+                    <tr><td>Leave with permission</td><td style="color:var(--status-danger)">-1</td></tr>
+                    <tr><td>Full regular attendance day</td><td style="color:var(--status-excellent)">+1</td></tr>
+                    <tr><td>Helping in Pathshalla</td><td style="color:var(--status-excellent)">+2</td></tr>
+                    <tr><td>Disrespectful behavior</td><td style="color:var(--status-danger)">-5</td></tr>
+                </table>
+            </div>
+            <div class="protocol-box">
+                <h3>Consequence Thresholds</h3>
+                <table class="p-table">
+                    <tr><td>Score 95 – 100</td><td style="color:var(--status-excellent)">Excellent</td></tr>
+                    <tr><td>Score 90 – 94</td><td style="color:var(--status-warning)">Warning</td></tr>
+                    <tr><td>Score 85 – 89</td><td style="color:var(--status-extra)">Extra Task</td></tr>
+                    <tr><td>Score 80 – 84</td><td style="color:var(--status-danger)">Parent Notice</td></tr>
+                    <tr><td>Score 70 – 79</td><td style="color:var(--status-danger)">Restriction</td></tr>
+                    <tr><td>Below 70</td><td style="color:var(--status-danger)">Suspension Review</td></tr>
+                </table>
+            </div>
         </div>
-        <div class="protocol-box">
-        <h3>Consequence Thresholds</h3>
-        <table class="p-table">
-        <tr><td>Score 95 – 100</td><td style="color:var(--status-excellent)">Excellent</td></tr>
-        <tr><td>Score 90 – 94</td><td style="color:var(--status-warning)">Warning</td></tr>
-        <tr><td>Score 85 – 89</td><td style="color:var(--status-extra)">Extra Task</td></tr>
-        <tr><td>Score 80 – 84</td><td style="color:var(--status-danger)">Parent Notice</td></tr>
-        <tr><td>Score 70 – 79</td><td style="color:var(--status-danger)">Restriction</td></tr>
-        <tr><td>Below 70</td><td style="color:var(--status-danger)">Suspension Review</td></tr>
-        </table>
-        </div>
-        </div>
-        </section>
-        
-        <section id="profile" class="view-section">
+    </section>
+    
+    <section id="profile" class="view-section">
         <div class="profile-hero">
-        <div>
-        <h2 id="pName" style="font-family:'Cinzel'; font-size:3rem; color:var(--gold)">NAME</h2>
-        <div id="pStanding" class="p-standing">STANDING</div>
-        </div>
-        <div style="text-align:right">
-        <span style="color:var(--dim); font-size:0.7rem; letter-spacing:2px">HONOR STATUS</span>
-        <h2 id="pScore" style="font-size:3rem; color:var(--white)">100</h2>
-        </div>
+            <div>
+                <h2 id="pName" style="font-family:'Cinzel'; font-size:3rem; color:var(--gold)">NAME</h2>
+                <div id="pStanding" class="p-standing">STANDING</div>
+            </div>
+            <div style="text-align:right">
+                <span style="color:var(--dim); font-size:0.7rem; letter-spacing:2px">HONOR STATUS</span>
+                <h2 id="pScore" style="font-size:3rem; color:var(--white)">100</h2>
+            </div>
         </div>
         
         <div id="awardsContainer"></div>
         
         <div style="background:rgba(255,255,255,0.02); padding:30px; border:1px solid var(--border); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <h4 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:20px">Adjustment Ledger</h4>
-        <table class="p-table" id="ledgerBody"></table>
+            <h4 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:20px">Adjustment Ledger</h4>
+            <table class="p-table" id="ledgerBody"></table>
         </div>
         <br>
         <button class="btn" onclick="showSection('registry')">Close Dossier</button>
-        </section>
-        
-        </div>
-        <div class="modal" id="passModal">
-        <div class="modal-content">
+    </section>
+    
+</div>
+    
+<div class="modal" id="passModal">
+    <div class="modal-content">
         <h2 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:10px">Access Key</h2>
         <p style="color:var(--dim); font-size:0.7rem; letter-spacing:2px; margin-bottom:30px">IDENTITY VERIFICATION REQUIRED</p>
         <input type="password" id="passInput" placeholder="••••••••">
         <button class="btn" onclick="verifyAccess()">Verify</button>
         <p id="errorMsg" style="color:#ff6b6b; margin-top:20px; font-size:0.8rem; display:none;">Unauthorized Access</p>
-        </div>
-        </div>
-        <script>
+    </div>
+</div>
+<script>
         // Manual QA Registry Engine (EASY EDITING HUB)
         // You can safely edit, add, or subtract any item here inside the brackets!
         const sikhHistoryQuestions = [
@@ -710,26 +736,26 @@
         </script>
         <script>
         const studentsData = [
-        { name: "Rajveer [💎🖋️²]", pass: "Rv@572", streak: "59 Days", score: 100, badges: "💎, 🖋️⁴, 🔥⁸, 🛡️" },
-        { name: "Diya [💎🖋️]", pass: "Dy#567", streak: "59 Days", score: 100, badges: "💎, 🖋️⁵, 🔥⁸, 🛡️" },
-        { name: "Vivek [💎]", pass: "Vk#804", streak: "43 Days", score: 100, badges: "💎, 🖋️⁵, 🛡️, 🔥⁵" },
-        { name: "Hershika[💎]", pass: "Hr#408", streak: "39 Days", score: 100, badges: "💎, 🔥⁵, 🛡️" },
+        { name: "Rajveer [💎²🖋️²]", pass: "Rv@572", streak: "60 Days", score: 100, badges: "💎², 🖋️⁴, 🔥⁸, 🛡️" },
+        { name: "Diya [💎²🖋️]", pass: "Dy#567", streak: "60 Days", score: 100, badges: "💎², 🖋️⁵, 🔥⁸, 🛡️" },
+        { name: "Vivek [💎]", pass: "Vk#804", streak: "44 Days", score: 100, badges: "💎, 🖋️⁵, 🛡️, 🔥⁶" },
+        { name: "Hershika[💎]", pass: "Hr#408", streak: "40 Days", score: 100, badges: "💎, 🔥⁵, 🛡️" },
         { name: "Saloni", pass: "Sl@291", streak: "0 Days", score: 99, badges: "💎, 🖋️⁴, 🔥⁵" },
-        { name: "Chahat", pass: "Ch!214", streak: "1 Day", score: 100, badges: "💎, 🖋️², 🔥⁵" },
-        { name: "Aradhiya", pass: "Aru#612", streak: "0 Days", score: 98, badges: "🔥" },
-        { name: "Poonam", pass: "Pn@428", streak: "0 Days", score: 98, badges: "🔥²" },
-        { name: "Ritika", pass: "Rt@123", streak: "9 Days", score: 100, badges: "🔥⁵, 🛡️" },
-        { name: "Nihal", pass: "Nh!352", streak: "18 Days", score: 100, badges: "🖋️³, 🔥², 🛡️" },
-        { name: "Ranveer ", pass: "Rn!940", streak: "24 Days", score: 100, badges: "🖋️, 🔥⁵, 🛡️" }, 
-        { name: "Aadesh", pass: "Ad'300", streak: "19 Days", score: 100, badges: "🔥³, 🛡️" },
-        { name: "Angel", pass: "Ag#418", streak: "0 Days", score: 99, badges: "🔥³" }, 
-        { name: "Arin", pass: "Ar_021", streak: "0 Days", score: 99, badges: "🔥" },
-        { name: "Natik", pass: "Nt_610", streak: "2 Days", score: 100, badges: "🔥" },
-        { name: "Sumat", pass: "021213", streak: "1 Day", score: 98, badges: "🔥⁴" },
-        { name: "Simrath", pass: "waheguru", streak: "14 Days", score: 100, badges: "🔥⁵, 🛡️" },
-        { name: "Aarya", pass: "Aa#401", streak: "3 Days", score: 100, badges: "🔥⁴" },
-        { name: "Aarya(sr)", pass: "Ar#126", streak: "9 Days", score: 100, badges: "🔥⁴, 🛡️" },
-        { name: "Nilesh [T.C]", pass: "Nl@590", streak: "0 Days", score: 0, badges: "T.C" },
+        { name: "Chahat", pass: "Ch!214", streak: "2 Days", score: 100, badges: "💎, 🖋️², 🔥⁵" },
+        { name: "Aradhiya", pass: "Aru#612", streak: "0 Days", score: 97, badges: "🔥" },
+        { name: "Poonam", pass: "Pn@428", streak: "1 Day", score: 99, badges: "🔥²" },
+        { name: "Ritika", pass: "Rt@123", streak: "10 Days", score: 100, badges: "🔥⁵, 🛡️" },
+        { name: "Nihal", pass: "Nh!352", streak: "19 Days", score: 100, badges: "🖋️³, 🔥², 🛡️" },
+        { name: "Ranveer ", pass: "Rn!940", streak: "25 Days", score: 100, badges: "🖋️, 🔥⁵, 🛡️" }, 
+        { name: "Aadesh", pass: "Ad'300", streak: "20 Days", score: 100, badges: "🔥³, 🛡️" },
+        { name: "Angel", pass: "Ag#418", streak: "1 Day", score: 100, badges: "🔥³, 🛡️" }, 
+        { name: "Arin", pass: "Ar_021", streak: "1 Day", score: 100, badges: "🔥, 🛡️" },
+        { name: "Natik", pass: "Nt_610", streak: "0 Days", score: 99, badges: "🔥" },
+        { name: "Sumat", pass: "021213", streak: "2 Days", score: 99, badges: "🔥⁴" },
+        { name: "Simrath", pass: "waheguru", streak: "15 Days", score: 100, badges: "🔥⁵, 🛡️" },
+        { name: "Aarya", pass: "Aa#401", streak: "4 Days", score: 100, badges: "🔥⁴" },
+        { name: "Aarya(sr)", pass: "Ar#126", streak: "10 Days", score: 100, badges: "🔥⁴, 🛡️" },
+        { name: "Nilesh", pass: "Nl@590", streak: "1 Day", score: 100, badges: "🛡️" },
         { name: "Vimal [💎]", pass: "Vm@370", streak: "45 Days", score: 100, badges: "💎, 🖋️, 🔥⁶, 🛡️" },
         { name: "Eeshal ", pass: "Es!207", streak: "2 Days", score: 100, badges: "🖋️², 🔥²" }, 
         { name: "Michelle", pass: "Mc#761", streak: "0 Days", score: 99, badges: "🔥³" }, 
@@ -790,7 +816,7 @@
         s.name.includes("Saloni")
         );
         
-        let isTC = s.name.includes("Nilesh");
+        let isTC = s.name.includes("Nilesh") && !s.name.includes("Nilesh [100]");
         
         if (isLeave31) {
         history.push({ date: "2026-07-31", change: "HOLD", reason: s.name.includes("Luksh") ? "Exam Leave" : "Holiday Leave" });
@@ -802,10 +828,33 @@
         history.push({ date: "2026-07-31", change: "+1", reason: "Present" });
         }
         
+        // --- 3rd August History Entry ---
+        let isLeave03 = (
+        isLeave31 || 
+        s.name.includes("Saloni")
+        );
+        
+        let isAbsentInformed03 = (
+        s.name.includes("Aradhiya") ||
+        s.name.includes("Natik")
+        );
+        
+        if (isLeave03) {
+        let leaveReason = s.name.includes("Saloni") ? "Sick Leave" : (s.name.includes("Luksh") ? "Exam Leave" : "Holiday Leave");
+        history.push({ date: "2026-08-03", change: "HOLD", reason: leaveReason });
+        if (s.name.includes("Saloni")) {
+        leaveTypeLabel = "ON SICK LEAVE";
+        }
+        } else if (isAbsentInformed03) {
+        history.push({ date: "2026-08-03", change: "-1", reason: "Absent (Informed)" });
+        } else {
+        history.push({ date: "2026-08-03", change: "+1", reason: "Present" });
+        }
+        
         return { 
         ...s, 
         score: s.score, 
-        onLeave: isLeave31, 
+        onLeave: isLeave03, 
         leaveType: leaveTypeLabel, 
         history: history, 
         badges: s.badges
@@ -929,46 +978,7 @@
         loadSikhHistoryStudyHub();
         });
         </script>
-        if (chartStatus != undefined) chartStatus.destroy();
-        new Chart(ctx, { type: 'line', data: { labels: chartData.map(s => s.name), datasets: [{ label: 'Score', data: chartData.map(s => s.score), borderColor: '#c5a021', borderWidth: 3, tension: 0.4, fill: true, backgroundColor: 'rgba(197, 160, 33, 0.1)' }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 70, max: 100 }, x: { ticks: { color: '#888' } } } } });
-        }
-        
-        function openGate(n) { 
-        activeUser = students.find(s => s.name === n); 
-        document.getElementById('passModal').style.display = 'flex'; 
-        document.getElementById('passInput').value = "";
-        document.getElementById('errorMsg').style.display = 'none';
-        } 
-        
-        function verifyAccess() { 
-        if(document.getElementById('passInput').value === activeUser.pass) { 
-        document.getElementById('passModal').style.display = 'none'; 
-        showProfile(); 
-        } else { 
-        document.getElementById('errorMsg').style.display = 'block'; 
-        } 
-        }
-        
-        function showProfile() {
-        document.getElementById('pName').innerText = activeUser.name.toUpperCase();
-        document.getElementById('pScore').innerText = activeUser.onLeave ? "LEAVE" : activeUser.score;
-        document.getElementById('pScore').style.color = getStatusColor(activeUser.score);
-        
-        let displayStanding = "EXCELLENT";
-        let lastHistory = activeUser.history[activeUser.history.length - 1];
-        if (activeUser.onLeave) {
-        displayStanding = activeUser.leaveType;
-        } else if (lastHistory && (lastHistory.reason === "Absent (Informed)" || lastHistory.reason === "Absent")) {
-        displayStanding = lastHistory.reason === "Absent (Informed)" ? "ABSENT (INFORMED)" : "ABSENT";
-        } else if (lastHistory && lastHistory.reason === "Late (Informed)") {
-        displayStanding = "LATE (INFORMED)";
-        } else if (activeUser.score < 95) {
-        displayStanding = "WARNING";
-        }
-        document.getElementById('pStanding').innerText = displayStanding;
-        
-        let awardsHtml = '<div class="milestone-text">RENO AWARDS & ACHIEVEMENTS</div><div class="awards-vault">';
-        if (activeUser.badges) {
+        ges) {
         let manualBadges = activeUser.badges.split(/[\s,]+/); 
         awardsHtml += manualBadges.map(emoji => {
         if(!emoji) return '';
