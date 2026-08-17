@@ -376,7 +376,9 @@
         div[onclick*="Mahima"],
         div[onclick*="Kushal"],
         div[onclick*="Vivek"],
-        div[onclick*="Hershika"] {
+        div[onclick*="Hershika"],
+        div[onclick*="Ranveer"],
+        div[onclick*="Satiya"] {
             position: relative !important;
             background-image: url('https://files.catbox.moe/1d1qc2.gif') !important;
             background-size: cover !important;
@@ -393,7 +395,9 @@
         div[onclick*="Mahima"]::before,
         div[onclick*="Kushal"]::before,
         div[onclick*="Vivek"]::before,
-        div[onclick*="Hershika"]::before {
+        div[onclick*="Hershika"]::before,
+        div[onclick*="Ranveer"]::before,
+        div[onclick*="Satiya"]::before {
             content: '';
             position: absolute;
             inset: 0;
@@ -408,13 +412,15 @@
         div[onclick*="Mahima"] .exec-name, div[onclick*="Mahima"] .exec-score,
         div[onclick*="Kushal"] .exec-name, div[onclick*="Kushal"] .exec-score,
         div[onclick*="Vivek"] .exec-name, div[onclick*="Vivek"] .exec-score,
-        div[onclick*="Hershika"] .exec-name, div[onclick*="Hershika"] .exec-score {
+        div[onclick*="Hershika"] .exec-name, div[onclick*="Hershika"] .exec-score,
+        div[onclick*="Ranveer"] .exec-name, div[onclick*="Ranveer"] .exec-score,
+        div[onclick*="Satiya"] .exec-name, div[onclick*="Satiya"] .exec-score {
             position: relative;
             z-index: 2;
             text-shadow: 0 0 10px rgba(0, 242, 254, 0.9), 0 0 20px rgba(255, 255, 255, 0.95) !important;
         }
         
-        div[onclick*="Chahat"] .exec-score, div[onclick*="Saloni"] .exec-score, div[onclick*="Vimal"] .exec-score, div[onclick*="Mahima"] .exec-score, div[onclick*="Kushal"] .exec-score, div[onclick*="Vivek"] .exec-score, div[onclick*="Hershika"] .exec-score {
+        div[onclick*="Chahat"] .exec-score, div[onclick*="Saloni"] .exec-score, div[onclick*="Vimal"] .exec-score, div[onclick*="Mahima"] .exec-score, div[onclick*="Kushal"] .exec-score, div[onclick*="Vivek"] .exec-score, div[onclick*="Hershika"] .exec-score, div[onclick*="Ranveer"] .exec-score, div[onclick*="Satiya"] .exec-score {
             color: #ffffff !important; 
         }
 
@@ -470,149 +476,152 @@
     </section>
 
     <section id="badges" class="view-section">
-        <div class="badge-grid">
-            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
-            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
-            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
-            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Unlocked: 30 Day Clean Record</p></div>
-            <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold-bright); display:block; margin-bottom:15px;">🖋️</span><h3>Golden Pen</h3><p style="font-size:0.8rem; color:var(--dim)">Top Dictation Performer</p></div>
-        </div>
-</section>
-
-<section id="sikh-history" class="view-section">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="font-family:'Cinzel'; color:var(--gold); font-size:2.5rem; margin-bottom:15px;">Questions/Answers Study Room</h2>
-            <p style="color:var(--dim); letter-spacing:2px; font-size:0.9rem; margin-bottom:20px;">READ AND MEMORIZE LESSONS OR CHALLENGE YOUR KNOWLEDGE</p>
-            <button class="btn" onclick="startPracticeMode()">🔥 Start Shuffled Practice</button>
-        </div>
-        <div id="studyView">
-            <div class="history-list" id="sikhHistoryQuestionsBox"></div>
-        </div>
-        
-        <div id="practiceView" style="display: none;">
-            <div class="practice-container" id="practiceContainer"></div>
-        </div>
+    <div class="badge-grid">
+    <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🛡️</span><h3>Century Guard</h3><p style="font-size:0.8rem; color:var(--dim)">Score maintained at 100</p></div>
+    <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🔥</span><h3>7-Day Streak</h3><p style="font-size:0.8rem; color:var(--dim)">Continuous Attendance</p></div>
+    <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">🌟</span><h3>Helping Hand</h3><p style="font-size:0.8rem; color:var(--dim)">+2 Help Points Earned</p></div>
+    <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold); display:block; margin-bottom:15px;">💎</span><h3>Pathshalla Elite</h3><p style="font-size:0.8rem; color:var(--dim)">Unlocked: 30 Day Clean Record</p></div>
+    <div class="badge-item"><span style="font-size:2.5rem; color:var(--gold-bright); display:block; margin-bottom:15px;">🖋️</span><h3>Golden Pen</h3><p style="font-size:0.8rem; color:var(--dim)">Top Dictation Performer</p></div>
+    </div>
     </section>
-
+    <section id="sikh-history" class="view-section">
+    <div style="text-align: center; margin-bottom: 40px;">
+    <h2 style="font-family:'Cinzel'; color:var(--gold); font-size:2.5rem; margin-bottom:15px;">Questions/Answers Study Room</h2>
+    <p style="color:var(--dim); letter-spacing:2px; font-size:0.9rem; margin-bottom:20px;">READ AND MEMORIZE LESSONS OR CHALLENGE YOUR KNOWLEDGE</p>
+    <button class="btn" onclick="startPracticeMode()">🔥 Start Shuffled Practice</button>
+    </div>
+    <div id="studyView">
+    <div class="history-list" id="sikhHistoryQuestionsBox"></div>
+    </div>
+    
+    <div id="practiceView" style="display: none;">
+    <div class="practice-container" id="practiceContainer"></div>
+    </div>
+    </section>
+    
     <section id="protocol" class="view-section">
-        <div class="protocol-grid">
-            <div class="protocol-box">
-                <h3>Point Adjustments</h3>
-                <table class="p-table">
-                    <tr><td>Late without permission</td><td style="color:var(--status-danger)">-2</td></tr>
-                    <tr><td>Late with permission</td><td style="color:var(--status-danger)">-1</td></tr>
-                    <tr><td>Leave/off without permission</td><td style="color:var(--status-danger)">-4</td></tr>
-                    <tr><td>Leave with permission</td><td style="color:var(--status-danger)">-1</td></tr>
-                    <tr><td>Full regular attendance day</td><td style="color:var(--status-excellent)">+1</td></tr>
-                    <tr><td>Helping in Pathshalla</td><td style="color:var(--status-excellent)">+2</td></tr>
-                    <tr><td>Disrespectful behavior</td><td style="color:var(--status-danger)">-5</td></tr>
-                </table>
-            </div>
-            <div class="protocol-box">
-                <h3>Consequence Thresholds</h3>
-                <table class="p-table">
-                    <tr><td>Score 95 – 100</td><td style="color:var(--status-excellent)">Excellent</td></tr>
-                    <tr><td>Score 90 – 94</td><td style="color:var(--status-warning)">Warning</td></tr>
-                    <tr><td>Score 85 – 89</td><td style="color:var(--status-extra)">Extra Task</td></tr>
-                    <tr><td>Score 80 – 84</td><td style="color:var(--status-danger)">Parent Notice</td></tr>
-                    <tr><td>Score 70 – 79</td><td style="color:var(--status-danger)">Restriction</td></tr>
-                    <tr><td>Below 70</td><td style="color:var(--status-danger)">Suspension Review</td></tr>
-                </table>
-            </div>
-        </div>
+    <div class="protocol-grid">
+    <div class="protocol-box">
+    <h3>Point Adjustments</h3>
+    <table class="p-table">
+    <tr><td>Late without permission</td><td style="color:var(--status-danger)">-2</td></tr>
+    <tr><td>Late with permission</td><td style="color:var(--status-danger)">-1</td></tr>
+    <tr><td>Leave/off without permission</td><td style="color:var(--status-danger)">-4</td></tr>
+    <tr><td>Leave with permission</td><td style="color:var(--status-danger)">-1</td></tr>
+    <tr><td>Full regular attendance day</td><td style="color:var(--status-excellent)">+1</td></tr>
+    <tr><td>Helping in Pathshalla</td><td style="color:var(--status-excellent)">+2</td></tr>
+    <tr><td>Disrespectful behavior</td><td style="color:var(--status-danger)">-5</td></tr>
+    </table>
+    </div>
+    <div class="protocol-box">
+    <h3>Consequence Thresholds</h3>
+    <table class="p-table">
+    <tr><td>Score 95 – 100</td><td style="color:var(--status-excellent)">Excellent</td></tr>
+    <tr><td>Score 90 – 94</td><td style="color:var(--status-warning)">Warning</td></tr>
+    <tr><td>Score 85 – 89</td><td style="color:var(--status-extra)">Extra Task</td></tr>
+    <tr><td>Score 80 – 84</td><td style="color:var(--status-danger)">Parent Notice</td></tr>
+    <tr><td>Score 70 – 79</td><td style="color:var(--status-danger)">Restriction</td></tr>
+    <tr><td>Below 70</td><td style="color:var(--status-danger)">Suspension Review</td></tr>
+    </table>
+    </div>
+    </div>
     </section>
     
     <section id="profile" class="view-section">
-        <div class="profile-hero">
-            <div>
-                <h2 id="pName" style="font-family:'Cinzel'; font-size:3rem; color:var(--gold)">NAME</h2>
-                <div id="pStanding" class="p-standing">STANDING</div>
-            </div>
-            <div style="text-align:right">
-                <span style="color:var(--dim); font-size:0.7rem; letter-spacing:2px">HONOR STATUS</span>
-                <h2 id="pScore" style="font-size:3rem; color:var(--white)">100</h2>
-            </div>
-        </div>
-        
-        <div id="awardsContainer"></div>
-        
-        <div style="background:rgba(255,255,255,0.02); padding:30px; border:1px solid var(--border); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <h4 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:20px">Adjustment Ledger</h4>
-            <table class="p-table" id="ledgerBody"></table>
-        </div>
-        <br>
-        <button class="btn" onclick="showSection('registry')">Close Dossier</button>
+    <div class="profile-hero">
+    <div>
+    <h2 id="pName" style="font-family:'Cinzel'; font-size:3rem; color:var(--gold)">NAME</h2>
+    <div id="pStanding" class="p-standing">STANDING</div>
+    </div>
+    <div style="text-align:right">
+    <span style="color:var(--dim); font-size:0.7rem; letter-spacing:2px">HONOR STATUS</span>
+    <h2 id="pScore" style="font-size:3rem; color:var(--white)">100</h2>
+    </div>
+    </div>
+    
+    <div id="awardsContainer"></div>
+    
+    <div style="background:rgba(255,255,255,0.02); padding:30px; border:1px solid var(--border); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <h4 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:20px">Adjustment Ledger</h4>
+    <table class="p-table" id="ledgerBody"></table>
+    </div>
+    <br>
+    <button class="btn" onclick="showSection('registry')">Close Dossier</button>
     </section>
     
-</div>
-    
-<div class="modal" id="passModal">
-    <div class="modal-content">
-        <h2 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:10px">Access Key</h2>
-        <p style="color:var(--dim); font-size:0.7rem; letter-spacing:2px; margin-bottom:30px">IDENTITY VERIFICATION REQUIRED</p>
-        <input type="password" id="passInput" placeholder="••••••••">
-        <button class="btn" onclick="verifyAccess()">Verify</button>
-        <p id="errorMsg" style="color:#ff6b6b; margin-top:20px; font-size:0.8rem; display:none;">Unauthorized Access</p>
     </div>
-</div>
-<script>
+    
+    <div class="modal" id="passModal">
+    <div class="modal-content">
+    <h2 style="font-family:'Cinzel'; color:var(--gold); margin-bottom:10px">Access Key</h2>
+    <p style="color:var(--dim); font-size:0.7rem; letter-spacing:2px; margin-bottom:30px">IDENTITY VERIFICATION REQUIRED</p>
+    <input type="password" id="passInput" placeholder="••••••••">
+    <button class="btn" onclick="verifyAccess()">Verify</button>
+    <p id="errorMsg" style="color:#ff6b6b; margin-top:20px; font-size:0.8rem; display:none;">Unauthorized Access</p>
+    </div>
+    </div>
+    
+    </body>
+    </html>
+    <script>
     // Manual QA Registry Engine (EASY EDITING HUB)
     // You can safely edit, add, or subtract any item here inside the brackets!
     const sikhHistoryQuestions = [
-        { q: "What were Guru Nanak Dev Ji's travels called ?", a: "Udasis" },
-        { q: "How many Sikhs were with Guru Gobind Singh Ji at Chamkaur Sahib?", a: "Only 40 Sikhs." },
-        { q: "How did Guru Gobind Singh Ji send the Sikhs to fight at Chamkaur Sahib?", a: "He sent them in small groups of five." },
-        { q: "Where did Guru Gobind Singh Ji go after leaving Anandpur Sahib?", a: "Chaudhary Budhu Chand’s Fort, Chamkaur Sahib." },
-        { q: "Which river were the Sikhs crossing when they were attacked?", a: "The Sirsa River." },
-        { q: "Who ordered the Chhote Sahibzaade to be bricked alive?", a: "Wazir Khan." },
-        { q: "Who were assigned to brick the Chhote Sahibzaade into the wall?", a: "Saashandas and Baashandas." },
-        { q: "Who served hot milk to the Chhote Sahibzaade and Mata Gujri Ji at Thanda Burj?", a: "Bhai Moti Ram Mehra Ji." },
-        { q: "Who betrayed Mata Gujri Ji and the Chhote Sahibzaade to the Mughals?", a: "Gangu Brahmin." },
-        { q: "Why did Gangu Brahmin inform the Mughals?", a: "Because of greed." },
-        { q: "What letter did Guru Gobind Singh Ji write to Aurangzeb?", a: "Zafarnama." },
-        { q: "What warning did Guru Gobind Singh Ji give to the Mughals?", a: "That the days of Mughal rule were numbered." },
-        { q: "Whom did Guru Gobind Singh Ji ask the Sikhs to follow after him?", a: "Guru Granth Sahib Ji." },
-        { q: "Who established the first Sikh rule after defeating the Mughals in Sirhind?", a: "Banda Singh Bahadur after defeating Wazir khan's Army in Sirhind." },
-        { q: "Who beheaded Wazir Khan?", a: "Baba Fateh Singh G." },
-        { q: "Who was the first Jathedar of the Khalsa Panth?", a: "Baba Banda Singh Bahadur." },
-        { q: "Who was the son of Banda Singh Bahadur?", a: "Ajay Singh." },
-        { q: "What was the age of Ajay Singh at the time of Shaheedi?", a: "4 years old." },
-        { q: "Who built a large Sikh Empire after Banda Singh Bahadur?", a: "Maharaja Ranjeet Singh G." },
-        { q: "Takht Sri Hazur Sahib was created on whose order?", a: "Maharaja Ranjit Singh G." },
-        { q: "By whom and when was Sri Akal Takht Sahib built?", a: "By Guru HarGobind Singh G in 1609." },   
-        { q: "What does Shaheedi mean?", a: "Satisfice." },
-        { q: "What lesson do the Sahibzaade teach us?", a: "Never give up faith." },
-        { q: "How many times is the name RAM mentioned in the GURU GRANTH SAHIB JE?", a: "2533 Times" },
-        { q: "How many times is the name ALLAH mentioned in the GURU GRANTH SAHIB JE?", a: "46 Times" },
-        { q: "Who taught Sanskrit and Hindi to Guru Gobind Singh ji?", a: "sahib chan khatri" },
-        { q: "How many authors are there in the GURU GRANTH SAHIB JEE?", a: "36 author's" },
-        { q: "What are the meanings of \"TEGH\" and \"BAHADUR\"?", a: "BRAVE SWORD TEGH:sword (TALVAAR) BAHADUR: Brave" },
-        { q: "Where was the Khalsa Panth created ?", a: "Khalsa Panth was created at Takht Sri Kesgarh Saheb, Anandpur by Guru Gobind Singh Ji." },
-        { q: "Give numbers of shabads ans saloks written by Guru Tegh bahadur ji in Guru Granth Sahib ji?", a: "57 Saloks & 59 Shabads." },
-        { q: "Name the sons of Guru Nanak Dev Ji?", a: "Baba Sri Chand Ji Baba Lakhmi" },
-        { q: "Give the number of total pages of Guru Granth Sahib ji?", a: "1,430" },
-        { q: "How many \"RAAG's\" are there in Guru Granth Sahib Ji?", a: "31 RAAG's" },
-        { q: "How many \"Shabads\" are there in Guru Granth Sahib Ji?", a: "5,894 Shabads" },
-        { q: "Which Guru is entitled 'Hind Di Chadar'?", a: "Guru TEGH BAHADUR dev ji" },
-        { q: "Who was called as 'Bhai Jetha Ji'?", a: "Guru Ram Das Ji" },
-        { q: "What was the age of Baba Deep Singh ji at the time of shaheedi?", a: "75 year" },
-        { q: "who was older bravest warrior of Sikhism?", a: "Baba Deep Singh Ji" },
-        { q: "Where was Guru Tegh Bahadur Ji martyred?", a: "Chandni chowk Delhi" },
-        { q: "Who said this line \"Phele Pangat Phir Sangat\"?", a: "Guru Amar Das Ji" },
-        { q: "For how many years did Maharaja Ranjit Singh rule?", a: "40 years (1799–1839)." },
-        { q: "What is meant by 'Chardi Kala'?", a: "A positive, brave, and hopeful mindset that never loses hope, even in difficult situations." },
-        { q: "What do Degh, Tegh, and Fateh mean?", a: "Degh: Kettle — A symbol of charity, kindness, and serving food to the poor and needy. Tegh: Sword — A symbol of strength and courage to protect the weak, helpless, and innocent. Fateh: Victory — It represents success and the victory of truth and justice over evil." },
-        { q: "What does 'Banda' mean?", a: "A servant or a humble follower of God." },
-        { q: "What was Banda Singh Bahadur’s childhood name?", a: "Lachhman Das." },
-        { q: "Which Gurdwara stands at the place where the body of Guru Tegh Bahadur Ji was cremated after he was beheaded?", a: "Gurdwara Rakab Ganj Sahib, Delhi." },
-        { q: "Which Gurdwara stands at the place where Guru Tegh Bahadur Ji was beheaded?", a: "Gurdwara Sis Ganj Sahib, Chandni Chowk, Delhi." },
-        { q: "Name the Gurdwara, now in Pakistan, that stands at the place where Guru Arjan Dev Ji was martyred.", a: "Gurdwara Dera Sahib, Lahore, Pakistan." },
-        { q: "Name the parents of Guru Nanak Dev Ji.", a: "Father: Mehta Kalu Ji Mother: Mata Tripta Ji" },
-        { q: "How old was Guru Nanak Dev Ji when he passed away and transferred the 'Divine Light' over to Guru Angad Dev Ji ?", a: "Seventy Years" },
-        { q: "Which Guru is entitled 'Shahidaan De Sirtaj' ?", a: "Guru Arjan Dev Ji" },
-        { q: "For how many years did Guru Amardas Ji serve Guru Angad Dev Ji ?", a: "12 Years" }
+    { q: "What were Guru Nanak Dev Ji's travels called ?", a: "Udasis" },
+    { q: "How many Sikhs were with Guru Gobind Singh Ji at Chamkaur Sahib?", a: "Only 40 Sikhs." },
+    { q: "How did Guru Gobind Singh Ji send the Sikhs to fight at Chamkaur Sahib?", a: "He sent them in small groups of five." },
+    { q: "Where did Guru Gobind Singh Ji go after leaving Anandpur Sahib?", a: "Chaudhary Budhu Chand’s Fort, Chamkaur Sahib." },
+    { q: "Which river were the Sikhs crossing when they were attacked?", a: "The Sirsa River." },
+    { q: "Who ordered the Chhote Sahibzaade to be bricked alive?", a: "Wazir Khan." },
+    { q: "Who were assigned to brick the Chhote Sahibzaade into the wall?", a: "Saashandas and Baashandas." },
+    { q: "Who served hot milk to the Chhote Sahibzaade and Mata Gujri Ji at Thanda Burj?", a: "Bhai Moti Ram Mehra Ji." },
+    { q: "Who betrayed Mata Gujri Ji and the Chhote Sahibzaade to the Mughals?", a: "Gangu Brahmin." },
+    { q: "Why did Gangu Brahmin inform the Mughals?", a: "Because of greed." },
+    { q: "What letter did Guru Gobind Singh Ji write to Aurangzeb?", a: "Zafarnama." },
+    { q: "What warning did Guru Gobind Singh Ji give to the Mughals?", a: "That the days of Mughal rule were numbered." },
+    { q: "Whom did Guru Gobind Singh Ji ask the Sikhs to follow after him?", a: "Guru Granth Sahib Ji." },
+    { q: "Who established the first Sikh rule after defeating the Mughals in Sirhind?", a: "Banda Singh Bahadur after defeating Wazir khan's Army in Sirhind." },
+    { q: "Who beheaded Wazir Khan?", a: "Baba Fateh Singh G." },
+    { q: "Who was the first Jathedar of the Khalsa Panth?", a: "Baba Banda Singh Bahadur." },
+    { q: "Who was the son of Banda Singh Bahadur?", a: "Ajay Singh." },
+    { q: "What was the age of Ajay Singh at the time of Shaheedi?", a: "4 years old." },
+    { q: "Who built a large Sikh Empire after Banda Singh Bahadur?", a: "Maharaja Ranjeet Singh G." },
+    { q: "Takht Sri Hazur Sahib was created on whose order?", a: "Maharaja Ranjit Singh G." },
+    { q: "By whom and when was Sri Akal Takht Sahib built?", a: "By Guru HarGobind Singh G in 1609." },   
+    { q: "What does Shaheedi mean?", a: "Satisfice." },
+    { q: "What lesson do the Sahibzaade teach us?", a: "Never give up faith." },
+    { q: "How many times is the name RAM mentioned in the GURU GRANTH SAHIB JE?", a: "2533 Times" },
+    { q: "How many times is the name ALLAH mentioned in the GURU GRANTH SAHIB JE?", a: "46 Times" },
+    { q: "Who taught Sanskrit and Hindi to Guru Gobind Singh ji?", a: "sahib chan khatri" },
+    { q: "How many authors are there in the GURU GRANTH SAHIB JEE?", a: "36 author's" },
+    { q: "What are the meanings of \"TEGH\" and \"BAHADUR\"?", a: "BRAVE SWORD TEGH:sword (TALVAAR) BAHADUR: Brave" },
+    { q: "Where was the Khalsa Panth created ?", a: "Khalsa Panth was created at Takht Sri Kesgarh Saheb, Anandpur by Guru Gobind Singh Ji." },
+    { q: "Give numbers of shabads ans saloks written by Guru Tegh bahadur ji in Guru Granth Sahib ji?", a: "57 Saloks & 59 Shabads." },
+    { q: "Name the sons of Guru Nanak Dev Ji?", a: "Baba Sri Chand Ji Baba Lakhmi" },
+    { q: "Give the number of total pages of Guru Granth Sahib ji?", a: "1,430" },
+    { q: "How many \"RAAG's\" are there in Guru Granth Sahib Ji?", a: "31 RAAG's" },
+    { q: "How many \"Shabads\" are there in Guru Granth Sahib Ji?", a: "5,894 Shabads" },
+    { q: "Which Guru is entitled 'Hind Di Chadar'?", a: "Guru TEGH BAHADUR dev ji" },
+    { q: "Who was called as 'Bhai Jetha Ji'?", a: "Guru Ram Das Ji" },
+    { q: "What was the age of Baba Deep Singh ji at the time of shaheedi?", a: "75 year" },
+    { q: "who was older bravest warrior of Sikhism?", a: "Baba Deep Singh Ji" },
+    { q: "Where was Guru Tegh Bahadur Ji martyred?", a: "Chandni chowk Delhi" },
+    { q: "Who said this line \"Phele Pangat Phir Sangat\"?", a: "Guru Amar Das Ji" },
+    { q: "For how many years did Maharaja Ranjit Singh rule?", a: "40 years (1799–1839)." },
+    { q: "What is meant by 'Chardi Kala'?", a: "A positive, brave, and hopeful mindset that never loses hope, even in difficult situations." },
+    { q: "What do Degh, Tegh, and Fateh mean?", a: "Degh: Kettle — A symbol of charity, kindness, and serving food to the poor and needy. Tegh: Sword — A symbol of strength and courage to protect the weak, helpless, and innocent. Fateh: Victory — It represents success and the victory of truth and justice over evil." },
+    { q: "What does 'Banda' mean?", a: "A servant or a humble follower of God." },
+    { q: "What was Banda Singh Bahadur’s childhood name?", a: "Lachhman Das." },
+    { q: "Which Gurdwara stands at the place where the body of Guru Tegh Bahadur Ji was cremated after he was beheaded?", a: "Gurdwara Rakab Ganj Sahib, Delhi." },
+    { q: "Which Gurdwara stands at the place where Guru Tegh Bahadur Ji was beheaded?", a: "Gurdwara Sis Ganj Sahib, Chandni Chowk, Delhi." },
+    { q: "Name the Gurdwara, now in Pakistan, that stands at the place where Guru Arjan Dev Ji was martyred.", a: "Gurdwara Dera Sahib, Lahore, Pakistan." },
+    { q: "Name the parents of Guru Nanak Dev Ji.", a: "Father: Mehta Kalu Ji Mother: Mata Tripta Ji" },
+    { q: "How old was Guru Nanak Dev Ji when he passed away and transferred the 'Divine Light' over to Guru Angad Dev Ji ?", a: "Seventy Years" },
+    { q: "Which Guru is entitled 'Shahidaan De Sirtaj' ?", a: "Guru Arjan Dev Ji" },
+    { q: "For how many years did Guru Amardas Ji serve Guru Angad Dev Ji ?", a: "12 Years" },
+    { q: "Who was the Son Of Guru Arjun Dev Ji?", a: "Guru Hargobind Singh G" }
     ];
-
+    
     let shuffledQuizQuestions = [];
     let currentQuizIndex = 0;
     let studentScore = 0;
@@ -739,34 +748,34 @@
     </script>
     <script>
     const studentsData = [
-    { name: "Rajveer [💎²🖋️³]", pass: "Rv@572", streak: "65 Days", score: 100, badges: "💎², 🖋️⁵, 🔥⁹, 🛡️" },
-    { name: "Diya [💎²]", pass: "Dy#567", streak: "65 Days", score: 100, badges: "💎², 🖋️⁵, 🔥⁹, 🛡️" },
-    { name: "Vivek [💎🖋️]", pass: "Vk#804", streak: "49 Days", score: 100, badges: "💎, 🖋️⁵, 🛡️, 🔥⁶" },
-    { name: "Hershika[💎]", pass: "Hr#408", streak: "45 Days", score: 100, badges: "💎, 🔥⁶, 🛡️" },
-    { name: "Aadesh[🖋️]", pass: "Ad'300", streak: "25 Days", score: 100, badges: "🖋️, 🔥⁴, 🛡️" },
-    { name: "Saloni", pass: "Sl@291", streak: "2 Days", score: 100, badges: "💎, 🖋️⁴, 🔥⁵, 🛡️" },
-    { name: "Chahat", pass: "Ch!214", streak: "7 Days", score: 100, badges: "💎, 🖋️², 🔥⁶" },
+    { name: "Rajveer [💎²]", pass: "Rv@572", streak: "67 Days", score: 100, badges: "💎², 🖋️⁵, 🔥⁹, 🛡️" },
+    { name: "Diya [💎²]", pass: "Dy#567", streak: "67 Days", score: 100, badges: "💎², 🖋️⁵, 🔥⁹, 🛡️" },
+    { name: "Vivek [💎]", pass: "Vk#804", streak: "51 Days", score: 100, badges: "💎, 🖋️⁵, 🛡️, 🔥⁶" },
+    { name: "Hershika[💎]", pass: "Hr#408", streak: "47 Days", score: 100, badges: "💎, 🔥⁶, 🛡️" },
+    { name: "Satiya[💎🖋️]", pass: "Sa-780", streak: "31 Days", score: 100, badges: "💎, 🖋️⁴, 🔥³, 🛡️" },
+    { name: "Ranveer[🖋️]", pass: "Rn!940", streak: "32 Days", score: 100, badges: "🖋️², 🔥⁵, 🛡️" },
+    { name: "Saloni", pass: "Sl@291", streak: "0 Days", score: 99, badges: "💎, 🖋️⁵, 🔥⁵" },
+    { name: "Aadesh", pass: "Ad'300", streak: "26 Days", score: 100, badges: "🖋️², 🔥⁴, 🛡️" },
+    { name: "Chahat", pass: "Ch!214", streak: "9 Days", score: 100, badges: "💎, 🖋️², 🔥⁶, 🛡️" },
     { name: "Aradhiya", pass: "Aru#612", streak: "0 Days", score: 94, badges: "🔥" },
     { name: "Poonam", pass: "Pn@428", streak: "0 Days", score: 99, badges: "🔥²" },
-    { name: "Ritika", pass: "Rt@123", streak: "15 Days", score: 100, badges: "🔥⁶, 🛡️" },
-    { name: "Satiya", pass: "Sa-780", streak: "29 Days", score: 100, badges: "🖋️³, 🔥³, 🛡️" },
-    { name: "Divya", pass: "Dh_567", streak: "24 Days", score: 100, badges: "🔥⁴, 🛡️" },
-    { name: "Kashish", pass: "Ks#290", streak: "24 Days", score: 100, badges: "🔥⁴, 🛡️" },
-    { name: "Nihal", pass: "Nh!352", streak: "24 Days", score: 100, badges: "🖋️³, 🔥⁴, 🛡️" },
-    { name: "Ranveer ", pass: "Rn!940", streak: "30 Days", score: 100, badges: "🖋️, 🔥⁵, 🛡️" }, 
-    { name: "Angel", pass: "Ag#418", streak: "6 Days", score: 100, badges: "🔥³, 🛡️" }, 
-    { name: "Arin", pass: "Ar_021", streak: "6 Days", score: 100, badges: "🔥, 🛡️" },
-    { name: "Natik", pass: "Nt_610", streak: "1 Day", score: 100, badges: "🔥, 🛡️" },
-    { name: "Sumat", pass: "021213", streak: "1 Day", score: 100, badges: "🔥⁴" },
-    { name: "Simrath", pass: "waheguru", streak: "20 Days", score: 100, badges: "🔥⁵, 🛡️" },
-    { name: "Aarya(sr)", pass: "Ar#126", streak: "15 Days", score: 100, badges: "🔥⁵, 🛡️" },
-    { name: "Rahul", pass: "Rh#315", streak: "1 Day", score: 100, badges: "🔥²" },
-    { name: "Mahima", pass: "Mh@438", streak: "1 Day", score: 100, badges: "💎, 🖋️, 🔥⁶, 🛡️" },
-    { name: "Kushal", pass: "Ks@884", streak: "0 Days", score: 98, badges: "💎, 🖋️, 🔥⁶" },
-    { name: "Vimal [💎]", pass: "Vm@370", streak: "45 Days", score: 100, badges: "💎, 🖋️, 🔥⁶, 🛡️" },
-    { name: "Eeshal ", pass: "Es!207", streak: "4 Days", score: 100, badges: "🖋️², 🔥²" }, 
-    { name: "Dheeraj", pass: "Dh!592", streak: "0 Days", score: 99, badges: "🔥⁴" },
-    { name: "Ananya", pass: "An#845", streak: "0 Days", score: 99, badges: "🔥³, 🛡️" },
+    { name: "Ritika", pass: "Rt@123", streak: "0 Days", score: 99, badges: "🔥⁶, 🛡️" },
+    { name: "Divya", pass: "Dh_567", streak: "26 Days", score: 100, badges: "🔥⁴, 🛡️" },
+    { name: "Kashish", pass: "Ks#290", streak: "26 Days", score: 100, badges: "🔥⁴, 🛡️" },
+    { name: "Nihal", pass: "Nh!352", streak: "26 Days", score: 100, badges: "🖋️⁴, 🔥⁴, 🛡️" },
+    { name: "Angel", pass: "Ag#418", streak: "8 Days", score: 100, badges: "🔥⁴, 🛡️" }, 
+    { name: "Arin", pass: "Ar_021", streak: "8 Days", score: 100, badges: "🔥, 🛡️" },
+    { name: "Natik", pass: "Nt_610", streak: "0 Days", score: 99, badges: "🖋️, 🔥" },
+    { name: "Sumat", pass: "021213", streak: "0 Days", score: 99, badges: "🖋️, 🔥⁴" },
+    { name: "Simrath", pass: "waheguru", streak: "22 Days", score: 100, badges: "🔥⁵, 🛡️" },
+    { name: "Aarya(sr)", pass: "Ar#126", streak: "17 Days", score: 100, badges: "🔥⁵, 🛡️" },
+    { name: "Rahul", pass: "Rh#315", streak: "0 Days", score: 99, badges: "🔥²" },
+    { name: "Mahima", pass: "Mh@438", streak: "2 Days", score: 100, badges: "💎, 🖋️, 🔥⁶, 🛡️" },
+    { name: "Kushal", pass: "Ks@884", streak: "1 Day", score: 99, badges: "💎, 🖋️, 🔥⁶" },
+    { name: "Vimal [💎]", pass: "Vm@370", streak: "46 Days", score: 100, badges: "💎, 🖋️, 🔥⁶, 🛡️" },
+    { name: "Eeshal ", pass: "Es!207", streak: "5 Days", score: 100, badges: "🖋️², 🔥²" }, 
+    { name: "Dheeraj", pass: "Dh!592", streak: "0 Days", score: 98, badges: "🔥⁴" },
+    { name: "Ananya", pass: "An#845", streak: "1 Day", score: 100, badges: "🔥³, 🛡️" },
     { name: "Luksh", pass: "Lk@673", streak: "0 Days", score: 94, badges: "⚠️" }
     ];
     
@@ -777,13 +786,7 @@
     
     // --- 13th August History Entry ---
     let isLeave13 = s.name.includes("Luksh");
-    
-    let isAbsentInformed13 = (
-    s.name.includes("Aradhiya") ||
-    s.name.includes("Poonam")
-    );
-    
-    let leaveTypeLabel = isLeave13 ? "ON EXAM LEAVE" : "";
+    let isAbsentInformed13 = (s.name.includes("Aradhiya") || s.name.includes("Poonam"));
     
     if (isLeave13) {
     history.push({ date: "2026-08-13", change: "HOLD", reason: "Exam Leave" });
@@ -793,10 +796,42 @@
     history.push({ date: "2026-08-13", change: "+1", reason: "Present" });
     }
     
+    // --- 14th August History Entry ---
+    let isLeave14 = s.name.includes("Luksh");
+    let isAbsentInformed14 = s.name.includes("Aradhiya");
+    
+    if (isLeave14) {
+    history.push({ date: "2026-08-14", change: "HOLD", reason: "Exam Leave" });
+    } else if (isAbsentInformed14) {
+    history.push({ date: "2026-08-14", change: "-1", reason: "Absent (Informed)" });
+    } else {
+    history.push({ date: "2026-08-14", change: "+1", reason: "Present" });
+    }
+    
+    // --- 17th August History Entry ---
+    let isLeave17 = (s.name.includes("Luksh") || s.name.includes("Aadesh"));
+    let isAbsentInformed17 = (
+    s.name.includes("Aradhiya") ||
+    s.name.includes("Poonam") ||
+    s.name.includes("Natik") ||
+    s.name.includes("Rahul") ||
+    s.name.includes("Dheeraj") ||
+    s.name.includes("Sumat")
+    );
+    let leaveTypeLabel = isLeave17 ? "ON EXAM LEAVE" : "";
+    
+    if (isLeave17) {
+    history.push({ date: "2026-08-17", change: "HOLD", reason: "Exam Leave" });
+    } else if (isAbsentInformed17) {
+    history.push({ date: "2026-08-17", change: "-1", reason: "Absent (Informed)" });
+    } else {
+    history.push({ date: "2026-08-17", change: "+1", reason: "Present" });
+    }
+    
     return { 
     ...s, 
     score: s.score, 
-    onLeave: isLeave13, 
+    onLeave: isLeave17, 
     leaveType: leaveTypeLabel, 
     history: history, 
     badges: s.badges
@@ -919,25 +954,7 @@
     renderRegistry();
     loadSikhHistoryStudyHub();
     });
-    </script>
-    
-    }).join('');
-    }
-    
-    function renderLeaderboard() {
-    const sorted = [...students].sort((a, b) => (a.onLeave ? 1 : b.onLeave ? -1 : b.score - a.score));
-    const tbody = document.getElementById('leaderboardBody');
-    let currentRank = 1;
-    
-    tbody.innerHTML = sorted.map((s, index) => {
-    if (index > 0 && !s.onLeave && s.score < sorted[index-1].score) currentRank = index + 1;
-    let streakIcon = (s.streak === "0 Days") ? '❌' : (s.onLeave ? '⏸️' : '🔥');
-    
-    return `<tr>
-    <td style="color:#f0d57a; font-family:Cinzel; font-weight:900; text-align:center;">${s.onLeave ? "-" : "#" + currentRank}</td>
-    <td>${s.name.toUpperCase()}</td>
-    <td style="color:${s.onLeave ? '#f0d57a' : getStatusColor(s.score)};">${s.onLeave ? "LEAVE" : s.score}</td>
-    <td><span style="opacity: 0.8;">${streakIcon}</span> ${s.streak}</td>
+    </script></td>
     <td>${s.badges}</td>
     </tr>`;
     }).join('');
